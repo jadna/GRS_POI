@@ -1,24 +1,24 @@
-PoiId,nome,latitude,longitude,tipo,address
-1,Giraffas,-12.9366876,-38.3945855,fast food,Av. Luis Viana Filho  8544 - Paralela  Salvador - BA  41730-101  Brazil
-2,Spoleto,-12.9373883,-38.3952245,fast food,Av. Luis Viana Filho  8544 - Paralela  Salvador - BA  41730-101  Brazil
-3,McDonald's,-12.9092181,-38.3518164,fast food,Rodovia  BA-526  305  Salvador - BA  41510-000  Brazil
-4,Giraffas,-12.9094541,-38.35067799999999,fast food,Rod Ba 526 305-piso  L3 Salao coml 3013 - Sao Cristovao  Salvador - BA  41510-000  Brazil
-5,Subway,-12.935377,-38.392347,fast food,Campus FTC - Av. Luis Viana Filho  8812 - Loja 16 - Paralela  Salvador - BA  41730-101  Brazil
-6,Bob's Shakes,-12.9137223,-38.3357009,fast food,Praca Gago Coutinho  S/N - Sao Cristovao  Salvador - BA  41510-055  Brazil
-7,Giraffas,-12.9137397,-38.3344951,fast food,Salvador International Airport - Deputado Luis Eduardo Magalhaes - Praca Gago Coutinho  S/N - Sao Cristovao  Salvador - BA  41510-045  Brazil
-8,Spoleto,-12.9817592,-38.4642417,fast food,Shopping da Bahia - Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
-9,McDonald's,-13.0125729,-38.4834309,fast food,Rua Oswaldo Cruz  s/n - Rio Vermelho  Salvador - BA  41940-000  Brazil
-10,Subway,-12.9392897,-38.3422141,fast food,Alameda Dilson Jatahy Fonseca  601 - Stella Maris  Salvador - BA  41600-100  Brazil
-11,McDonald's,-12.9782386,-38.4550994,fast food,Av. Tancredo Neves  2915 - Store 3028 / 3029 - Caminho das arvores  Salvador - BA  41820-021  Brazil
-12,Sal e Brasa Grill Express Salvador Norte Shopping,-12.9095109,-38.3507427,fast food,BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
-13,McDonald's,-12.9817061,-38.4646255,fast food,Av. Tancredo Neves  148 - quadra Z3 loja 11 - Caminho das arvores  Salvador - BA  41828-900  Brazil
-14,Bob's,-12.9817925,-38.464633,fast food,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
-15,McDonald's,-12.9781868,-38.4652023,fast food,Avenida Antonio Carlos Magalhaes - Estacao Rodoviaria: Espaco 22 Terreo - Pituba  Salvador - BA  41800-700  Brazil
-16,TacoShake,-12.9905793,-38.4631736,fast food,Rua das Hortensias  942 - Pituba  Salvador - BA  41810-010  Brazil
-17,McDonald's,-12.9884586,-38.4679306,fast food,Av. Antonio Carlos Magalhaes  s/n - area 4  Salvador - BA  41850-000  Brazil
-18,Tabuleiro,-12.9137008,-38.3348494,fast food,Aeroporto Internacional de Salvador  Praca Gago Coutinho - Dep. Luis Eduardo Magalhaes  3003 - Sao Cristovao  Salvador - BA  41510-055  Brazil
-19,Bob's Shakes,-12.9094717,-38.3512129,fast food,Salvador Norte Shopping  R. Getulio Vargas de Sao Cristovao  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
-20,McDonald's,-12.9706124,-38.4741533,fast food,R. dos Rodoviarios - Cabula  Salvador - BA  41150-575  Brazil
+﻿poiId,name,latitude,longitude,category,address
+1,Giraffas,-12.9366876,-38.3945855,fast_food,Av. Luis Viana Filho  8544 - Paralela  Salvador - BA  41730-101  Brazil
+2,Spoleto,-12.9373883,-38.3952245,fast_food,Av. Luis Viana Filho  8544 - Paralela  Salvador - BA  41730-101  Brazil
+3,McDonald's,-12.9092181,-38.3518164,fast_food,Rodovia  BA-526  305  Salvador - BA  41510-000  Brazil
+4,Giraffas,-12.9094541,-38.35067799999999,fast_food,Rod Ba 526 305-piso  L3 Salao coml 3013 - Sao Cristovao  Salvador - BA  41510-000  Brazil
+5,Subway,-12.935377,-38.392347,fast_food,Campus FTC - Av. Luis Viana Filho  8812 - Loja 16 - Paralela  Salvador - BA  41730-101  Brazil
+6,Bob's Shakes,-12.9137223,-38.3357009,fast_food,Praca Gago Coutinho  S/N - Sao Cristovao  Salvador - BA  41510-055  Brazil
+7,Giraffas,-12.9137397,-38.3344951,fast_food,Salvador International Airport - Deputado Luis Eduardo Magalhaes - Praca Gago Coutinho  S/N - Sao Cristovao  Salvador - BA  41510-045  Brazil
+8,Spoleto,-12.9817592,-38.4642417,fast_food,Shopping da Bahia - Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
+9,McDonald's,-13.0125729,-38.4834309,fast_food,Rua Oswaldo Cruz  s/n - Rio Vermelho  Salvador - BA  41940-000  Brazil
+10,Subway,-12.9392897,-38.3422141,fast_food,Alameda Dilson Jatahy Fonseca  601 - Stella Maris  Salvador - BA  41600-100  Brazil
+11,McDonald's,-12.9782386,-38.4550994,fast_food,Av. Tancredo Neves  2915 - Store 3028 / 3029 - Caminho das arvores  Salvador - BA  41820-021  Brazil
+12,Sal e Brasa Grill Express Salvador Norte Shopping,-12.9095109,-38.3507427,fast_food,BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
+13,McDonald's,-12.9817061,-38.4646255,fast_food,Av. Tancredo Neves  148 - quadra Z3 loja 11 - Caminho das arvores  Salvador - BA  41828-900  Brazil
+14,Bob's,-12.9817925,-38.464633,fast_food,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
+15,McDonald's,-12.9781868,-38.4652023,fast_food,Avenida Antonio Carlos Magalhaes - Estacao Rodoviaria: Espaco 22 Terreo - Pituba  Salvador - BA  41800-700  Brazil
+16,TacoShake,-12.9905793,-38.4631736,fast_food,Rua das Hortensias  942 - Pituba  Salvador - BA  41810-010  Brazil
+17,McDonald's,-12.9884586,-38.4679306,fast_food,Av. Antonio Carlos Magalhaes  s/n - area 4  Salvador - BA  41850-000  Brazil
+18,Tabuleiro,-12.9137008,-38.3348494,fast_food,Aeroporto Internacional de Salvador  Praca Gago Coutinho - Dep. Luis Eduardo Magalhaes  3003 - Sao Cristovao  Salvador - BA  41510-055  Brazil
+19,Bob's Shakes,-12.9094717,-38.3512129,fast_food,Salvador Norte Shopping  R. Getulio Vargas de Sao Cristovao  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
+20,McDonald's,-12.9706124,-38.4741533,fast_food,R. dos Rodoviarios - Cabula  Salvador - BA  41150-575  Brazil
 21,Praia de Itapua,-12.95052,-38.36654,beach,Praia de Itapua - Itapua  Salvador - State of Bahia  41610-160  Brazil
 22,Praia do Porto da Barra,-13.0038021,-38.5326932,beach,Praia do Porto da Barra - Av. Sete de Setembro  s/n - Barra  Salvador - BA  40140-030  Brazil
 23,Praia Do Flamengo,-12.9294757,-38.3189825,beach,Praia Do Flamengo - R. Godofredo Filho  n 1911 - Praia do Flamengo  Salvador - BA  41603-285  Brazil
