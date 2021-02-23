@@ -18,10 +18,12 @@ def flow(grspoi, technique = 'LM'):
     print("\n\n-->  Calculating distance matrix...")
     # Calculo com API da Google
     distance_mtx = grspoi.distance_matrix(group=my_group)
+    grspoi.calc_cosine()
 
 
     print("\n\n-->  Calculating items similarity matrix...")
     grspoi.calc_similarity_matrix()
+    
 
 
     print("\n\n-->  Calculating group matrix FILLED...")
@@ -68,7 +70,7 @@ def flow(grspoi, technique = 'LM'):
 
     print("\n\n-->  The top-10 STANDARD recs are:\n")
     for poi in candidates_list[0:20]:
-        print('poiId: {}, relevance: {}, name:{}, description:{}, address:{}'.format(poi['poi_id'], poi['poi_relevance'], poi['poi_name'], poi['poi_preferences'], poi['poi_address']))
+        print('poiId: {}, relevance: {}, name:{}, description:{}'.format(poi['poi_id'], poi['poi_relevance'], poi['poi_name'], poi['poi_preferences']))
 
         
 

@@ -201,8 +201,8 @@ class GRSPOI():
         #Compute the cosine similarity matrix
         self.cosine_sim_pois_name = cosine_similarity(tfidf_matrix_name, tfidf_matrix_name)
         self.cosine_sim_pois_preference = cosine_similarity(tfidf_matrix_preference, tfidf_matrix_preference)
-        
-        
+
+               
     def distance_matrix(self, group):
         ''' Função que calcula a distancia dos usuarios do grupo ao pontos de interesse
         '''
@@ -219,7 +219,6 @@ class GRSPOI():
          
         ''' somente os pois que foram avaliados por PELO MENOS UM membro do grupo  '''
         pois_filter = self.pois[self.pois['poiId'].isin(self.profile_pois)]
-        print(pois_filter.shape)
         
         
         ''' #My API key
@@ -230,6 +229,8 @@ class GRSPOI():
         '''
         cols=['userId', 'poiId', 'distance']
         m_distance = pd.DataFrame(columns=cols)
+        cols_cosine = ['poiId', 'name', 'preference']
+        self.cosine = pd.DataFrame(columns=cols_cosine)
         
         for index, group_row in self.df_group.iterrows():
             for index, poi_row in pois_filter.iterrows():
@@ -263,10 +264,15 @@ class GRSPOI():
                 '''  
                 info_temp = [group_row['userId'].astype(int), poi_row['poiId'], distance]
                 temp = pd.DataFrame([info_temp], columns=cols)
+
+                ''' Matriz auxiliar para poder calcular do coseno dos pontos de interesse avaliados pelos usuarios'''
+                info_cosine = [poi_row['poiId'], str(poi_row['name']), str(poi_row['preference'])]
+                temp_cosine = pd.DataFrame([info_cosine], columns=cols_cosine)
                 
                 ''' #PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA
                 ''' 
                 m_distance = m_distance.append(temp, ignore_index=True)
+                self.cosine = self.cosine.append(temp_cosine, ignore_index=True)
                 
         
         ''' #EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
@@ -275,6 +281,26 @@ class GRSPOI():
         
         return m_distance
 
+    def calc_cosine(self):
+        ''' Calcula o coseno de similaridade para poder ser utilizado no calculo da matriz de distancia com a matriz de avaliação
+        '''
+        print(self.cosine)
+        #Define a TF-IDF Vectorizer Object. Remove all english stop words such as 'the', 'a'
+        tfidf = TfidfVectorizer(stop_words='english')
+        
+        #Replace NaN with an empty string
+        self.pois['name'] = self.cosine['name'].fillna('')
+        self.pois['preference'] = self.cosine['preference'].fillna('')
+        
+        #Construct the required TF-IDF matrix by fitting and transforming the data
+        tfidf_matrix_name = tfidf.fit_transform(self.cosine['name'])
+        tfidf_matrix_preference = tfidf.fit_transform(self.cosine['preference'])
+
+      
+        #Compute the cosine similarity matrix
+        self.cosine_sim_pois_name_mpd = cosine_similarity(tfidf_matrix_name, tfidf_matrix_name)
+        self.cosine_sim_pois_preference_mpd = cosine_similarity(tfidf_matrix_preference, tfidf_matrix_preference)
+        print("cosine_sim:{}".format(self.cosine_sim_pois_preference_mpd.shape))
     
     def calculate_matrix_mpd(self, group_filled_mtx, distance_mtx):
         
@@ -283,11 +309,12 @@ class GRSPOI():
         distance_mtx['poiId'] = distance_mtx['poiId'].astype(int)
         distance_mtx['distance'] = pd.to_numeric(distance_mtx['distance'])
         #group_distance_mtx['distance'] = group_distance_mtx['distance'].astype(float)
+
+        print(distance_mtx.shape)
         
         ''' Pivota a matrix de distancia'''
         distance_pivot_mtx = pd.pivot_table(distance_mtx, values='distance', index=['userId'], columns=['poiId'], fill_value=0)
 
-        print(self.cosine_sim_pois_preference)
         ''' Multiplica a matrix distancia pela matrix preferencia'''
         group_mpd = []
         group_mpd = group_filled_mtx*distance_pivot_mtx
