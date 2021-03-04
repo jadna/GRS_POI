@@ -18,7 +18,7 @@ def flow(grspoi, technique = 'LM'):
     print("\n\n-->  Calculating distance matrix...")
     # Calculo com API da Google
     distance_mtx = grspoi.distance_matrix(group=my_group)
-    grspoi.calc_cosine()
+    #grspoi.calc_cosine()
 
 
     print("\n\n-->  Calculating items similarity matrix...")
@@ -66,6 +66,7 @@ def flow(grspoi, technique = 'LM'):
     print("\n\n-->  Calculating recommendations...")
     recs = grspoi.get_similar_items(references)
     candidates_list = grspoi.get_relevance_score(recs=recs, references=references)
+    print(candidates_list)
 
 
     print("\n\n-->  The top-10 STANDARD recs are:\n")
@@ -87,9 +88,12 @@ def flow(grspoi, technique = 'LM'):
     for item in final_recs_random:
         print('poiId: {}, relevance: {}, name:{}, description:{}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences']))
 
+    teste = grspoi.calc_distance_item_in_list_teste(candidates_list, final_recs_greedy)
+
 
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
-divRecs, evaluation = flow(grsd, technique = 'AWM')
+divRecs = flow(grsd, technique = 'AWM')
+#divRecs, evaluation = flow(grsd, technique = 'AWM')
 
 print('\n\n')
 print("########################################################################")

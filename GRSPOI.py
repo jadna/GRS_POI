@@ -12,6 +12,7 @@ import googlemaps
 import sys
 import math
 from math import sin, cos, sqrt, atan2, radians, pi
+import pdb
 
 from surprise import KNNWithMeans, SVD, KNNBasic
 from surprise import Dataset
@@ -229,8 +230,8 @@ class GRSPOI():
         '''
         cols=['userId', 'poiId', 'distance']
         m_distance = pd.DataFrame(columns=cols)
-        cols_cosine = ['poiId', 'name', 'preference']
-        self.cosine = pd.DataFrame(columns=cols_cosine)
+        #cols_cosine = ['poiId', 'name', 'preference']
+        #self.cosine = pd.DataFrame(columns=cols_cosine)
         
         for index, group_row in self.df_group.iterrows():
             for index, poi_row in pois_filter.iterrows():
@@ -266,13 +267,13 @@ class GRSPOI():
                 temp = pd.DataFrame([info_temp], columns=cols)
 
                 ''' Matriz auxiliar para poder calcular do coseno dos pontos de interesse avaliados pelos usuarios'''
-                info_cosine = [poi_row['poiId'], str(poi_row['name']), str(poi_row['preference'])]
-                temp_cosine = pd.DataFrame([info_cosine], columns=cols_cosine)
+                #info_cosine = [poi_row['poiId'], str(poi_row['name']), str(poi_row['preference'])]
+                #temp_cosine = pd.DataFrame([info_cosine], columns=cols_cosine)
                 
                 ''' #PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA
                 ''' 
                 m_distance = m_distance.append(temp, ignore_index=True)
-                self.cosine = self.cosine.append(temp_cosine, ignore_index=True)
+                #self.cosine = self.cosine.append(temp_cosine, ignore_index=True)
                 
         
         ''' #EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
@@ -281,26 +282,6 @@ class GRSPOI():
         
         return m_distance
 
-    def calc_cosine(self):
-        ''' Calcula o coseno de similaridade para poder ser utilizado no calculo da matriz de distancia com a matriz de avaliação
-        '''
-        print(self.cosine)
-        #Define a TF-IDF Vectorizer Object. Remove all english stop words such as 'the', 'a'
-        tfidf = TfidfVectorizer(stop_words='english')
-        
-        #Replace NaN with an empty string
-        self.pois['name'] = self.cosine['name'].fillna('')
-        self.pois['preference'] = self.cosine['preference'].fillna('')
-        
-        #Construct the required TF-IDF matrix by fitting and transforming the data
-        tfidf_matrix_name = tfidf.fit_transform(self.cosine['name'])
-        tfidf_matrix_preference = tfidf.fit_transform(self.cosine['preference'])
-
-      
-        #Compute the cosine similarity matrix
-        self.cosine_sim_pois_name_mpd = cosine_similarity(tfidf_matrix_name, tfidf_matrix_name)
-        self.cosine_sim_pois_preference_mpd = cosine_similarity(tfidf_matrix_preference, tfidf_matrix_preference)
-        print("cosine_sim:{}".format(self.cosine_sim_pois_preference_mpd.shape))
     
     def calculate_matrix_mpd(self, group_filled_mtx, distance_mtx):
         
@@ -310,15 +291,19 @@ class GRSPOI():
         distance_mtx['distance'] = pd.to_numeric(distance_mtx['distance'])
         #group_distance_mtx['distance'] = group_distance_mtx['distance'].astype(float)
 
-        print(distance_mtx.shape)
-        
+
+        #distance_mtx['distance'] = 
         ''' Pivota a matrix de distancia'''
         distance_pivot_mtx = pd.pivot_table(distance_mtx, values='distance', index=['userId'], columns=['poiId'], fill_value=0)
+
 
         ''' Multiplica a matrix distancia pela matrix preferencia'''
         group_mpd = []
         group_mpd = group_filled_mtx*distance_pivot_mtx
+        #group_mpd = np.cos(group_mpd)
+        #group_mpd = group_filled_mtx*distance_pivot_mtx
         
+        #pdb.set_trace()
         return group_mpd
         
     
@@ -474,6 +459,7 @@ class GRSPOI():
             diversity_score.append(aux)
             count = count + 1
 
+        
         return diversity_score
 
 
@@ -515,4 +501,30 @@ class GRSPOI():
 
         return diversified_list
     
-    
+    def calc_distance_item_in_list_teste(self, item, this_list, title_weight=0.8):
+        ''' Calculates the total distance of an item in relation to a given list.
+            Returns the total distance.
+        '''
+        #item = [{'poi_id': 406, 'poi_name': 'McDonalds', 'poi_preferences': 'fast_food', 'poi_similarity': 1.0, 'poi_relevance': 0.5, 'poi_latitude': -13.0125695, 'poi_longitude': -38.4834358}]
+        #this_list = [{'poi_id': 422, 'poi_name': 'McDonalds', 'poi_preferences': 'fast_food', 'poi_similarity': 1.0, 'poi_relevance': 0.5, 'poi_latitude': -13.0125695, 'poi_longitude': -38.4834358},{'poi_id': 461, 'poi_name': 'McDonalds', 'poi_preferences': 'fast_food', 'poi_similarity': 1.0, 'poi_relevance': 0.5, 'poi_latitude': -12.9782678, 'poi_longitude': -38.4551574}]
+        
+        total_dist = 0
+        for items in item:
+            idx_i = int(self.pois[self.pois['poiId']==int(items['poi_id'])].index[0])
+
+            for item_poi in this_list:
+                
+                idx_j = int(self.pois[self.pois['poiId']==int(item_poi['poi_id'])].index[0])
+
+                sim_i_j = ((self.cosine_sim_pois_preference[idx_i][idx_j]))
+                #sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]) + (self.cosine_sim_pois_preference[idx_i][idx_j])
+                #sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]*title_weight) + (self.cosine_sim_pois_preference[idx_i][idx_j]*(1-title_weight))
+   
+                dist_i_j = 1 - sim_i_j
+                total_dist = total_dist + dist_i_j
+                
+
+        result = total_dist/((len(this_list)/2)*(len(this_list)-1))
+
+        print("similaridade (distancia):{}".format(result))
+        return result
