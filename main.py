@@ -1,6 +1,7 @@
 from GRSPOI import GRSPOI
 import constants
-
+import pandas as pd
+import numpy as np
 
 def flow(grspoi, technique = 'LM'):
 
@@ -66,7 +67,6 @@ def flow(grspoi, technique = 'LM'):
     print("\n\n-->  Calculating recommendations...")
     recs = grspoi.get_similar_items(references)
     candidates_list = grspoi.get_relevance_score(recs=recs, references=references)
-    print(candidates_list)
 
 
     print("\n\n-->  The top-10 STANDARD recs are:\n")
@@ -88,7 +88,28 @@ def flow(grspoi, technique = 'LM'):
     for item in final_recs_random:
         print('poiId: {}, relevance: {}, name:{}, description:{}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences']))
 
-    teste = grspoi.calc_distance_item_in_list_teste(candidates_list, final_recs_greedy)
+
+
+    distance_diversity = grspoi.calc_distance_item_in_list_diversity(candidates_list, final_recs_greedy)
+    print('Distance of diversity: {}', format(distance_diversity))
+
+    print('\n\n')
+    print("########################################################################")
+    print("#######################     EVALUATING SYSTEM    #######################")
+    print("########################################################################")
+    print('\n\n')
+
+    standard_recs = candidates_list[0:10]
+
+    df = pd.DataFrame(standard_recs,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude'])
+    relevance = np.asarray(df['poi_relevance'].values)
+
+    cum_gain = grspoi.cum_gain(relevance)
+    #dcg = grspoi.dcg_at_k(relevance)
+    ndcg = grspoi.ndcg_at_k(relevance, len(relevance), 1)
+
+    teste = grspoi.discountedCumulativeGain(relevance)
+
 
 
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)

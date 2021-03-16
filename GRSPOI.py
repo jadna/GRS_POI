@@ -21,7 +21,7 @@ from surprise.model_selection import cross_validate
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity, pairwise_distances
-from sklearn.metrics import precision_score
+from sklearn.metrics import precision_score, dcg_score, ndcg_score
 
 import geopy.distance
 from geopy.distance import geodesic
@@ -501,9 +501,10 @@ class GRSPOI():
 
         return diversified_list
     
-    def calc_distance_item_in_list_teste(self, item, this_list, title_weight=0.8):
+    def calc_distance_item_in_list_diversity(self, item, this_list, title_weight=0.8):
         ''' Calculates the total distance of an item in relation to a given list.
             Returns the total distance.
+            Calcula a distancia da diversificação da recomendação
         '''
         #item = [{'poi_id': 406, 'poi_name': 'McDonalds', 'poi_preferences': 'fast_food', 'poi_similarity': 1.0, 'poi_relevance': 0.5, 'poi_latitude': -13.0125695, 'poi_longitude': -38.4834358}]
         #this_list = [{'poi_id': 422, 'poi_name': 'McDonalds', 'poi_preferences': 'fast_food', 'poi_similarity': 1.0, 'poi_relevance': 0.5, 'poi_latitude': -13.0125695, 'poi_longitude': -38.4834358},{'poi_id': 461, 'poi_name': 'McDonalds', 'poi_preferences': 'fast_food', 'poi_similarity': 1.0, 'poi_relevance': 0.5, 'poi_latitude': -12.9782678, 'poi_longitude': -38.4551574}]
@@ -526,5 +527,92 @@ class GRSPOI():
 
         result = total_dist/((len(this_list)/2)*(len(this_list)-1))
 
-        print("similaridade (distancia):{}".format(result))
         return result
+
+    ''' ########################################################################
+        #######################      Evalutes     ##############################
+        ######################################################################## '''
+    def cum_gain(self, relevance):
+
+        #valores = [valor.get('poi_relevance') for valor in standard_recs]
+        #ordenado = sorted(valores)
+
+        """
+        Calculate cumulative gain.
+        This ignores the position of a result, but may still be generally useful.
+        @param relevance: Graded relevances of the results.
+        @type relevance: C{seq} or C{numpy.array}
+        """
+
+        if relevance is None or len(relevance) < 1:
+            return 0.0
+      
+        cum_gain = np.asarray(relevance).sum()
+        print("cum_gain:", format(cum_gain))
+
+        return cum_gain
+
+
+    def dcg_at_k(self, relevance, alternate=True, k=0, method=0):
+        """
+        Calculate discounted cumulative gain.
+        @param relevance: Graded and ordered relevances of the results.
+        @type relevance: C{seq} or C{numpy.array}
+        @param alternate: True to use the alternate scoring (intended to
+        place more emphasis on relevant results).
+        @type alternate: C{bool}
+        """
+
+        r = np.asfarray(relevance)[:k]
+        if r.size:
+            if method == 0:
+                dcg_score = r[0] + np.sum(r[1:] / np.log2(np.arange(2, r.size + 1)))
+                print("dcg 0: ",format(dcg_score))
+                return dcg_score
+            elif method == 1:
+                dcg_score = np.sum(r / np.log2(np.arange(2, r.size + 2)))
+                print("dcg 1: ",format(dcg_score))
+                return dcg_score
+            else:
+                raise ValueError('method must be 0 or 1.')
+        return 0.
+
+
+    def ndcg_at_k(self, relevance, k, method):
+        """Score is normalized discounted cumulative gain (ndcg)
+        Relevance is positive real values.  Can use binary
+        as the previous methods.
+        Example from
+        http://www.stanford.edu/class/cs276/handouts/EvaluationNew-handout-6-per.pdf
+        r = [3, 2, 3, 0, 0, 1, 2, 2, 3, 0]
+        ndcg_at_k(r, 1)
+        1.0
+        r = [2, 1, 2, 0]
+         ndcg_at_k(r, 4)
+        0.9203032077642922
+         ndcg_at_k(r, 4, method=1)
+        0.96519546960144276
+         ndcg_at_k([0], 1)
+        0.0
+         ndcg_at_k([1], 2)
+        1.0
+        Args:
+            r: Relevance scores (list or numpy) in rank order
+                (first element is the first item)
+            k: Number of results to consider
+            method: If 0 then weights are [1.0, 1.0, 0.6309, 0.5, 0.4307, ...]
+                    If 1 then weights are [1.0, 0.6309, 0.5, 0.4307, ...]
+        Returns:
+            Normalized discounted cumulative gain
+        """
+
+        dcg_max = self.dcg_at_k(relevance=sorted(relevance, reverse=True), k=k, method=method)
+        if not dcg_max:
+            return 0.
+
+        ndcg_score = self.dcg_at_k(relevance=relevance, k=k, method=method) / dcg_max
+
+        print("dcg_max: ", format(dcg_max))
+        print("ndcg_score: ", format(ndcg_score))
+
+        return ndcg_score
