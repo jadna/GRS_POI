@@ -74,7 +74,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [81, 151, 91]
+        random_group = [51, 161, 141, 101, 61, 71, 181, 191, 111, 201]
         #[81, 151, 91]
         #[131, 231, 211, 171, 121]
         #[51, 161, 141, 101, 61, 71, 181, 191, 111, 201]
@@ -286,27 +286,20 @@ class GRSPOI():
     def calculate_matrix_mpd(self, group_filled_mtx, distance_mtx):
         
         ''' Change type'''
-        distance_mtx['userId'] = distance_mtx['userId'].astype(int)
+        """distance_mtx['userId'] = distance_mtx['userId'].astype(int)
         distance_mtx['poiId'] = distance_mtx['poiId'].astype(int)
-        distance_mtx['distance'] = pd.to_numeric(distance_mtx['distance'])
+        distance_mtx['distance'] = pd.to_numeric(distance_mtx['distance'])"""
         #group_distance_mtx['distance'] = group_distance_mtx['distance'].astype(float)
 
 
-        ''' Pivota a matrix de distancia
-        Converte METROS para KM '''
-        distance_pivot_mtx = pd.pivot_table(distance_mtx, values='distance', index=['userId'], columns=['poiId'], fill_value=0)
-        distance_pivot_mtx = distance_pivot_mtx/1000
-
-        print(group_filled_mtx)
-        print(distance_pivot_mtx)
+        #distance_mtx['distance'] = 
+        ''' Pivota a matrix de distancia'''
+        #distance_pivot_mtx = pd.pivot_table(distance_mtx, values='distance', index=['userId'], columns=['poiId'], fill_value=0)
 
 
-        ''' Multiplica a matrix distancia pela matrix preferencia'''
+        ''' Apenas matrix preferencia'''
         group_mpd = []
-        group_mpd = group_filled_mtx/distance_pivot_mtx
-
-        print(group_mpd)
-
+        group_mpd = group_filled_mtx
         
         #pdb.set_trace()
         return group_mpd
@@ -319,10 +312,11 @@ class GRSPOI():
         values = []
         labels = []
         for i in range(0,len(list(group_mpd))):
+            
             my_col = group_mpd.iloc[ : ,i]
             label = my_col.name
             my_col = list(my_col)
-            #print("my_col: ", format(my_col))
+            print("my_col: ", format(my_col))
 
             labels.append(label)
             values.append(0.0)
@@ -334,15 +328,16 @@ class GRSPOI():
             elif technique == 'AV':
                 values.append( float( sum(my_col) / len(my_col) ) )
             else:
-                if float(min(my_col)):
-                    values.append( float(min(my_col)) )
+                if float(min(my_col)) <= 2 :
+                    print("AWM - IF: ", format(float(min(my_col))))
+                    #values.append( float(min(my_col)) )
                 else:
+                    print("AWM - ELSE: ", format(float(sum(my_col))))
                     values.append( float( sum(my_col) / len(my_col) ) )
 
         print('\n-- -- --  -- > Aggregation Technique chosen: {}\n'.format(technique))
         
         agg_group_profile = pd.DataFrame(index=[900], columns=labels)
-
 
         for i in range(0,len(list(agg_group_profile))):
             agg_group_profile.iloc[0, i] = values[i]
@@ -367,8 +362,7 @@ class GRSPOI():
             # Calculate total similarity based on title and genres
             total_sim_score = []
             for i in range(len(sim_scores_name)):
-                aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1])
-                #aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1]*(1-name_weight))
+                aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1]*(1-name_weight))
                 total_sim_score.append((i, aux))
                 
             # Sort the pois based on the similarity scores
@@ -391,7 +385,7 @@ class GRSPOI():
             Creates a dictionary for better manipulation of data, containing: 
                 poi_id, poi_name, poi_similarity and poi_relevance. 
                 This function is based on MovieLens dataset.
-            Returns a dict sorted by movie_relevance.
+            Returns a dict sorted by poi_relevance.
         '''
         count = 0
         recs_dict = []
@@ -422,23 +416,22 @@ class GRSPOI():
 
             count=count+1
 
-        #recs_dict = sorted(recs_dict, key = lambda i: i['poi_similarity'],reverse=False)
         recs_dict = sorted(recs_dict, key = lambda i: i['poi_relevance'],reverse=True)
         
         return recs_dict
     
-    def calc_distance_item_in_list(self, item, this_list, name_weight=0.8):
+    def calc_distance_item_in_list(self, item, this_list, title_weight=0.8):
         ''' Calculates the total distance of an item in relation to a given list.
             Returns the total distance.
         '''
         idx_i = int(self.pois[self.pois['poiId']==int(item['poi_id'])].index[0])
 
         total_dist = 0
-        for poi in this_list:
+        for movie in this_list:
             
-            idx_j = int(self.pois[self.pois['poiId']==int(poi['poi_id'])].index[0])
+            idx_j = int(self.pois[self.pois['poiId']==int(movie['poi_id'])].index[0])
 
-            sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]*name_weight) + (self.cosine_sim_pois_preference[idx_i][idx_j]*(1-name_weight))
+            sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]*title_weight) + (self.cosine_sim_pois_preference[idx_i][idx_j]*(1-title_weight))
             dist_i_j = 1 - sim_i_j
             total_dist = total_dist + dist_i_j
 
@@ -509,7 +502,6 @@ class GRSPOI():
         diversified_list = random.sample(recs,k)
 
         return diversified_list
-        
     
     def calc_distance_item_in_list_diversity(self, item, this_list, title_weight=0.8):
         ''' Calculates the total distance of an item in relation to a given list.
@@ -528,7 +520,8 @@ class GRSPOI():
                 idx_j = int(self.pois[self.pois['poiId']==int(item_poi['poi_id'])].index[0])
 
                 sim_i_j = ((self.cosine_sim_pois_preference[idx_i][idx_j]))
-
+                #sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]) + (self.cosine_sim_pois_preference[idx_i][idx_j])
+                #sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]*title_weight) + (self.cosine_sim_pois_preference[idx_i][idx_j]*(1-title_weight))
    
                 dist_i_j = 1 - sim_i_j
                 total_dist = total_dist + dist_i_j
@@ -615,6 +608,7 @@ class GRSPOI():
         Returns:
             Normalized discounted cumulative gain
         """
+
         df = pd.DataFrame(relevance,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude'])
         relevance = np.asarray(df['poi_relevance'].values)
 

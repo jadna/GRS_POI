@@ -1,4 +1,4 @@
-from GRSPOI import GRSPOI
+from GRSPOI_Distance import GRSPOI
 import constants
 import pandas as pd
 import numpy as np
@@ -19,13 +19,11 @@ def flow(grspoi, technique = 'LM'):
     print("\n\n-->  Calculating distance matrix...")
     # Calculo com API da Google
     distance_mtx = grspoi.distance_matrix(group=my_group)
-    #grspoi.calc_cosine()
 
 
     print("\n\n-->  Calculating items similarity matrix...")
     grspoi.calc_similarity_matrix()
     
-
 
     print("\n\n-->  Calculating group matrix FILLED...")
     group_filled_mtx = grspoi.group_sparse_mtx.copy()
@@ -98,7 +96,6 @@ def flow(grspoi, technique = 'LM'):
 
     standard_recs = candidates_list[0:10]
 
-    
     #cum_gain = grspoi.cum_gain(relevance)
     #dcg = grspoi.dcg_at_k(relevance)
     ndcg_standard = grspoi.ndcg_at_k(standard_recs, len(standard_recs), 0)
@@ -109,7 +106,6 @@ def flow(grspoi, technique = 'LM'):
     print("ndcg_recs_greedy: ", format(ndcg_recs_greedy))
     print("ndcg_recs_random: ", format(ndcg_recs_random))
 
-
     """ #################     SAVE EXCEL   ############################### """
 
     standard_recs = pd.DataFrame(standard_recs,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude'])
@@ -118,30 +114,30 @@ def flow(grspoi, technique = 'LM'):
 
 
 
-    writer = pd.ExcelWriter('result_group.xlsx',engine='xlsxwriter')
+    writer = pd.ExcelWriter('result_group_distance.xlsx',engine='xlsxwriter')
     workbook = writer.book
-    worksheet = workbook.add_worksheet('distance_preference')
-    writer.sheets['distance_preference'] = worksheet
+    worksheet = workbook.add_worksheet('distance_'+str(technique))
+    writer.sheets['distance_'+str(technique)] = worksheet
     
     worksheet.write_string(0, 0, "Standart "+str(technique))
-    standard_recs.to_excel(writer,sheet_name='distance_preference',startrow=1 , startcol=0)
+    standard_recs.to_excel(writer,sheet_name='distance_'+str(technique),startrow=1 , startcol=0)
     worksheet.write_string(12, 0, "NDCG: "+str(ndcg_standard))
 
     worksheet.write_string(14, 0, "Diversificado_recs_greedy "+str(technique))
-    final_recs_greedy.to_excel(writer,sheet_name='distance_preference',startrow=15, startcol=0)
+    final_recs_greedy.to_excel(writer,sheet_name='distance_'+str(technique),startrow=15, startcol=0)
     worksheet.write_string(26, 0, "NDCG: "+str(ndcg_recs_greedy))
 
-    worksheet.write_string(28, 0, "Diversificado_recs_random "+str(technique))
-    final_recs_random.to_excel(writer,sheet_name='distance_preference',startrow=29, startcol=0)
-    worksheet.write_string(40, 0, "NDCG: "+str(ndcg_recs_random))
+    worksheet.write_string(29, 0, "Diversificado_recs_random "+str(technique))
+    final_recs_random.to_excel(writer,sheet_name='distance_'+str(technique),startrow=30, startcol=0)
+    worksheet.write_string(41, 0, "NDCG: "+str(ndcg_recs_random))
 
     writer.save()
     
 
 
- #MP (Most Pleasure), LM (Least Misery), AV (Average), AWM (Average Without Misery)
+ # AWM (Average Without Misery),  AV (Average), LM (Least Misery), MP (Most Pleasure)
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
-divRecs = flow(grsd, technique = 'AWM')
+divRecs = flow(grsd, technique = 'MP')
 #divRecs, evaluation = flow(grsd, technique = 'AWM')
 
 print('\n\n')
