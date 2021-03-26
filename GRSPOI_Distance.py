@@ -205,8 +205,7 @@ class GRSPOI():
 
                
     def distance_matrix(self, group):
-        ''' Função que calcula a distancia dos usuarios do grupo ao pontos de interesse
-        '''
+        ''' Função que calcula a distancia dos usuarios do grupo ao pontos de interesse '''
         
         ''' Pega a latitude e longitude dos usuarios do grupo
             Depois retira do dataframe as duplicatas e pegando apenas as colunas necessárias
@@ -222,22 +221,19 @@ class GRSPOI():
         pois_filter = self.pois[self.pois['poiId'].isin(self.profile_pois)]
         
         
-        ''' #My API key
-        ''' 
-        gmaps = googlemaps.Client(key='AIzaSyC97oj_73Oab6zrUkHfWH-gq7zF2omHkOo')
+        ''' My API key ''' 
+        #gmaps = googlemaps.Client(key='AIzaSyC97oj_73Oab6zrUkHfWH-gq7zF2omHkOo')
+        gmaps = googlemaps.Client(key='AIzaSyBQmUcA_gMHDJpdQBICw-EZVq0SVjkWGZs')
 
-        '''  Create Dataframe de retorno 
-        '''
+        '''  Create Dataframe de retorno '''
         cols=['userId', 'poiId', 'distance']
         m_distance = pd.DataFrame(columns=cols)
-        #cols_cosine = ['poiId', 'name', 'preference']
-        #self.cosine = pd.DataFrame(columns=cols_cosine)
+
         
         for index, group_row in self.df_group.iterrows():
             for index, poi_row in pois_filter.iterrows():
-            #for index, poi_row in self.pois.iterrows():
                 
-                '''print('Usuario: {}, {}, {}'.format(group_row['userId'],group_row['latitude'],group_row['longitude']))
+                ''' print('Usuario: {}, {}, {}'.format(group_row['userId'],group_row['latitude'],group_row['longitude']))
                 print("POI: {} {}, {}, {}". format(poi_row['poiId'], poi_row['name'], poi_row['latitude'], poi_row['longitude']))'''
                                 
                  #COLOCA AS LOCALIZAÇÕES NAS VARIAVEIS
@@ -261,23 +257,17 @@ class GRSPOI():
                     distance = ''
                     print("Não foi possivel calcular a distancia")
                    
-                ''' #CRIA UMA MATRIZ TEMPORARIA PARA DEPOIS PASSAR PARA A MINHA MATRIZ
-                '''  
+                ''' #CRIA UMA MATRIZ TEMPORARIA PARA DEPOIS PASSAR PARA A MINHA MATRIZ '''  
                 info_temp = [group_row['userId'].astype(int), poi_row['poiId'], distance]
                 temp = pd.DataFrame([info_temp], columns=cols)
 
-                ''' Matriz auxiliar para poder calcular do coseno dos pontos de interesse avaliados pelos usuarios'''
-                #info_cosine = [poi_row['poiId'], str(poi_row['name']), str(poi_row['preference'])]
-                #temp_cosine = pd.DataFrame([info_cosine], columns=cols_cosine)
-                
-                ''' #PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA
-                ''' 
+              
+                ''' PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA ''' 
                 m_distance = m_distance.append(temp, ignore_index=True)
                 #self.cosine = self.cosine.append(temp_cosine, ignore_index=True)
                 
         
-        ''' #EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
-        ''' 
+        ''' #EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV ''' 
         export = m_distance.to_csv(r'./dataset/matrix_distance.csv',index=False)
         
         return m_distance

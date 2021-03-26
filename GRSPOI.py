@@ -224,7 +224,8 @@ class GRSPOI():
         
         ''' #My API key
         ''' 
-        gmaps = googlemaps.Client(key='AIzaSyC97oj_73Oab6zrUkHfWH-gq7zF2omHkOo')
+        #gmaps = googlemaps.Client(key='AIzaSyC97oj_73Oab6zrUkHfWH-gq7zF2omHkOo')
+        gmaps = googlemaps.Client(key='AIzaSyBQmUcA_gMHDJpdQBICw-EZVq0SVjkWGZs')
 
         '''  Create Dataframe de retorno 
         '''
@@ -253,9 +254,8 @@ class GRSPOI():
                     
                      #Get A DISTANCIA EM METROS DO JSON DE RETORNO DA CONSULTA
                     distance = query_distance['rows'][0]['elements'][0]['distance']['value']
-                    '''print('distance: {}'.format(distance))
-                    print("\n")'''
-                    
+                    """print('distance: {}'.format(distance))
+                    print("\n")"""                    
                
                 except:
                     distance = ''
@@ -276,7 +276,7 @@ class GRSPOI():
                 #self.cosine = self.cosine.append(temp_cosine, ignore_index=True)
                 
         
-        ''' #EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
+        ''' EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
         ''' 
         export = m_distance.to_csv(r'./dataset/matrix_distance.csv',index=False)
         
@@ -509,7 +509,7 @@ class GRSPOI():
         diversified_list = random.sample(recs,k)
 
         return diversified_list
-        
+
     
     def calc_distance_item_in_list_diversity(self, item, this_list, title_weight=0.8):
         ''' Calculates the total distance of an item in relation to a given list.
