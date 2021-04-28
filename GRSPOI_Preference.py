@@ -1,7 +1,6 @@
-RATINGS_PATH = './dataset_test/rating_avaliacao.csv'
-#POIS_PATH = './dataset/pois.csv'
-POIS_PATH = './dataset_test/all_pois.csv'
-USER_PATH = './dataset_test/user_avaliacao.csv'
+'''RATINGS_PATH = './piloto/user_avaliacao.csv'
+POIS_PATH = './dataset/pois.csv'
+USER_PATH = './piloto/users.csv'''
 
 
 import pandas as pd
@@ -57,6 +56,7 @@ class GRSPOI():
         if user_data:
             ''' userId,name,latitude,longitude,id_preferencia,preference '''
             self.users = pd.read_csv(user_data, low_memory=False)
+            print(self.users)
             #self.csv_reader = csv.reader(pois, delimiter=',') 
             
  
@@ -74,7 +74,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [51, 161, 141, 101, 61, 71, 181, 191, 111, 201]
+        random_group = [134, 204, 214]
         #[81, 151, 91]
         #[131, 231, 211, 171, 121]
         #[51, 161, 141, 101, 61, 71, 181, 191, 111, 201]

@@ -8,7 +8,7 @@ def flow(grspoi, technique = 'LM'):
     print("\n-->  Initializing...")
     grspoi.set_k()
 
-    my_group = grspoi.random_group(5)
+    my_group = grspoi.random_group(3)
     print('\n-->  Group members: {}'.format(my_group))
 
     grspoi.predict_ratings(group=my_group)

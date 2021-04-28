@@ -8,7 +8,7 @@ def flow(grspoi, technique = 'LM'):
     print("\n-->  Initializing...")
     grspoi.set_k()
 
-    my_group = grspoi.random_group(5)
+    my_group = grspoi.random_group(3)
     print('\n-->  Group members: {}'.format(my_group))
 
     grspoi.predict_ratings(group=my_group)
@@ -68,23 +68,23 @@ def flow(grspoi, technique = 'LM'):
     candidates_list = grspoi.get_relevance_score(recs=recs, references=references)
 
 
-    print("\n\n-->  The top-10 STANDARD recs are:\n")
+    print("\n\n-->  The top-20 STANDARD recs are:\n")
     for poi in candidates_list[0:20]:
-        print('poiId: {}, relevance: {}, name:{}, description:{}'.format(poi['poi_id'], poi['poi_relevance'], poi['poi_name'], poi['poi_preferences']))
+        print('poiId: {}, relevance: {}, name:{}, description:{}, address: {}'.format(poi['poi_id'], poi['poi_relevance'], poi['poi_name'], poi['poi_preferences'], poi['poi_address']))
 
         
     my_candidates = candidates_list.copy()
     final_recs_greedy = grspoi.diversify_recs_list(recs=my_candidates)
     print("\n\n-->  The top-10 GREEDY DIVERSIFIED recs are:\n")
     for item in final_recs_greedy:
-        print('poiId: {}, relevance: {}, name:{}, description:{}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences']))
+        print('poiId: {}, relevance: {}, name:{}, description:{}, address: {}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences'], item['poi_address']))
 
 
     my_candidates = candidates_list.copy()
     final_recs_random = grspoi.diversify_recs_list_bounded_random(recs=my_candidates)
     print("\n\n-->  The top-10 RANDOM DIVERSIFIED recs are:\n")
     for item in final_recs_random:
-        print('poiId: {}, relevance: {}, name:{}, description:{}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences']))
+        print('poiId: {}, relevance: {}, name:{}, description:{}, address: {}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences'], item['poi_address']))
 
 
     print('\n\n')

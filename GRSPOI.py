@@ -1,7 +1,6 @@
-RATINGS_PATH = './dataset_test/rating_avaliacao.csv'
-#POIS_PATH = './dataset/pois.csv'
-POIS_PATH = './dataset_test/all_pois.csv'
-USER_PATH = './dataset_test/user_avaliacao.csv'
+RATINGS_PATH = './piloto/user_avaliacao.csv'
+POIS_PATH = './dataset/pois.csv'
+USER_PATH = './piloto/users.csv'
 
 
 import pandas as pd
@@ -47,12 +46,13 @@ class GRSPOI():
         elif not data_frame.empty:
             reader = Reader(rating_scale=(0, 5))
             self.ratings = Dataset.load_from_df(data_frame[['userId', 'poiId', 'rating']], reader)
+            print(self.ratings)
             self.trainset = self.ratings.build_full_trainset()
             self.sim_options = {'name': 'cosine','user_based': False}
         if poi_data:
             ''' poiId,latitude,longitude,name,preferenceid,preference '''
             self.pois = pd.read_csv(poi_data, low_memory=False)
-            self.pois = pd.DataFrame(self.pois, columns=['poiId','latitude','longitude','name','preference'])
+            self.pois = pd.DataFrame(self.pois, columns=['poiId','latitude','longitude','name','preference','address'])
             #self.csv_reader = csv.reader(self.pois, delimiter=',') 
         if user_data:
             ''' userId,name,latitude,longitude,id_preferencia,preference '''
@@ -74,10 +74,8 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [81, 151, 91]
-        #[81, 151, 91]
-        #[131, 231, 211, 171, 121]
-        #[51, 161, 141, 101, 61, 71, 181, 191, 111, 201]
+        random_group = [134, 204, 214]
+
        
         return random_group
                
@@ -403,7 +401,7 @@ class GRSPOI():
                 poi_longitude = self.pois.loc[poi[0]].values[2]
                 poi_name = self.pois.loc[poi[0]].values[3]
                 poi_preferences = self.pois.loc[poi[0]].values[4]
-                #poi_address = self.pois.loc[poi[0]].values[5]
+                poi_address = self.pois.loc[poi[0]].values[5]
                 poi_similarity = poi[1]
                 poi_relevance = round(((reference['rating']/5.0)+poi_similarity)/2, 3)
 
@@ -414,7 +412,7 @@ class GRSPOI():
                 aux['poi_relevance'] = poi_relevance
                 aux['poi_latitude'] = poi_latitude
                 aux['poi_longitude'] = poi_longitude
-                #aux['poi_address'] = poi_address
+                aux['poi_address'] = poi_address
 
                 recs_dict.append(aux)
 
@@ -557,7 +555,7 @@ class GRSPOI():
             return 0.0
       
         cum_gain = np.asarray(relevance).sum()
-        print("cum_gain:", format(cum_gain))
+        #print("cum_gain:", format(cum_gain))
 
         return cum_gain
 
