@@ -1,6 +1,5 @@
 RATINGS_PATH = './dataset_test/rating_avaliacao.csv'
-#POIS_PATH = './dataset/pois.csv'
-POIS_PATH = './dataset_test/all_pois.csv'
+POIS_PATH = './dataset/pois.csv'
 USER_PATH = './dataset_test/user_avaliacao.csv'
 
 
@@ -222,8 +221,10 @@ class GRSPOI():
         
         
         ''' My API key ''' 
-        #gmaps = googlemaps.Client(key='AIzaSyC97oj_73Oab6zrUkHfWH-gq7zF2omHkOo')
-        gmaps = googlemaps.Client(key='AIzaSyBQmUcA_gMHDJpdQBICw-EZVq0SVjkWGZs')
+        api_file = open("api-key.txt", "r")
+        api_key = api_file.read()
+        api_file.close()
+        gmaps = googlemaps.Client(key=api_key)
 
         '''  Create Dataframe de retorno '''
         cols=['userId', 'poiId', 'distance']

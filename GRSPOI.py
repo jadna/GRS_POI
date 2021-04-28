@@ -28,6 +28,7 @@ from geopy import distance
 from matplotlib import pyplot
 
 
+
 class GRSPOI():
     
     #pd.set_option('display.max_columns', None)
@@ -222,35 +223,36 @@ class GRSPOI():
         
         ''' #My API key
         ''' 
-        #gmaps = googlemaps.Client(key='AIzaSyC97oj_73Oab6zrUkHfWH-gq7zF2omHkOo')
-        gmaps = googlemaps.Client(key='AIzaSyBQmUcA_gMHDJpdQBICw-EZVq0SVjkWGZs')
-
+        api_file = open("api-key.txt", "r")
+        api_key = api_file.read()
+        api_file.close()
+        gmaps = googlemaps.Client(key=api_key)
+        
+        
         '''  Create Dataframe de retorno 
         '''
         cols=['userId', 'poiId', 'distance']
         m_distance = pd.DataFrame(columns=cols)
-        #cols_cosine = ['poiId', 'name', 'preference']
-        #self.cosine = pd.DataFrame(columns=cols_cosine)
+
         
         for index, group_row in self.df_group.iterrows():
             for index, poi_row in pois_filter.iterrows():
-            #for index, poi_row in self.pois.iterrows():
                 
                 '''print('Usuario: {}, {}, {}'.format(group_row['userId'],group_row['latitude'],group_row['longitude']))
                 print("POI: {} {}, {}, {}". format(poi_row['poiId'], poi_row['name'], poi_row['latitude'], poi_row['longitude']))'''
                                 
-                 #COLOCA AS LOCALIZAÇÕES NAS VARIAVEIS
+                #COLOCA AS LOCALIZAÇÕES NAS VARIAVEIS
                 
                 origin = group_row['latitude'], group_row['longitude']
                 destination = poi_row['latitude'], poi_row['longitude']
                 
                     
                 try:
-                     #DISTANCE CALCULATION API -> Params: origem, destino, mode, language                   
+                    #DISTANCE CALCULATION API -> Params: origem, destino, mode, language                   
                     query_distance = gmaps.distance_matrix(origin, destination)
-                    #query_distance = ''
+
                     
-                     #Get A DISTANCIA EM METROS DO JSON DE RETORNO DA CONSULTA
+                    #Get A DISTANCIA EM METROS DO JSON DE RETORNO DA CONSULTA
                     distance = query_distance['rows'][0]['elements'][0]['distance']['value']
                     """print('distance: {}'.format(distance))
                     print("\n")"""                    
@@ -264,14 +266,10 @@ class GRSPOI():
                 info_temp = [group_row['userId'].astype(int), poi_row['poiId'], distance]
                 temp = pd.DataFrame([info_temp], columns=cols)
 
-                ''' Matriz auxiliar para poder calcular do coseno dos pontos de interesse avaliados pelos usuarios'''
-                #info_cosine = [poi_row['poiId'], str(poi_row['name']), str(poi_row['preference'])]
-                #temp_cosine = pd.DataFrame([info_cosine], columns=cols_cosine)
-                
+
                 ''' #PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA
                 ''' 
                 m_distance = m_distance.append(temp, ignore_index=True)
-                #self.cosine = self.cosine.append(temp_cosine, ignore_index=True)
                 
         
         ''' EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
@@ -295,16 +293,10 @@ class GRSPOI():
         distance_pivot_mtx = pd.pivot_table(distance_mtx, values='distance', index=['userId'], columns=['poiId'], fill_value=0)
         distance_pivot_mtx = distance_pivot_mtx/1000
 
-        print(group_filled_mtx)
-        print(distance_pivot_mtx)
-
 
         ''' Multiplica a matrix distancia pela matrix preferencia'''
         group_mpd = []
         group_mpd = group_filled_mtx/distance_pivot_mtx
-
-        print(group_mpd)
-
         
         #pdb.set_trace()
         return group_mpd
