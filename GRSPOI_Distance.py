@@ -1,6 +1,6 @@
-RATINGS_PATH = './dataset_test/rating_avaliacao.csv'
+RATINGS_PATH = './piloto/user_avaliacao.csv'
 POIS_PATH = './dataset/pois.csv'
-USER_PATH = './dataset_test/user_avaliacao.csv'
+USER_PATH = './piloto/users.csv'
 
 
 import pandas as pd
@@ -28,6 +28,7 @@ from geopy import distance
 from matplotlib import pyplot
 
 
+
 class GRSPOI():
     
     #pd.set_option('display.max_columns', None)
@@ -46,12 +47,13 @@ class GRSPOI():
         elif not data_frame.empty:
             reader = Reader(rating_scale=(0, 5))
             self.ratings = Dataset.load_from_df(data_frame[['userId', 'poiId', 'rating']], reader)
+            print(self.ratings)
             self.trainset = self.ratings.build_full_trainset()
             self.sim_options = {'name': 'cosine','user_based': False}
         if poi_data:
             ''' poiId,latitude,longitude,name,preferenceid,preference '''
             self.pois = pd.read_csv(poi_data, low_memory=False)
-            self.pois = pd.DataFrame(self.pois, columns=['poiId','latitude','longitude','name','preference'])
+            self.pois = pd.DataFrame(self.pois, columns=['poiId','latitude','longitude','name','preference','address'])
             #self.csv_reader = csv.reader(self.pois, delimiter=',') 
         if user_data:
             ''' userId,name,latitude,longitude,id_preferencia,preference '''
@@ -73,10 +75,8 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [51, 161, 141, 101, 61, 71, 181, 191, 111, 201]
-        #[81, 151, 91]
-        #[131, 231, 211, 171, 121]
-        #[51, 161, 141, 101, 61, 71, 181, 191, 111, 201]
+        random_group = [134, 204, 214]
+
        
         return random_group
                
@@ -204,7 +204,8 @@ class GRSPOI():
 
                
     def distance_matrix(self, group):
-        ''' Função que calcula a distancia dos usuarios do grupo ao pontos de interesse '''
+        ''' Função que calcula a distancia dos usuarios do grupo ao pontos de interesse
+        '''
         
         ''' Pega a latitude e longitude dos usuarios do grupo
             Depois retira do dataframe as duplicatas e pegando apenas as colunas necessárias
@@ -220,13 +221,16 @@ class GRSPOI():
         pois_filter = self.pois[self.pois['poiId'].isin(self.profile_pois)]
         
         
-        ''' My API key ''' 
+        ''' #My API key
+        ''' 
         api_file = open("api-key.txt", "r")
         api_key = api_file.read()
         api_file.close()
         gmaps = googlemaps.Client(key=api_key)
-
-        '''  Create Dataframe de retorno '''
+        
+        
+        '''  Create Dataframe de retorno 
+        '''
         cols=['userId', 'poiId', 'distance']
         m_distance = pd.DataFrame(columns=cols)
 
@@ -234,41 +238,42 @@ class GRSPOI():
         for index, group_row in self.df_group.iterrows():
             for index, poi_row in pois_filter.iterrows():
                 
-                ''' print('Usuario: {}, {}, {}'.format(group_row['userId'],group_row['latitude'],group_row['longitude']))
+                '''print('Usuario: {}, {}, {}'.format(group_row['userId'],group_row['latitude'],group_row['longitude']))
                 print("POI: {} {}, {}, {}". format(poi_row['poiId'], poi_row['name'], poi_row['latitude'], poi_row['longitude']))'''
                                 
-                 #COLOCA AS LOCALIZAÇÕES NAS VARIAVEIS
+                #COLOCA AS LOCALIZAÇÕES NAS VARIAVEIS
                 
                 origin = group_row['latitude'], group_row['longitude']
                 destination = poi_row['latitude'], poi_row['longitude']
                 
                     
                 try:
-                     #DISTANCE CALCULATION API -> Params: origem, destino, mode, language                   
+                    #DISTANCE CALCULATION API -> Params: origem, destino, mode, language                   
                     query_distance = gmaps.distance_matrix(origin, destination)
-                    #query_distance = ''
+
                     
-                     #Get A DISTANCIA EM METROS DO JSON DE RETORNO DA CONSULTA
+                    #Get A DISTANCIA EM METROS DO JSON DE RETORNO DA CONSULTA
                     distance = query_distance['rows'][0]['elements'][0]['distance']['value']
-                    '''print('distance: {}'.format(distance))
-                    print("\n")'''
-                    
+                    """print('distance: {}'.format(distance))
+                    print("\n")"""                    
                
                 except:
                     distance = ''
                     print("Não foi possivel calcular a distancia")
                    
-                ''' #CRIA UMA MATRIZ TEMPORARIA PARA DEPOIS PASSAR PARA A MINHA MATRIZ '''  
+                ''' #CRIA UMA MATRIZ TEMPORARIA PARA DEPOIS PASSAR PARA A MINHA MATRIZ
+                '''  
                 info_temp = [group_row['userId'].astype(int), poi_row['poiId'], distance]
                 temp = pd.DataFrame([info_temp], columns=cols)
 
-              
-                ''' PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA ''' 
+
+                ''' #PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA
+                ''' 
                 m_distance = m_distance.append(temp, ignore_index=True)
-                #self.cosine = self.cosine.append(temp_cosine, ignore_index=True)
                 
         
-        ''' #EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV ''' 
+        ''' EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
+        ''' 
         export = m_distance.to_csv(r'./dataset/matrix_distance.csv',index=False)
         
         return m_distance
@@ -283,13 +288,15 @@ class GRSPOI():
         #group_distance_mtx['distance'] = group_distance_mtx['distance'].astype(float)
 
 
-        #distance_mtx['distance'] = 
-        ''' Pivota a matrix de distancia'''
+        ''' Pivota a matrix de distancia
+        Converte METROS para KM '''
         distance_pivot_mtx = pd.pivot_table(distance_mtx, values='distance', index=['userId'], columns=['poiId'], fill_value=0)
+        distance_pivot_mtx = distance_pivot_mtx/1000
 
 
-        ''' Apenas a matrix distancia'''
+        ''' Multiplica a matrix distancia pela matrix preferencia'''
         group_mpd = []
+        #group_mpd = group_filled_mtx/distance_pivot_mtx
         group_mpd = distance_pivot_mtx
         
         #pdb.set_trace()
@@ -306,7 +313,7 @@ class GRSPOI():
             my_col = group_mpd.iloc[ : ,i]
             label = my_col.name
             my_col = list(my_col)
-            print("my_col: ", format(my_col))
+            #print("my_col: ", format(my_col))
 
             labels.append(label)
             values.append(0.0)
@@ -318,16 +325,15 @@ class GRSPOI():
             elif technique == 'AV':
                 values.append( float( sum(my_col) / len(my_col) ) )
             else:
-                if float(min(my_col)) >= 15000.0 :
-                    print("AWM - IF: ", format(float(min(my_col))))
-                    #values.append( float(min(my_col)) )
+                if float(min(my_col)):
+                    values.append( float(min(my_col)) )
                 else:
-                    print("AWM - ELSE: ", format(float(sum(my_col))))
                     values.append( float( sum(my_col) / len(my_col) ) )
 
         print('\n-- -- --  -- > Aggregation Technique chosen: {}\n'.format(technique))
         
         agg_group_profile = pd.DataFrame(index=[900], columns=labels)
+
 
         for i in range(0,len(list(agg_group_profile))):
             agg_group_profile.iloc[0, i] = values[i]
@@ -352,7 +358,8 @@ class GRSPOI():
             # Calculate total similarity based on title and genres
             total_sim_score = []
             for i in range(len(sim_scores_name)):
-                aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1]*(1-name_weight))
+                aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1])
+                #aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1]*(1-name_weight))
                 total_sim_score.append((i, aux))
                 
             # Sort the pois based on the similarity scores
@@ -387,7 +394,7 @@ class GRSPOI():
                 poi_longitude = self.pois.loc[poi[0]].values[2]
                 poi_name = self.pois.loc[poi[0]].values[3]
                 poi_preferences = self.pois.loc[poi[0]].values[4]
-                #poi_address = self.pois.loc[poi[0]].values[5]
+                poi_address = self.pois.loc[poi[0]].values[5]
                 poi_similarity = poi[1]
                 poi_relevance = round(((reference['rating']/5.0)+poi_similarity)/2, 3)
 
@@ -398,7 +405,7 @@ class GRSPOI():
                 aux['poi_relevance'] = poi_relevance
                 aux['poi_latitude'] = poi_latitude
                 aux['poi_longitude'] = poi_longitude
-                #aux['poi_address'] = poi_address
+                aux['poi_address'] = poi_address
 
                 recs_dict.append(aux)
 
@@ -406,23 +413,23 @@ class GRSPOI():
 
             count=count+1
 
+        #recs_dict = sorted(recs_dict, key = lambda i: i['poi_similarity'],reverse=False)
         recs_dict = sorted(recs_dict, key = lambda i: i['poi_relevance'],reverse=True)
-        #recs_dict = recs_dict
-
+        
         return recs_dict
     
-    def calc_distance_item_in_list(self, item, this_list, title_weight=0.8):
+    def calc_distance_item_in_list(self, item, this_list, name_weight=0.8):
         ''' Calculates the total distance of an item in relation to a given list.
             Returns the total distance.
         '''
         idx_i = int(self.pois[self.pois['poiId']==int(item['poi_id'])].index[0])
 
         total_dist = 0
-        for movie in this_list:
+        for poi in this_list:
             
-            idx_j = int(self.pois[self.pois['poiId']==int(movie['poi_id'])].index[0])
+            idx_j = int(self.pois[self.pois['poiId']==int(poi['poi_id'])].index[0])
 
-            sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]*title_weight) + (self.cosine_sim_pois_preference[idx_i][idx_j]*(1-title_weight))
+            sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]*name_weight) + (self.cosine_sim_pois_preference[idx_i][idx_j]*(1-name_weight))
             dist_i_j = 1 - sim_i_j
             total_dist = total_dist + dist_i_j
 
@@ -493,6 +500,7 @@ class GRSPOI():
         diversified_list = random.sample(recs,k)
 
         return diversified_list
+
     
     def calc_distance_item_in_list_diversity(self, item, this_list, title_weight=0.8):
         ''' Calculates the total distance of an item in relation to a given list.
@@ -511,8 +519,7 @@ class GRSPOI():
                 idx_j = int(self.pois[self.pois['poiId']==int(item_poi['poi_id'])].index[0])
 
                 sim_i_j = ((self.cosine_sim_pois_preference[idx_i][idx_j]))
-                #sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]) + (self.cosine_sim_pois_preference[idx_i][idx_j])
-                #sim_i_j = (self.cosine_sim_pois_name[idx_i][idx_j]*title_weight) + (self.cosine_sim_pois_preference[idx_i][idx_j]*(1-title_weight))
+
    
                 dist_i_j = 1 - sim_i_j
                 total_dist = total_dist + dist_i_j
@@ -541,7 +548,7 @@ class GRSPOI():
             return 0.0
       
         cum_gain = np.asarray(relevance).sum()
-        print("cum_gain:", format(cum_gain))
+        #print("cum_gain:", format(cum_gain))
 
         return cum_gain
 
@@ -599,7 +606,6 @@ class GRSPOI():
         Returns:
             Normalized discounted cumulative gain
         """
-
         df = pd.DataFrame(relevance,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude'])
         relevance = np.asarray(df['poi_relevance'].values)
 
@@ -613,3 +619,6 @@ class GRSPOI():
         print("ndcg_score: ", format(ndcg_score))"""
 
         return ndcg_score
+    
+    def intersection(lst1, lst2):
+        return list(set(lst1) & set(lst2))

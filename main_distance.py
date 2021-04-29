@@ -8,7 +8,7 @@ def flow(grspoi, technique = 'LM'):
     print("\n-->  Initializing...")
     grspoi.set_k()
 
-    my_group = grspoi.random_group(5)
+    my_group = grspoi.random_group(3)
     print('\n-->  Group members: {}'.format(my_group))
 
     grspoi.predict_ratings(group=my_group)
@@ -67,22 +67,44 @@ def flow(grspoi, technique = 'LM'):
 
 
     print("\n\n-->  The top-10 STANDARD recs are:\n")
-    for poi in candidates_list[0:20]:
-        print('poiId: {}, relevance: {}, name:{}, description:{}'.format(poi['poi_id'], poi['poi_relevance'], poi['poi_name'], poi['poi_preferences']))
+    #Pega os ids para fazer a interceção
+    ids_candidates_list = []
+    for poi in candidates_list[0:10]:
+        ids_candidates_list.append(poi['poi_id'])
+        print('poiId: {}, relevance: {}, name:{}, description:{}, address:{}'.format(poi['poi_id'], poi['poi_relevance'], poi['poi_name'], poi['poi_preferences'], poi['poi_address']))
 
         
+    #Pega os ids para fazer a interceção
+    ids_final_recs_greedy = []
     my_candidates = candidates_list.copy()
     final_recs_greedy = grspoi.diversify_recs_list(recs=my_candidates)
     print("\n\n-->  The top-10 GREEDY DIVERSIFIED recs are:\n")
     for item in final_recs_greedy:
-        print('poiId: {}, relevance: {}, name:{}, description:{}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences']))
+        ids_final_recs_greedy.append(item['poi_id'])
+        print('poiId: {}, relevance: {}, name:{}, description:{}, address:{}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences'], item['poi_address']))
 
 
+    #Pega os ids para fazer a interceção
+    ids_final_recs_random = []
     my_candidates = candidates_list.copy()
     final_recs_random = grspoi.diversify_recs_list_bounded_random(recs=my_candidates)
     print("\n\n-->  The top-10 RANDOM DIVERSIFIED recs are:\n")
     for item in final_recs_random:
-        print('poiId: {}, relevance: {}, name:{}, description:{}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences']))
+        ids_final_recs_random.append(item['poi_id'])
+        print('poiId: {}, relevance: {}, name:{}, description:{}, address:{}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences'], item['poi_address']))
+
+
+    print('\n\n')
+    print("########################################################################")
+    print("##########################     INTERSECTION    #########################")
+    print("########################################################################")
+    print('\n\n')
+
+    intersecao_greedy = set(ids_candidates_list).intersection(set(ids_final_recs_greedy))
+    print('Interseção greedy: ', format(intersecao_greedy))
+
+    intersecao_random = set(ids_candidates_list).intersection(set(ids_final_recs_random))
+    print('Interseção random: ', format(intersecao_random))
 
 
     print('\n\n')
@@ -108,28 +130,37 @@ def flow(grspoi, technique = 'LM'):
 
     """ #################     SAVE EXCEL   ############################### """
 
-    standard_recs = pd.DataFrame(standard_recs,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude'])
-    final_recs_greedy = pd.DataFrame(final_recs_greedy,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude'])
-    final_recs_random = pd.DataFrame(final_recs_random,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude'])
+    standard_recs = pd.DataFrame(standard_recs,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
+    final_recs_greedy = pd.DataFrame(final_recs_greedy,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
+    final_recs_random = pd.DataFrame(final_recs_random,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
 
 
 
     writer = pd.ExcelWriter('result_group_distance.xlsx',engine='xlsxwriter')
     workbook = writer.book
-    worksheet = workbook.add_worksheet('distance_'+str(technique))
-    writer.sheets['distance_'+str(technique)] = worksheet
+    worksheet = workbook.add_worksheet('preference_' + str(technique))
+    writer.sheets['preference_' + str(technique)] = worksheet
     
-    worksheet.write_string(0, 0, "Standart "+str(technique))
-    standard_recs.to_excel(writer,sheet_name='distance_'+str(technique),startrow=1 , startcol=0)
-    worksheet.write_string(12, 0, "NDCG: "+str(ndcg_standard))
+    worksheet.write_string(0, 0, "Standart " + str(technique))
+    standard_recs.to_excel(writer,sheet_name='preference_' + str(technique),startrow=1 , startcol=0)
+    worksheet.write_string(12, 0, "NDCG: ")
+    worksheet.write_string(12, 1, str(ndcg_standard))
 
-    worksheet.write_string(14, 0, "Diversificado_recs_greedy "+str(technique))
-    final_recs_greedy.to_excel(writer,sheet_name='distance_'+str(technique),startrow=15, startcol=0)
-    worksheet.write_string(26, 0, "NDCG: "+str(ndcg_recs_greedy))
+    worksheet.write_string(14, 0, "Diversificado_recs_greedy " + str(technique))
+    final_recs_greedy.to_excel(writer,sheet_name='preference_' + str(technique),startrow=15, startcol=0)
+    worksheet.write_string(26, 0, "NDCG: ")
+    worksheet.write_string(26, 1, str(ndcg_recs_greedy))
 
-    worksheet.write_string(29, 0, "Diversificado_recs_random "+str(technique))
-    final_recs_random.to_excel(writer,sheet_name='distance_'+str(technique),startrow=30, startcol=0)
-    worksheet.write_string(41, 0, "NDCG: "+str(ndcg_recs_random))
+    worksheet.write_string(28, 0, "intersection greedy: ")
+    worksheet.write_string(28, 1, str(intersecao_greedy))
+
+    worksheet.write_string(30, 0, "Diversificado_recs_random " + str(technique))
+    final_recs_random.to_excel(writer,sheet_name='preference_' + str(technique),startrow=31, startcol=0)
+    worksheet.write_string(42, 0, "NDCG: ")
+    worksheet.write_string(42, 1, str(ndcg_recs_random))
+
+    worksheet.write_string(44, 0, "Intersection random: " ) 
+    worksheet.write_string(44, 1, str(intersecao_random))
 
     writer.save()
     
@@ -137,7 +168,7 @@ def flow(grspoi, technique = 'LM'):
 
  # AWM (Average Without Misery),  AV (Average), LM (Least Misery), MP (Most Pleasure)
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
-divRecs = flow(grsd, technique = 'MP')
+divRecs = flow(grsd, technique = 'AV')
 #divRecs, evaluation = flow(grsd, technique = 'AWM')
 
 print('\n\n')

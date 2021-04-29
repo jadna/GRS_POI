@@ -1,6 +1,6 @@
-'''RATINGS_PATH = './piloto/user_avaliacao.csv'
+RATINGS_PATH = './piloto/user_avaliacao.csv'
 POIS_PATH = './dataset/pois.csv'
-USER_PATH = './piloto/users.csv'''
+USER_PATH = './piloto/users.csv'
 
 
 import pandas as pd
@@ -49,9 +49,9 @@ class GRSPOI():
             self.trainset = self.ratings.build_full_trainset()
             self.sim_options = {'name': 'cosine','user_based': False}
         if poi_data:
-            ''' poiId,latitude,longitude,name,preferenceid,preference '''
+            ''' poiId,latitude,longitude,name,preferenceid,preference,address '''
             self.pois = pd.read_csv(poi_data, low_memory=False)
-            self.pois = pd.DataFrame(self.pois, columns=['poiId','latitude','longitude','name','preference'])
+            self.pois = pd.DataFrame(self.pois, columns=['poiId','latitude','longitude','name','preference','address'])
             #self.csv_reader = csv.reader(self.pois, delimiter=',') 
         if user_data:
             ''' userId,name,latitude,longitude,id_preferencia,preference '''
@@ -316,7 +316,7 @@ class GRSPOI():
             my_col = group_mpd.iloc[ : ,i]
             label = my_col.name
             my_col = list(my_col)
-            print("my_col: ", format(my_col))
+            #print("my_col: ", format(my_col))
 
             labels.append(label)
             values.append(0.0)
@@ -329,10 +329,8 @@ class GRSPOI():
                 values.append( float( sum(my_col) / len(my_col) ) )
             else:
                 if float(min(my_col)) <= 2 :
-                    print("AWM - IF: ", format(float(min(my_col))))
-                    #values.append( float(min(my_col)) )
+                    values.append( float(min(my_col)) )
                 else:
-                    print("AWM - ELSE: ", format(float(sum(my_col))))
                     values.append( float( sum(my_col) / len(my_col) ) )
 
         print('\n-- -- --  -- > Aggregation Technique chosen: {}\n'.format(technique))
@@ -397,7 +395,7 @@ class GRSPOI():
                 poi_longitude = self.pois.loc[poi[0]].values[2]
                 poi_name = self.pois.loc[poi[0]].values[3]
                 poi_preferences = self.pois.loc[poi[0]].values[4]
-                #poi_address = self.pois.loc[poi[0]].values[5]
+                poi_address = self.pois.loc[poi[0]].values[5]
                 poi_similarity = poi[1]
                 poi_relevance = round(((reference['rating']/5.0)+poi_similarity)/2, 3)
 
@@ -408,7 +406,7 @@ class GRSPOI():
                 aux['poi_relevance'] = poi_relevance
                 aux['poi_latitude'] = poi_latitude
                 aux['poi_longitude'] = poi_longitude
-                #aux['poi_address'] = poi_address
+                aux['poi_address'] = poi_address
 
                 recs_dict.append(aux)
 
@@ -534,6 +532,7 @@ class GRSPOI():
     ''' ########################################################################
         #######################      Evalutes     ##############################
         ######################################################################## '''
+
     def cum_gain(self, relevance):
 
         #valores = [valor.get('poi_relevance') for valor in standard_recs]
@@ -609,7 +608,7 @@ class GRSPOI():
             Normalized discounted cumulative gain
         """
 
-        df = pd.DataFrame(relevance,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude'])
+        df = pd.DataFrame(relevance,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'address'])
         relevance = np.asarray(df['poi_relevance'].values)
 
         dcg_max = self.dcg_at_k(relevance=sorted(relevance, reverse=True), k=k, method=method)
