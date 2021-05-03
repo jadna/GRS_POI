@@ -75,7 +75,10 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [134, 204, 214]
+        random_group = [224, 184, 234]
+        #Pilote group 3: [224, 94, 234] (misturado)
+        #Piloto group 2: [224, 234, 184] (conhecidos)
+        #Piloto group 1: [134, 204, 214] (desconhecidos)
 
        
         return random_group
@@ -250,6 +253,7 @@ class GRSPOI():
                 try:
                     #DISTANCE CALCULATION API -> Params: origem, destino, mode, language                   
                     query_distance = gmaps.distance_matrix(origin, destination)
+                    #print(query_distance)
 
                     
                     #Get A DISTANCIA EM METROS DO JSON DE RETORNO DA CONSULTA

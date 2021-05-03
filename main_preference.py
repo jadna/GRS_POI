@@ -2,6 +2,7 @@ from GRSPOI_Preference import GRSPOI
 import constants
 import pandas as pd
 import numpy as np
+import json
 
 def flow(grspoi, technique = 'LM'):
 
@@ -86,7 +87,6 @@ def flow(grspoi, technique = 'LM'):
 
     #Pega os ids para fazer a interceção
     ids_final_recs_random = []
-
     my_candidates = candidates_list.copy()
     final_recs_random = grspoi.diversify_recs_list_bounded_random(recs=my_candidates)
     print("\n\n-->  The top-10 RANDOM DIVERSIFIED recs are:\n")
@@ -102,9 +102,11 @@ def flow(grspoi, technique = 'LM'):
 
     intersecao_greedy = set(ids_candidates_list).intersection(set(ids_final_recs_greedy))
     print('Interseção greedy: ', format(intersecao_greedy))
+    print('Total interseção greedy: ', format(len(intersecao_greedy)))
 
     intersecao_random = set(ids_candidates_list).intersection(set(ids_final_recs_random))
     print('Interseção random: ', format(intersecao_random))
+    print('Total interseção random: ', format(len(intersecao_random)))
 
 
     print('\n\n')
@@ -135,41 +137,52 @@ def flow(grspoi, technique = 'LM'):
     final_recs_greedy = pd.DataFrame(final_recs_greedy,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
     final_recs_random = pd.DataFrame(final_recs_random,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
    
-
-    writer = pd.ExcelWriter('result_group_preference.xlsx',engine='xlsxwriter')
-    workbook = writer.book
-    worksheet = workbook.add_worksheet('preference_' + str(technique))
-    writer.sheets['preference_' + str(technique)] = worksheet
     
-    worksheet.write_string(0, 0, "Standart " + str(technique))
-    standard_recs.to_excel(writer,sheet_name='preference_' + str(technique),startrow=1 , startcol=0)
-    worksheet.write_string(12, 0, "NDCG: ")
-    worksheet.write_string(12, 1, str(ndcg_standard))
+    if technique == "AWM":
+        worksheet_name = 'preference_' + str(technique)
+        writer = pd.ExcelWriter('result_preference_'+str(technique)+'.xlsx',engine='xlsxwriter')
+    elif technique == "LM":
+        worksheet_name = 'preference_' + str(technique)
+        writer = pd.ExcelWriter('result_preference_'+str(technique)+'.xlsx',engine='xlsxwriter')
+    elif technique == "MP":
+        worksheet_name = 'preference_' + str(technique)
+        writer = pd.ExcelWriter('result_preference_'+str(technique)+'.xlsx',engine='xlsxwriter')
+    else:
+        worksheet_name = 'preference_' + str(technique)
+        writer = pd.ExcelWriter('result_preference_'+str(technique)+'.xlsx',engine='xlsxwriter')
 
-    worksheet.write_string(14, 0, "Diversificado_recs_greedy " + str(technique))
-    final_recs_greedy.to_excel(writer,sheet_name='preference_' + str(technique),startrow=15, startcol=0)
-    worksheet.write_string(26, 0, "NDCG: ")
-    worksheet.write_string(26, 1, str(ndcg_recs_greedy))
+    workbook = writer.book
+    worksheet = workbook.add_worksheet(worksheet_name)
+    writer.sheets[worksheet_name] = worksheet
+    
+    worksheet.write_string(0, 0, "Group: " + str(my_group))
+    
+    worksheet.write_string(1, 0, "preference standart " + str(technique))
+    standard_recs.to_excel(writer,sheet_name=worksheet_name,startrow=2 , startcol=0)
+    worksheet.write_string(13, 0, "NDCG: " + str(ndcg_standard))
 
-    worksheet.write_string(28, 0, "intersection greedy: ")
-    worksheet.write_string(28, 1, str(intersecao_greedy))
+    worksheet.write_string(15, 0, "preference greedy " + str(technique))
+    final_recs_greedy.to_excel(writer,sheet_name=worksheet_name,startrow=16, startcol=0)
+    worksheet.write_string(27, 0, "NDCG: " + str(ndcg_recs_greedy))
+    worksheet.write_string(28, 0, "intersection greedy: " + str(intersecao_greedy) + "Total: " + str(len(intersecao_greedy)))
 
-    worksheet.write_string(30, 0, "Diversificado_recs_random " + str(technique))
-    final_recs_random.to_excel(writer,sheet_name='preference_' + str(technique),startrow=31, startcol=0)
-    worksheet.write_string(42, 0, "NDCG: ")
-    worksheet.write_string(42, 1, str(ndcg_recs_random))
-
-    worksheet.write_string(44, 0, "Intersection random: " ) 
-    worksheet.write_string(44, 1, str(intersecao_random))
-
+    worksheet.write_string(30, 0, "preference random " + str(technique))
+    final_recs_random.to_excel(writer,sheet_name=worksheet_name,startrow=31, startcol=0)
+    worksheet.write_string(42, 0, "NDCG: " + str(ndcg_recs_random))
+    worksheet.write_string(43, 0, "Intersection random: " + str(intersecao_random) + "Total: " + str(len(intersecao_random))) 
+    
     writer.save()
     
 
 
 #MP (Most Pleasure), LM (Least Misery), AV (Average), AWM (Average Without Misery)
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
-divRecs = flow(grsd, technique = 'AV')
+
+metodos = ['AWM', 'LM', 'MP', 'AV']
+for aux in metodos:
+    divRecs = flow(grsd, technique = aux)
 #divRecs, evaluation = flow(grsd, technique = 'AWM')
+
 
 print('\n\n')
 print("########################################################################")
