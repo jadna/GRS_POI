@@ -43,7 +43,7 @@ def flow(grspoi, technique = 'LM'):
 
 
     print("\n\n-->  Calculating matrix filled (MPD)...")
-    group_mpd = grspoi.calculate_matrix_mpd(group_filled_mtx, distance_mtx=[])
+    group_mpd = grspoi.calculate_matrix_mpd(group_filled_mtx)
 
 
     print("\n\n-->  Applying aggregation technique...")
@@ -178,10 +178,10 @@ def flow(grspoi, technique = 'LM'):
 #MP (Most Pleasure), LM (Least Misery), AV (Average), AWM (Average Without Misery)
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
 
-metodos = ['AWM', 'LM', 'MP', 'AV']
+'''metodos = ['AWM', 'LM', 'MP', 'AV']
 for aux in metodos:
-    divRecs = flow(grsd, technique = aux)
-#divRecs, evaluation = flow(grsd, technique = 'AWM')
+    divRecs = flow(grsd, technique = aux)'''
+divRecs = flow(grsd, technique = 'AWM')
 
 
 print('\n\n')

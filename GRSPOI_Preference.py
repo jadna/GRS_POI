@@ -41,6 +41,7 @@ class GRSPOI():
             self.ratings = Dataset.load_from_file(rating_data, reader)
             self.trainset = self.ratings.build_full_trainset()
             self.sim_options = {'name': 'cosine','user_based': False}
+            #self.sim_options = {'name': 'pearson','user_based': False}
             #self.df_ratings = pd.read_csv(rating_data, low_memory=False, names=['userId','latitude','longitude','poiId','rating'])
             self.df_ratings = pd.read_csv(rating_data, low_memory=False, names=['userId','poiId','rating'])
         elif not data_frame.empty:
@@ -48,6 +49,7 @@ class GRSPOI():
             self.ratings = Dataset.load_from_df(data_frame[['userId', 'poiId', 'rating']], reader)
             self.trainset = self.ratings.build_full_trainset()
             self.sim_options = {'name': 'cosine','user_based': False}
+            #self.sim_options = {'name': 'pearson','user_based': False}
         if poi_data:
             ''' poiId,latitude,longitude,name,preferenceid,preference,address '''
             self.pois = pd.read_csv(poi_data, low_memory=False)
@@ -74,7 +76,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [224, 184, 234]
+        random_group = [134, 204, 214]
         #Piloto group 3: [224, 94, 234] (misto)
         #Piloto group 2: [224, 234, 184] (conhecidos)
         #Piloto group 1: [134, 204, 214] (desconhecidos)
@@ -165,6 +167,10 @@ class GRSPOI():
         
         metadata_filtered = metadata[metadata.userId.isin(group)]
 
+        esparsidade = (1 - (metadata_filtered['rating'].count()) / (len(group) * metadata_filtered['poiId'].nunique()))
+
+        print("Esparsidade: {} %".format(round(esparsidade*100, 2)))
+
         self.group_sparse_mtx = pd.pivot_table(metadata_filtered, values='rating', index=['userId'], columns=['poiId'], fill_value=0)
         self.profile_pois = list(self.group_sparse_mtx)   
         
@@ -206,100 +212,8 @@ class GRSPOI():
         self.cosine_sim_pois_name = cosine_similarity(tfidf_matrix_name, tfidf_matrix_name)
         self.cosine_sim_pois_preference = cosine_similarity(tfidf_matrix_preference, tfidf_matrix_preference)
 
-               
-    def distance_matrix(self, group):
-        ''' Função que calcula a distancia dos usuarios do grupo ao pontos de interesse
-        '''
-        
-        ''' Pega a latitude e longitude dos usuarios do grupo
-            Depois retira do dataframe as duplicatas e pegando apenas as colunas necessárias
-            Takes the latitude and longitude of users in the group
-            Then remove the duplicates from the dataframe and take only the necessary columns'''
-       
-        self.df_group = self.users[self.users['userId'].isin(group)]
-        self.df_group = self.df_group.drop_duplicates(subset = ["userId"]) 
-        self.df_group = self.df_group[['userId','latitude','longitude']] 
-        self.df_group['userId'] = self.df_group['userId'].astype(int)
-         
-        ''' somente os pois que foram avaliados por PELO MENOS UM membro do grupo  '''
-        pois_filter = self.pois[self.pois['poiId'].isin(self.profile_pois)]
-        
-        
-        ''' #My API key
-        ''' 
-        gmaps = googlemaps.Client(key='AIzaSyC97oj_73Oab6zrUkHfWH-gq7zF2omHkOo')
 
-        '''  Create Dataframe de retorno 
-        '''
-        cols=['userId', 'poiId', 'distance']
-        m_distance = pd.DataFrame(columns=cols)
-        #cols_cosine = ['poiId', 'name', 'preference']
-        #self.cosine = pd.DataFrame(columns=cols_cosine)
-        
-        for index, group_row in self.df_group.iterrows():
-            for index, poi_row in pois_filter.iterrows():
-            #for index, poi_row in self.pois.iterrows():
-                
-                '''print('Usuario: {}, {}, {}'.format(group_row['userId'],group_row['latitude'],group_row['longitude']))
-                print("POI: {} {}, {}, {}". format(poi_row['poiId'], poi_row['name'], poi_row['latitude'], poi_row['longitude']))'''
-                                
-                 #COLOCA AS LOCALIZAÇÕES NAS VARIAVEIS
-                
-                origin = group_row['latitude'], group_row['longitude']
-                destination = poi_row['latitude'], poi_row['longitude']
-                
-                    
-                try:
-                     #DISTANCE CALCULATION API -> Params: origem, destino, mode, language                   
-                    query_distance = gmaps.distance_matrix(origin, destination)
-                    #query_distance = ''
-                    
-                     #Get A DISTANCIA EM METROS DO JSON DE RETORNO DA CONSULTA
-                    distance = query_distance['rows'][0]['elements'][0]['distance']['value']
-                    '''print('distance: {}'.format(distance))
-                    print("\n")'''
-                    
-               
-                except:
-                    distance = ''
-                    print("Não foi possivel calcular a distancia")
-                   
-                ''' #CRIA UMA MATRIZ TEMPORARIA PARA DEPOIS PASSAR PARA A MINHA MATRIZ
-                '''  
-                info_temp = [group_row['userId'].astype(int), poi_row['poiId'], distance]
-                temp = pd.DataFrame([info_temp], columns=cols)
-
-                ''' Matriz auxiliar para poder calcular do coseno dos pontos de interesse avaliados pelos usuarios'''
-                #info_cosine = [poi_row['poiId'], str(poi_row['name']), str(poi_row['preference'])]
-                #temp_cosine = pd.DataFrame([info_cosine], columns=cols_cosine)
-                
-                ''' #PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA
-                ''' 
-                m_distance = m_distance.append(temp, ignore_index=True)
-                #self.cosine = self.cosine.append(temp_cosine, ignore_index=True)
-                
-        
-        ''' #EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
-        ''' 
-        export = m_distance.to_csv(r'./dataset/matrix_distance.csv',index=False)
-        
-        return m_distance
-
-    
-    def calculate_matrix_mpd(self, group_filled_mtx, distance_mtx):
-        
-        ''' Change type'''
-        """distance_mtx['userId'] = distance_mtx['userId'].astype(int)
-        distance_mtx['poiId'] = distance_mtx['poiId'].astype(int)
-        distance_mtx['distance'] = pd.to_numeric(distance_mtx['distance'])"""
-        #group_distance_mtx['distance'] = group_distance_mtx['distance'].astype(float)
-
-
-        #distance_mtx['distance'] = 
-        ''' Pivota a matrix de distancia'''
-        #distance_pivot_mtx = pd.pivot_table(distance_mtx, values='distance', index=['userId'], columns=['poiId'], fill_value=0)
-
-
+    def calculate_matrix_mpd(self, group_filled_mtx):
         ''' Apenas matrix preferencia'''
         group_mpd = []
         group_mpd = group_filled_mtx
