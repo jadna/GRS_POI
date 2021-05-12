@@ -74,13 +74,12 @@ class GRSPOI():
         if len(random_group) != len(set(random_group)):
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
-        
-        random_group = [224, 184, 234]
+
+        random_group = [134, 204, 214]
         #Pilote group 3: [224, 94, 234] (misturado)
         #Piloto group 2: [224, 234, 184] (conhecidos)
         #Piloto group 1: [134, 204, 214] (desconhecidos)
 
-       
         return random_group
                
             
@@ -441,7 +440,7 @@ class GRSPOI():
         return result
 
 
-    def calc_diversity_score(self, actual_list, candidates_list, alfa=0.5):
+    def calc_diversity_score(self, actual_list, candidates_list, alfa=0.2):
         '''
             This function implemented here was based on MARIUS KAMINSKAS and DEREK BRIDGE paper: Diversity, Serendipity, Novelty, and Coverage: A Survey and Empirical Analysis of Beyond-Accuracy Objectives in Recommender Systems
                 
@@ -571,11 +570,11 @@ class GRSPOI():
             if method == 0:
                 #dcg_score = r[0] + np.sum(r[1:] / np.log2(np.arange(2, r.size + 1)))
                 dcg_score = r[0] + np.sum(r[1:] / np.log2(np.arange(3, r.size + 2))) # fix here
-                print("dcg 0: ",format(dcg_score))
+                #print("dcg 0: ",format(dcg_score))
                 return dcg_score
             elif method == 1:
                 dcg_score = np.sum(r / np.log2(np.arange(2, r.size + 2)))
-                print("dcg 1: ",format(dcg_score))
+                #print("dcg 1: ",format(dcg_score))
                 return dcg_score
             else:
                 raise ValueError('method must be 0 or 1.')

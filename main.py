@@ -2,13 +2,14 @@ from GRSPOI import GRSPOI
 import constants
 import pandas as pd
 import numpy as np
+import csv
 
 def flow(grspoi, technique = ''):
 
     print("\n-->  Initializing...")
     grspoi.set_k()
 
-    my_group = grspoi.random_group(3)
+    my_group = grspoi.random_group(5)
     print('\n-->  Group members: {}'.format(my_group))
 
     grspoi.predict_ratings(group=my_group)
@@ -104,22 +105,22 @@ def flow(grspoi, technique = ''):
 
     intersecao_greedy = set(ids_candidates_list).intersection(set(ids_final_recs_greedy))
     print('Interseção greedy: ', format(intersecao_greedy))
+    print("Total: " + str(len(intersecao_greedy)))
 
     intersecao_random = set(ids_candidates_list).intersection(set(ids_final_recs_random))
     print('Interseção random: ', format(intersecao_random))
 
 
-    print('\n\n')
-    print("########################################################################")
-    print("#######################     EVALUATING SYSTEM    #######################")
-    print("########################################################################")
-    print('\n\n')
+    #print('\n\n')
+    #print("########################################################################")
+    #print("#######################     EVALUATING SYSTEM    #######################")
+    #print("########################################################################")
+    #print('\n\n')
 
     distance_diversity = grspoi.calc_distance_item_in_list_diversity(candidates_list, final_recs_greedy)
-    print('Distance of diversity: ', format(distance_diversity))
+    #print('Distance of diversity: ', format(distance_diversity))
 
     standard_recs = candidates_list[0:10]
-
     
     #cum_gain = grspoi.cum_gain(relevance)
     #dcg = grspoi.dcg_at_k(relevance)
@@ -127,19 +128,39 @@ def flow(grspoi, technique = ''):
     ndcg_recs_greedy = grspoi.ndcg_at_k(final_recs_greedy, len(final_recs_greedy), 0)
     ndcg_recs_random = grspoi.ndcg_at_k(final_recs_random, len(final_recs_random), 0)
 
-    print("ndcg standard: ", format(ndcg_standard))
+    '''print("ndcg standard: ", format(ndcg_standard))
     print("ndcg_recs_greedy: ", format(ndcg_recs_greedy))
-    print("ndcg_recs_random: ", format(ndcg_recs_random))
+    print("ndcg_recs_random: ", format(ndcg_recs_random))'''
 
 
     """ #################     SAVE EXCEL   ############################### """
+
+    with open(str(my_group) + '_result_'+str(technique)+".txt", 'w') as f:
+        f.write('Tecnica '+str(technique))
+        f.write('\n')
+        f.write('Grupo: ' + str(my_group))
+        f.write('\n')
+        f.write('Recomendacao Standard')
+        f.write('\n')
+        for line in standard_recs:
+            f.write(str(line))
+            f.write('\n')
+        f.write('\n')
+        f.write('Recomendacao Diversificada')
+        f.write('\n')
+        for line in final_recs_greedy:
+            f.write(str(line))
+            f.write('\n')
+        f.write('\n')
+        f.write(" Intersecao: " + str(intersecao_greedy))
+        f.write('\n')
+        f.write(" Total: " + str(len(intersecao_greedy)))
 
     standard_recs = pd.DataFrame(standard_recs,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
     final_recs_greedy = pd.DataFrame(final_recs_greedy,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
     final_recs_random = pd.DataFrame(final_recs_random,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
 
-  
-    if technique == "AWM":
+    '''if technique == "AWM":
         worksheet_name = 'preference_' + str(technique)
         writer = pd.ExcelWriter('result_'+str(technique)+'.xlsx',engine='xlsxwriter')
     elif technique == "LM":
@@ -172,16 +193,16 @@ def flow(grspoi, technique = ''):
     worksheet.write_string(42, 0, "NDCG: " + str(ndcg_recs_random))
     worksheet.write_string(43, 0, "Intersection random: " + str(intersecao_random) + "Total: " + str(len(intersecao_random))) 
 
-    writer.save()
+    writer.save()'''
     
 
 
  #MP (Most Pleasure), LM (Least Misery), AV (Average), AWM (Average Without Misery)
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
-metodos = ['AWM', 'LM', 'MP', 'AV']
+metodos = ['AV', 'AWM', 'LM', 'MP']
 for aux in metodos:
     divRecs = flow(grsd, technique = aux)
-#divRecs, evaluation = flow(grsd, technique = 'AWM')
+#divRecs = flow(grsd, technique = 'MP')
 
 print('\n\n')
 print("########################################################################")
