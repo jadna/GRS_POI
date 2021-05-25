@@ -75,7 +75,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
 
-        random_group = [134, 204, 214]
+        random_group = [374,384,394,404,414]
         #Pilote group 3: [224, 94, 234] (misturado)
         #Piloto group 2: [224, 234, 184] (conhecidos)
         #Piloto group 1: [134, 204, 214] (desconhecidos)
@@ -420,7 +420,7 @@ class GRSPOI():
         
         return recs_dict
     
-    def calc_distance_item_in_list(self, item, this_list, name_weight=0.8):
+    def calc_distance_item_in_list(self, item, this_list, name_weight=0.5):
         ''' Calculates the total distance of an item in relation to a given list.
             Returns the total distance.
         '''

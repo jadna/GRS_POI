@@ -199,10 +199,10 @@ def flow(grspoi, technique = ''):
 
  #MP (Most Pleasure), LM (Least Misery), AV (Average), AWM (Average Without Misery)
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
-metodos = ['AV', 'AWM', 'LM', 'MP']
-for aux in metodos:
-    divRecs = flow(grsd, technique = aux)
-#divRecs = flow(grsd, technique = 'MP')
+#metodos = ['AV', 'AWM', 'LM', 'MP']
+#for aux in metodos:
+    #divRecs = flow(grsd, technique = aux)
+divRecs = flow(grsd, technique = 'MP')
 
 print('\n\n')
 print("########################################################################")

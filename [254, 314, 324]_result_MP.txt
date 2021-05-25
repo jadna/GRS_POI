@@ -1,0 +1,28 @@
+Tecnica MP
+Grupo: [254, 314, 324]
+Recomendacao Standard
+{'poi_id': 87, 'poi_name': 'Praia do Farol', 'poi_preferences': 'beach', 'poi_similarity': 1.290886840626509, 'poi_relevance': 0.837, 'poi_latitude': -12.952961, 'poi_longitude': -38.348126, 'poi_address': 'Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil'}
+{'poi_id': 77, 'poi_name': 'Praia do Porto da Barra', 'poi_preferences': 'beach', 'poi_similarity': 1.2423784705975343, 'poi_relevance': 0.813, 'poi_latitude': -13.0038021, 'poi_longitude': -38.532693200000004, 'poi_address': 'Praia do Porto da Barra - Av. Sete de Setembro  s/n - Barra  Salvador - BA  40140-030  Brazil'}
+{'poi_id': 88, 'poi_name': 'Praia da Penha', 'poi_preferences': 'beach', 'poi_similarity': 1.1238626854873355, 'poi_relevance': 0.754, 'poi_latitude': -12.910129800000002, 'poi_longitude': -38.4948066, 'poi_address': 'Salvador - BA'}
+{'poi_id': 90, 'poi_name': 'Praia da Paciencia', 'poi_preferences': 'beach', 'poi_similarity': 1.1238626854873355, 'poi_relevance': 0.754, 'poi_latitude': -13.0108371, 'poi_longitude': -38.4970545, 'poi_address': 'Praia da Paciencia - Rio Vermelho  Salvador - State of Bahia  40170-010  Brazil'}
+{'poi_id': 99, 'poi_name': 'Praia da Pituba', 'poi_preferences': 'beach', 'poi_similarity': 1.1238626854873355, 'poi_relevance': 0.754, 'poi_latitude': -13.009838199999999, 'poi_longitude': -38.4634244, 'poi_address': 'Bahia'}
+{'poi_id': 103, 'poi_name': 'Praia da Boca do Rio', 'poi_preferences': 'beach', 'poi_similarity': 1.1086200674281355, 'poi_relevance': 0.746, 'poi_latitude': -12.983283, 'poi_longitude': -38.4296677, 'poi_address': 'Bahia'}
+{'poi_id': 100, 'poi_name': 'Praia da Pedra do Sal', 'poi_preferences': 'beach', 'poi_similarity': 1.107845799486353, 'poi_relevance': 0.746, 'poi_latitude': -12.9501728, 'poi_longitude': -38.342933200000004, 'poi_address': 'R. Alves Ribeiro, 151 - Itapuã, Salvador - BA, 41301-110'}
+{'poi_id': 93, 'poi_name': 'Praia da Boa Viagem', 'poi_preferences': 'beach', 'poi_similarity': 1.1013840329542772, 'poi_relevance': 0.743, 'poi_latitude': -12.935095800000001, 'poi_longitude': -38.5098867, 'poi_address': 'Salvador - BA, 40301-155'}
+{'poi_id': 89, 'poi_name': 'Praia da 3a Ponte', 'poi_preferences': 'beach', 'poi_similarity': 1.0963027030813082, 'poi_relevance': 0.74, 'poi_latitude': -12.960842999999999, 'poi_longitude': -38.39589, 'poi_address': 'Praia da 3a Ponte  Salvador - State of Bahia  Brazil'}
+{'poi_id': 81, 'poi_name': 'Praia Itapua', 'poi_preferences': 'beach', 'poi_similarity': 1.0896979561520932, 'poi_relevance': 0.737, 'poi_latitude': -12.9513612, 'poi_longitude': -38.3717127, 'poi_address': 'Praia Itapua - Av. Octavio Mangabeira - Piata  Salvador - BA  Brazil'}
+
+Recomendacao Diversificada
+{'poi_id': 87, 'poi_name': 'Praia do Farol', 'poi_preferences': 'beach', 'poi_similarity': 1.290886840626509, 'poi_relevance': 0.837, 'poi_latitude': -12.952961, 'poi_longitude': -38.348126, 'poi_address': 'Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil'}
+{'poi_id': 356, 'poi_name': 'Ponto Estadio Pituacu', 'poi_preferences': 'stadium', 'poi_similarity': 1.0, 'poi_relevance': 0.736, 'poi_latitude': -12.9442119, 'poi_longitude': -38.4198979, 'poi_address': 'Av. Luis Viana Filho  5492-5614 - Pituacu  Salvador - BA  41680-400  Brazil'}
+{'poi_id': 164, 'poi_name': 'Cinema e Video', 'poi_preferences': 'movie_theater', 'poi_similarity': 1.0, 'poi_relevance': 0.606, 'poi_latitude': -12.9350988, 'poi_longitude': -38.3922428, 'poi_address': 'Patamares  Salvador - State of Bahia  41741-590  Brazil'}
+{'poi_id': 23, 'poi_name': 'Padaria Portugal', 'poi_preferences': 'bakery', 'poi_similarity': 1.0, 'poi_relevance': 0.598, 'poi_latitude': -12.9495448, 'poi_longitude': -38.364889399999996, 'poi_address': 'Praca Dorival Caymmi  50 - Itapua  Salvador - BA  41620-500  Brazil'}
+{'poi_id': 140, 'poi_name': 'CAFETERIA FLORIDA', 'poi_preferences': 'cafe', 'poi_similarity': 1.132389793560426, 'poi_relevance': 0.597, 'poi_latitude': -13.0039875, 'poi_longitude': -38.502319899999996, 'poi_address': 'Av. Anita Garibaldi  1815 - Ondina  Salvador - BA  40170-120  Brazil'}
+{'poi_id': 260, 'poi_name': 'Porto Brasil', 'poi_preferences': 'restaurant', 'poi_similarity': 1.0, 'poi_relevance': 0.574, 'poi_latitude': -12.991871699999999, 'poi_longitude': -38.4532083, 'poi_address': 'Rua Miguel Navarro Y Canizares  428 - Pituba  Salvador - BA  41810-215  Brazil'}
+{'poi_id': 359, 'poi_name': 'Mercado Modelo', 'poi_preferences': 'tourist_attraction', 'poi_similarity': 1.0, 'poi_relevance': 0.552, 'poi_latitude': -12.9730385, 'poi_longitude': -38.5314304, 'poi_address': 'Praca Visc. de Cayru  s/n - Comercio  Salvador - BA  40015-170  Brazil'}
+{'poi_id': 93, 'poi_name': 'Praia da Boa Viagem', 'poi_preferences': 'beach', 'poi_similarity': 1.1013840329542772, 'poi_relevance': 0.743, 'poi_latitude': -12.935095800000001, 'poi_longitude': -38.5098867, 'poi_address': 'Salvador - BA, 40301-155'}
+{'poi_id': 357, 'poi_name': 'Estadio Parque Santiago', 'poi_preferences': 'stadium', 'poi_similarity': 1.0, 'poi_relevance': 0.736, 'poi_latitude': -12.982511, 'poi_longitude': -38.47258619999999, 'poi_address': 'Avenida Santiago de Compostela - Parque Bela Vista  Salvador - BA  40279-150  Brazil'}
+{'poi_id': 165, 'poi_name': 'Cine Daten Paseo', 'poi_preferences': 'movie_theater', 'poi_similarity': 1.0, 'poi_relevance': 0.606, 'poi_latitude': -12.9955401, 'poi_longitude': -38.4712012, 'poi_address': 'Rua Rubens Guelli  135 - Itaigara  Salvador - BA  41815-135  Brazil'}
+
+ Intersecao: {93, 87}
+ Total: 2
