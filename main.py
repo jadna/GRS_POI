@@ -61,7 +61,6 @@ def flow(grspoi, technique = ''):
 
     group_pref_dict = sorted(group_pref_dict, key = lambda i: i['rating'],reverse=True)
 
-
     references = group_pref_dict[0:10]
 
     print("\n\n-->  Calculating recommendations...")
@@ -135,7 +134,7 @@ def flow(grspoi, technique = ''):
 
     """ #################     SAVE EXCEL   ############################### """
 
-    with open(str(my_group) + '_result_'+str(technique)+".txt", 'w') as f:
+    with open('./recomendacoestxt/'+str(my_group) + '_result_'+str(technique)+".txt", 'w') as f:
         f.write('Tecnica '+str(technique))
         f.write('\n')
         f.write('Grupo: ' + str(my_group))

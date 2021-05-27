@@ -1,0 +1,28 @@
+Tecnica MP
+Grupo: [574, 514, 584, 594, 544]
+Recomendacao Standard
+{'poi_id': 42, 'poi_name': 'O Cravinho', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9731406, 'poi_longitude': -38.5103061, 'poi_address': 'Largo Terreiro de Jesus  3 - Pelourinho  Salvador - BA  40026-010  Brazil'}
+{'poi_id': 43, 'poi_name': 'Alerta Praia Bar', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.950661199999999, 'poi_longitude': -38.3635003, 'poi_address': 'R. Aristides Milton  516 - Itapua  Salvador - BA  41301-110  Brazil'}
+{'poi_id': 47, 'poi_name': 'Rua 15 Restaurante e Bar', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9795299, 'poi_longitude': -38.4299455, 'poi_address': 'Av. Iemanja - Boca do Rio  Salvador - BA  41710-755  Brazil'}
+{'poi_id': 48, 'poi_name': 'Boteco Da Torre', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9502939, 'poi_longitude': -38.3652875, 'poi_address': 'R. Aristides Milton  s/n - Itapua  Salvador - BA  41610-011  Brazil'}
+{'poi_id': 50, 'poi_name': 'Bar Lagoa dos Frades', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9807799, 'poi_longitude': -38.4436399, 'poi_address': 'Tv. Arnaldo Lopes da Silva  940 - Stiep  Salvador - BA  41770-850  Brazil'}
+{'poi_id': 51, 'poi_name': 'Le Petit Bar', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9401138, 'poi_longitude': -38.335168599999996, 'poi_address': 'R. Cap. Melo  663 - Stella Maris  Salvador - BA  41.600  Brazil'}
+{'poi_id': 52, 'poi_name': 'Bar e Restaurante', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.912545199999999, 'poi_longitude': -38.4971898, 'poi_address': 'Av. Beira Mar  473 - Ribeira  Salvador - BA  40420-340  Brazil'}
+{'poi_id': 53, 'poi_name': 'Loro - Praia do Flamengo', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9226105, 'poi_longitude': -38.3148936, 'poi_address': 'R. Des. Manoel de Andrade Teixeira  266 - Praia do Flamengo  Salvador - BA  41603-135  Brazil'}
+{'poi_id': 54, 'poi_name': 'Bar Da Neuza - Point Do Mocoto', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9139649, 'poi_longitude': -38.367118100000006, 'poi_address': 'Mussurunga I  Salvador - State of Bahia  41490-412  Brazil'}
+{'poi_id': 55, 'poi_name': 'Varanda Ferreira Bar e Restaurante', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9652172, 'poi_longitude': -38.432680600000005, 'poi_address': 'Estr. das Pedrinhas  03 - Imbui  Salvador - BA  41720-340  Brazil'}
+
+Recomendacao Diversificada
+{'poi_id': 42, 'poi_name': 'O Cravinho', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9731406, 'poi_longitude': -38.5103061, 'poi_address': 'Largo Terreiro de Jesus  3 - Pelourinho  Salvador - BA  40026-010  Brazil'}
+{'poi_id': 43, 'poi_name': 'Alerta Praia Bar', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.950661199999999, 'poi_longitude': -38.3635003, 'poi_address': 'R. Aristides Milton  516 - Itapua  Salvador - BA  41301-110  Brazil'}
+{'poi_id': 48, 'poi_name': 'Boteco Da Torre', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9502939, 'poi_longitude': -38.3652875, 'poi_address': 'R. Aristides Milton  s/n - Itapua  Salvador - BA  41610-011  Brazil'}
+{'poi_id': 53, 'poi_name': 'Loro - Praia do Flamengo', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9226105, 'poi_longitude': -38.3148936, 'poi_address': 'R. Des. Manoel de Andrade Teixeira  266 - Praia do Flamengo  Salvador - BA  41603-135  Brazil'}
+{'poi_id': 50, 'poi_name': 'Bar Lagoa dos Frades', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9807799, 'poi_longitude': -38.4436399, 'poi_address': 'Tv. Arnaldo Lopes da Silva  940 - Stiep  Salvador - BA  41770-850  Brazil'}
+{'poi_id': 47, 'poi_name': 'Rua 15 Restaurante e Bar', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9795299, 'poi_longitude': -38.4299455, 'poi_address': 'Av. Iemanja - Boca do Rio  Salvador - BA  41710-755  Brazil'}
+{'poi_id': 51, 'poi_name': 'Le Petit Bar', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9401138, 'poi_longitude': -38.335168599999996, 'poi_address': 'R. Cap. Melo  663 - Stella Maris  Salvador - BA  41.600  Brazil'}
+{'poi_id': 54, 'poi_name': 'Bar Da Neuza - Point Do Mocoto', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9139649, 'poi_longitude': -38.367118100000006, 'poi_address': 'Mussurunga I  Salvador - State of Bahia  41490-412  Brazil'}
+{'poi_id': 55, 'poi_name': 'Varanda Ferreira Bar e Restaurante', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.9652172, 'poi_longitude': -38.432680600000005, 'poi_address': 'Estr. das Pedrinhas  03 - Imbui  Salvador - BA  41720-340  Brazil'}
+{'poi_id': 52, 'poi_name': 'Bar e Restaurante', 'poi_preferences': 'bar', 'poi_similarity': 1.0, 'poi_relevance': 7.802, 'poi_latitude': -12.912545199999999, 'poi_longitude': -38.4971898, 'poi_address': 'Av. Beira Mar  473 - Ribeira  Salvador - BA  40420-340  Brazil'}
+
+ Intersecao: {42, 43, 47, 48, 50, 51, 52, 53, 54, 55}
+ Total: 10

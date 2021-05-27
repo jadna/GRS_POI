@@ -75,7 +75,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
 
-        random_group = [374,384,394,404,414]
+        random_group = [424,454]
         #Pilote group 3: [224, 94, 234] (misturado)
         #Piloto group 2: [224, 234, 184] (conhecidos)
         #Piloto group 1: [134, 204, 214] (desconhecidos)
@@ -352,6 +352,7 @@ class GRSPOI():
         '''
         recs = []
         for poi in references:
+
             # Get the pairwsie similarity scores of all pois with that poi
             poi_idx = int(self.pois[self.pois['poiId']==poi['poiId']].index[0])
             sim_scores_name = list(enumerate(self.cosine_sim_pois_name[poi_idx]))
@@ -360,8 +361,8 @@ class GRSPOI():
             # Calculate total similarity based on title and genres
             total_sim_score = []
             for i in range(len(sim_scores_name)):
-                aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1])
-                #aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1]*(1-name_weight))
+                #aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1])
+                aux = (sim_scores_name[i][1]*name_weight) + (sim_scores_preferences[i][1]*(1-name_weight))
                 total_sim_score.append((i, aux))
                 
             # Sort the pois based on the similarity scores
@@ -376,7 +377,7 @@ class GRSPOI():
             k = k + 1
             candidates_sim_score = candidates_sim_score[1:k]
             recs.append(candidates_sim_score)
-            
+         
         return recs
     
     def get_relevance_score(self, recs, references):
@@ -415,12 +416,12 @@ class GRSPOI():
 
             count=count+1
 
-        #recs_dict = sorted(recs_dict, key = lambda i: i['poi_similarity'],reverse=False)
+        #recs_dict = sorted(recs_dict, key = lambda i: i['poi_similarity'],reverse=True)
         recs_dict = sorted(recs_dict, key = lambda i: i['poi_relevance'],reverse=True)
         
         return recs_dict
     
-    def calc_distance_item_in_list(self, item, this_list, name_weight=0.5):
+    def calc_distance_item_in_list(self, item, this_list, name_weight=0.8):
         ''' Calculates the total distance of an item in relation to a given list.
             Returns the total distance.
         '''
