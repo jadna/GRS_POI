@@ -1,7 +1,7 @@
 userId,email,latitude,longitude
 94,freddurao@gmail.com,-13.0023301,-38.453435899999995
 134,marcos_beny@hotmail.com,-12.976928,-38.425337
-184,jonatan.apps@outlook.com,-12.8976579,-38.3184576
+184,jonatan.apps@outlook.com,38.704524299999996,-9.1985834
 204,Guiu_barbosa@yahoo.com.br,-12.9935889,-38.4769529
 214,anderson_qdv@hotmail.com,-12.9383267,-38.37918535471116
 224,carolioli@outlook.com,-12.986111292892858,-38.46764996040292
@@ -10,14 +10,15 @@ userId,email,latitude,longitude
 254,amandachagasufba@gmail.com,-12.9938171,-38.5224724
 264,diogovss@gmail.com,-15.4719157,-44.3803842
 274,paulo.prsdesouza@gmail.com,-13.0103544,-38.53287
-284,vcrmartinez@gmail.com,-13.0060716,-38.5175291
+284,vcrmartinez@gmail.com,13.8000382,-88.9140683
 294,mrivaldojr@gmail.com,-12.986161,-38.5143376
-304,jp.dias.almeida@gmail.com,-13.0074083,-38.5117205
-314,diegocorrea.cc@gmail.com,-12.9941629,-38.5156447
-324,antoniobatistast1@gmail.com,-12.9847589,-38.5114499
+304,jp.dias.almeida@gmail.com,13.8000382,-88.9140683
+314,diegocorrea.cc@gmail.com,13.8000382,-88.9140683
+324,antoniobatistast1@gmail.com,13.8000382,-88.9140683
 334,luispscarvalho@gmail.com,-12.9711766,-38.4301029
-344,lucas.almeida.las@gmail.com,-12.9857057,-38.517944
+344,lucas.almeida.las@gmail.com,-12.7141484,-38.3197117
 354,ramonflmr@gmail.com,-13.011357,-38.482258
+364,freddurao@gmail.com,-12.956467199999999,-38.4630784
 374,samireliaslion@gmail.com,-12.9704534,-38.487042599999995
 384,angelmario.santana@ufba.br,-12.888347,-38.346198099999995
 394,jose.gildasio@ufba.br,-13.0037406,-38.5112804
@@ -34,7 +35,6 @@ userId,email,latitude,longitude
 504,nogueira.thiago@ufba.br,-12.8970983,-38.3031517
 514,dudaseifert@hotmail.com,-12.966297599999999,-38.4335872
 524,caiosacramento@hotmail.com,-12.9335002,-38.411350899999995
-534,ffdurao@ufba.br,-13.0056192,-38.4630784
 544,leonora.conceicao@ufna.br,-12.6976,-38.341836799999996
 554,adamrammensee@gmail.com,-12.987676899999999,-38.5375255
 564,ingoalmeida@hotmail.com,-12.976128000000001,-38.4958464
@@ -43,3 +43,8 @@ userId,email,latitude,longitude
 594,ysm.thalles@gmail.com,-12.978534849999999,-38.45466029076958
 604,mateus.machado@ufba.br,-12.965133999999999,-38.4993244
 614,lucasnbp@ufba.br,-13.0004235,-38.49835789999999
+624,igoor1205@gmail.com,-12.9641,-38.5058
+644,renatalrs@ufba.br,-13.003676,-38.5100127
+654,alissonos@ufba.br,-12.889587299999999,-38.3481734
+664,giuseppe.luca@ufba.br,-12.8863,-38.323
+674,unjunior@hotmail.com,-12.959743999999999,-38.4761856
