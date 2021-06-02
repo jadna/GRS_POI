@@ -74,9 +74,9 @@ def flow(grspoi, technique = ''):
     arr_recs = []
     for poi in candidates_list[0:10]:
         ids_candidates_list.append(poi['poi_id'])
-        arr_recs.append((poi['poi_name'], poi['poi_preferences'], poi['poi_address'], poi['poi_id'], poi['poi_similarity'], poi['poi_relevance'], poi['latitude'], poi['longitude']))
-        #print('poiId: {}, relevance: {}, name:{}, description:{}, address: {}'.format(poi['poi_id'], poi['poi_relevance'], poi['poi_name'], poi['poi_preferences'], poi['poi_address']))
-        print('name:{}, description:{}, address: {}'.format(poi['poi_name'], poi['poi_preferences'], poi['poi_address']))
+        arr_recs.append((poi['poi_name'], poi['poi_preferences'], poi['poi_address'], poi['poi_id'], poi['poi_similarity'], poi['poi_relevance'], poi['poi_latitude'], poi['poi_longitude']))
+        print('poiId: {}, relevance: {}, name:{}, description:{}, address: {}'.format(poi['poi_id'], poi['poi_relevance'], poi['poi_name'], poi['poi_preferences'], poi['poi_address']))
+        #print('name:{}, description:{}, address: {}'.format(poi['poi_name'], poi['poi_preferences'], poi['poi_address']))
 
     #Pega os ids para fazer a interceção
     ids_final_recs_greedy = []
@@ -86,9 +86,9 @@ def flow(grspoi, technique = ''):
     print("\n\n-->  The top-10 GREEDY DIVERSIFIED recs are:\n")
     for item in final_recs_greedy:
         ids_final_recs_greedy.append(item['poi_id'])
-        arr_greedy.append((item['poi_name'], item['poi_preferences'], item['poi_address'], item['poi_id'], item['poi_similarity'], item['poi_relevance'], item['latitude'], item['longitude']))
-        #print('poiId: {}, relevance: {}, name:{}, description:{}, address: {}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences'], item['poi_address']))
-        print('name:{}, description:{}, address: {}'.format(item['poi_name'], item['poi_preferences'], item['poi_address']))
+        arr_greedy.append((item['poi_name'], item['poi_preferences'], item['poi_address'], item['poi_id'], item['poi_similarity'], item['poi_relevance'], item['poi_latitude'], item['poi_longitude']))
+        print('poiId: {}, relevance: {}, name:{}, description:{}, address: {}'.format(item['poi_id'], item['poi_relevance'], item['poi_name'], item['poi_preferences'], item['poi_address']))
+        #print('name:{}, description:{}, address: {}'.format(item['poi_name'], item['poi_preferences'], item['poi_address']))
 
     #Pega os ids para fazer a interceção
     ids_final_recs_random = []
