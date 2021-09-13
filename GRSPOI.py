@@ -27,8 +27,6 @@ from geopy.distance import geodesic
 from geopy import distance
 from matplotlib import pyplot
 
-
-
 class GRSPOI():
     
     #pd.set_option('display.max_columns', None)
