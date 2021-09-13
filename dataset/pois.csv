@@ -59,19 +59,19 @@ poiId,name,latitude,longitude,preference,address
 58,30 Segundos Bar,-13.0092794,-38.4915051,bar,R. Ilheus  21 - Rio Vermelho  Salvador - BA  41940-570  Brazil
 59,Nova Alegria Bar e Restaurante,-12.9693386,-38.437136,bar,Av. Jorge Amado  s/n - Imbui  Salvador - BA  41720-005  Brazil
 60,BaO Petiscaria,-12.97853,-38.4450989,bar,R. Manoel Joaquim Alves  314 - Stiep  Salvador - BA  41770-165  Brazil
-61,Beckels Pizza,-12.9919109,-38.4551933,bar,"R. das Rosas, 198 - Pituba, Salvador - BA, 41810-070"
-62,Bar Da Chica,-12.9488544,-38.3694839,bar,"R. Manoel Lisboa - Itapuã, Salvador - BA, 41635-840"
-63,Zaccaria Bar,-12.9935325,-38.4555036,bar,"R. das Margaridas, 90 - Pituba, Salvador - BA, 41810-100"
-64,Nachos Mexican Bar,-12.9365739,-38.3952434,bar,"Av. Luís Viana Filho, 8544 - Paralela, Salvador - BA, 41730-101"
-65,Pra Comecar! Bar Balada Musica ao Vivo Salvador,-13.0080024,-38.4640591,bar,"Av. Manoel Dias da Silva, 1345 - Pituba, Salvador - BA, 41830-001"
-66,Barzinho,-13.0075328,-38.4823458,bar,"R. Ipiranga, 101 - Rio Vermelho, Salvador - BA, 41926-060"
-67,Eu Vi! Music Bar,-12.9935309,-38.4528697,bar,"Rua Miguel Navarro Y Cañizares, 234 - Pituba, Salvador - BA, 41810-215"
-68,Oxente Bar e Petiscaria,-12.9539823,-38.4605298,bar,"Alameda Uberaba, 445 - Cabula, Salvador - BA, 41150-000"
-69,Bar e Churrascaria Uai Bode,-12.9314504,-38.4083654,bar,"R. Mocambo, 03 - Trobogy, Salvador - BA, 41745-037"
-70,Posto 12 - Bar e Restaurante,-12.9506237,-38.3631041,bar,"R. Aristídes Milton, 33 - Itapuã, Salvador - BA, 41610-011"
-71,agua de Pote,-12.9468413,-38.3700574,bar,"1A Travessa Nova Esperança - Itapuã, Salvador - BA, 41620-495"
-72,Sentollas Bar e Restaurante,-12.967751,-38.4082736,bar,"R. Manoel Antônio Galvão, 361 - Pituaçu, Salvador - BA, 41741-550"
-72,Bar do Americo,-12.9321912,-38.4216671,bar,"R. Prof. Milton Santos, 2 - Canabrava, Salvador - BA, 41250-470"
+61,Beckels Pizza,-12.9919109,-38.4551933,bar,R. das Rosas  198 - Pituba  Salvador - BA  41810-070
+62,Bar Da Chica,-12.9488544,-38.3694839,bar,R. Manoel Lisboa - Itapuã  Salvador - BA  41635-840
+63,Zaccaria Bar,-12.9935325,-38.4555036,bar,R. das Margaridas  90 - Pituba  Salvador - BA  41810-100
+64,Nachos Mexican Bar,-12.9365739,-38.3952434,bar,Av. Luís Viana Filho  8544 - Paralela  Salvador - BA  41730-101
+65,Pra Comecar! Bar Balada Musica ao Vivo Salvador,-13.0080024,-38.4640591,bar,Av. Manoel Dias da Silva  1345 - Pituba  Salvador - BA  41830-001
+66,Barzinho,-13.0075328,-38.4823458,bar,R. Ipiranga  101 - Rio Vermelho  Salvador - BA  41926-060
+67,Eu Vi! Music Bar,-12.9935309,-38.4528697,bar,Rua Miguel Navarro Y Cañizares  234 - Pituba  Salvador - BA  41810-215
+68,Oxente Bar e Petiscaria,-12.9539823,-38.4605298,bar,Alameda Uberaba  445 - Cabula  Salvador - BA  41150-000
+69,Bar e Churrascaria Uai Bode,-12.9314504,-38.4083654,bar,R. Mocambo  03 - Trobogy  Salvador - BA  41745-037
+70,Posto 12 - Bar e Restaurante,-12.9506237,-38.3631041,bar,R. Aristídes Milton  33 - Itapuã  Salvador - BA  41610-011
+71,agua de Pote,-12.9468413,-38.3700574,bar,1A Travessa Nova Esperança - Itapuã  Salvador - BA  41620-495
+72,Sentollas Bar e Restaurante,-12.967751,-38.4082736,bar,R. Manoel Antônio Galvão  361 - Pituaçu  Salvador - BA  41741-550
+72,Bar do Americo,-12.9321912,-38.4216671,bar,R. Prof. Milton Santos  2 - Canabrava  Salvador - BA  41250-470
 73,Bar Zulu,-12.9742321,-38.5082679,bar,R. das Laranjeiras  15 - Pelourinho  Salvador - BA  40026-230  Brazil
 74,Touro Louco,-12.9445927,-38.3408498,bar,Alameda Praia de Camburiu  108 - Stella Maris  Salvador - BA  41600-460  Brazil
 75,Bar do Mamao,-12.9476971,-38.3606972,bar,R. Min. Carlos Coqueijo Costa  103 - Itapua  Salvador - BA  41620-810  Brazil
@@ -91,29 +91,29 @@ poiId,name,latitude,longitude,preference,address
 89,Praia da 3a Ponte,-12.960843,-38.39589,beach,Praia da 3a Ponte  Salvador - State of Bahia  Brazil
 90,Praia da Paciencia,-13.0108371,-38.4970545,beach,Praia da Paciencia - Rio Vermelho  Salvador - State of Bahia  40170-010  Brazil
 91,Praia do Rio Vermelho,-13.0116048,-38.4924984,beach,Praia do Rio Vermelho  State of Bahia  Brazil
-92,Praia do Roma,-12.934611,-38.5654064,beach,"R. Alzira, 1 - Roma, Salvador - BA, 40444-080"
-93,Praia da Boa Viagem,-12.9350958,-38.5098867,beach,"Salvador - BA, 40301-155"
+92,Praia do Roma,-12.934611,-38.5654064,beach,R. Alzira  1 - Roma  Salvador - BA  40444-080
+93,Praia da Boa Viagem,-12.9350958,-38.5098867,beach,Salvador - BA  40301-155
 94,Praia de Jaguaribe,-12.9606183,-38.3947197,beach,Bahia
 95,Praia do Farol da Barra,-13.0098997,-38.5284848,beach,Salvador - BA
-96,Praia de Stella Maris,-12.9488167,-38.341097,beach,"Bahia, 41600-090"
+96,Praia de Stella Maris,-12.9488167,-38.341097,beach,Bahia  41600-090
 97,Praia de Ondina,-13.0114754,-38.506261,beach,Bahia
-98,Praia do Chega Nego,-13.0013978,-38.4492581,beach,"Salvador - BA, 40301-155"
+98,Praia do Chega Nego,-13.0013978,-38.4492581,beach,Salvador - BA  40301-155
 99,Praia da Pituba,-13.0098382,-38.4634244,beach,Bahia
-100,Praia da Pedra do Sal,-12.9501728,-38.3429332,beach,"R. Alves Ribeiro, 151 - Itapuã, Salvador - BA, 41301-110"
+100,Praia da Pedra do Sal,-12.9501728,-38.3429332,beach,R. Alves Ribeiro  151 - Itapuã  Salvador - BA  41301-110
 101,Praia de Armacao,-12.9957437,-38.4408488,beach,Bahia
-102,Praia de Sao Tome de Paripe,-12.823175,-38.4858876,beach,"R. Benjamin de Souza - São Tomé de Paripe, Salvador - BA, 40800-201"
+102,Praia de Sao Tome de Paripe,-12.823175,-38.4858876,beach,R. Benjamin de Souza - São Tomé de Paripe  Salvador - BA  40800-201
 103,Praia da Boca do Rio,-12.983283,-38.4296677,beach,Bahia
-104,Praia de Aleluia,-12.9369397,-38.3267951,beach,"Bahia, 41600-090"
+104,Praia de Aleluia,-12.9369397,-38.3267951,beach,Bahia  41600-090
 105,Praia de Placafor,-12.9512414,-38.371031,beach,Bahia
-106,Jardim de Alah Beach,-12.997592,-38.4419699,beach,"Salvador - BA, 41750-240"
+106,Jardim de Alah Beach,-12.997592,-38.4419699,beach,Salvador - BA  41750-240
 107,Praia do Corsario,-12.9681066,-38.4057227,beach,Bahia
-108,Praia do Cantagalo,-12.9433066,-38.5035109,beach,"Salvador - BA, 40301-155"
-109,Praia dos Artistas,-12.977609,-38.4197128,beach,"Bahia, 41740-000"
-110,Praia do Buracao,-13.0148481,-38.4840314,beach,"Rio Vermelho, Salvador - BA, 41940-460"
-111,Praia Pedra do Sal,-12.9524313,-38.3460781,beach,"R. das Sete Casas - Itapuã, Salvador - BA, 41640-360"
+108,Praia do Cantagalo,-12.9433066,-38.5035109,beach,Salvador - BA  40301-155
+109,Praia dos Artistas,-12.977609,-38.4197128,beach,Bahia  41740-000
+110,Praia do Buracao,-13.0148481,-38.4840314,beach,Rio Vermelho  Salvador - BA  41940-460
+111,Praia Pedra do Sal,-12.9524313,-38.3460781,beach,R. das Sete Casas - Itapuã  Salvador - BA  41640-360
 112,Praia de Ipitanga,-12.9231499,-38.3137418,beach,Bahia
-113,Alameda Praia De Icarai,-12.9488167,-38.341097,beach,"Av. Mãe Stella de Oxóssi, 3066 - Stella Maris, Salvador - BA, 41600-090"
-114,Praia de Tubarao,-12.8344415,-38.4782363,beach,"Rua Dr. Eduardo Dotto, 1368-1478 - Paripe, Salvador - BA, 40800-003"
+113,Alameda Praia De Icarai,-12.9488167,-38.341097,beach,Av. Mãe Stella de Oxóssi  3066 - Stella Maris  Salvador - BA  41600-090
+114,Praia de Tubarao,-12.8344415,-38.4782363,beach,Rua Dr. Eduardo Dotto  1368-1478 - Paripe  Salvador - BA  40800-003
 115,Praia de Inema,-12.8097377,-38.4931326,beach,Salvador - BA
 116,Grao Santo Cafe,-12.9409191,-38.4156929,cafe,Patamares  Salvador - BA  41301-110  dentro do ferreira cosat  terreo - Patamares  BA  Brazil
 117,Cafeteria Havanna - Salvador Norte Shopping,-12.9092115,-38.3516729,cafe,RODOVIA  BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
@@ -156,10 +156,10 @@ poiId,name,latitude,longitude,preference,address
 154,Tabuleiro,-12.9137008,-38.3348494,fast-food,Aeroporto Internacional de Salvador  Praca Gago Coutinho - Dep. Luis Eduardo Magalhaes  3003 - Sao Cristovao  Salvador - BA  41510-055  Brazil
 155,Acaraje da Cira,-12.9503996,-38.3627759,fast-food,em frente ao Posto 12 - R. Aristides Milton  s/n - Itapua  Salvador - BA  41610-160  Brazil
 156,Rei da Pamonha,-12.9223502,-38.3596992,fast-food,Itapua  Salvador - State of Bahia  Brazil
-157,Burger King,-12.9819225,-38.5133291,fast-food,"R. Portão da Piedade, 155 - Dois de Julho, Salvador - BA, 40070-900"
-158,Cazolla Gastro Burguer Beer.,-12.9896638,-38.4596392,fast-food,"Av. Paulo VI, 1828 - Pituba, Salvador - BA, 41810-001"
-159,Croasonho,-12.9371172,-38.394604,fast-food,"Av. Luís Viana Filho, 8544 - Loja E 122 - Patamares, Salvador - BA, 41730-101"
-160,KAMIGOS - KEBAB,-12.9366876,-38.3945855,fast-food,"Shopping Paralela, Av. Luís Viana Filho, 8544, Salvador - BA, 41701-970"
+157,Burger King,-12.9819225,-38.5133291,fast-food,R. Portão da Piedade  155 - Dois de Julho  Salvador - BA  40070-900
+158,Cazolla Gastro Burguer Beer.,-12.9896638,-38.4596392,fast-food,Av. Paulo VI  1828 - Pituba  Salvador - BA  41810-001
+159,Croasonho,-12.9371172,-38.394604,fast-food,Av. Luís Viana Filho  8544 - Loja E 122 - Patamares  Salvador - BA  41730-101
+160,KAMIGOS - KEBAB,-12.9366876,-38.3945855,fast-food,Shopping Paralela  Av. Luís Viana Filho  8544  Salvador - BA  41701-970
 161,Sandwich Hall,-12.901765,-38.4201054,fast-food,
 162,Cinemark,-12.9779888,-38.45446829999999,movie_theater,Av. Tancredo Neves  2915 - Loja 3005 - Caminho das arvores  Salvador - BA  41820-910  Brazil
 163,Espaco Itau de Cinema - Salvador,-12.9772187,-38.5143266,movie_theater,Praca Castro Alves  s/n - Centro  Salvador - BA  40020-160  Brazil
@@ -320,24 +320,24 @@ poiId,name,latitude,longitude,preference,address
 318,Gattai,-12.9777725,-38.4547118,restaurant,Av. Tancredo Neves  3133 - 25 - Caminho das arvores  Salvador - BA  41820-910  Brazil
 319,Divino Fogao - Salvador Norte,-12.9094862,-38.3512129,restaurant,Rodovia  BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
 320,Restaurante Chez Bernard,-12.9845508,-38.52076599999999,restaurant,R. Gamboa de Cima  11 - Dois de Julho  Salvador - BA  40060-008  Brazil
-321,Larriquerri,-12.9944353,-38.5139205,restaurant,"Praça Alexandre Fernandes, 26 - Garcia, Salvador - BA, 40100-130"
-322,Casa de Fred,-12.966904,-38.423307,restaurant,"R. Fernando José Guimarães Rocha, 41 - Pituaçu, Salvador - BA, 41741-090"
-323,Vini Figueira Gastronomia,-13.0090858,-38.497164,restaurant,"Travessa Bartholomeu de Gusmão, 140 - Rio Vermelho, Salvador - BA, 41950-310"
-324,Rancho do Cupim Salvador,-12.9695339,-38.4114685,restaurant,"R. Marquês de Queluz, 728 - Pituaçu, Salvador - BA, 41740-170"
-325,Jabu Resto e Bar,-13.0102868,-38.4961408,restaurant,"Rua Eurycles de Mattos, 191 - Rio Vermelho, Salvador - BA, 41950-250"
-326,Don Papito,-12.9539278,-38.3830058,restaurant,"Av. Octávio Mangabeira, 06 - Piatã, Salvador - BA, 41610-160"
-327,La Taperia,-13.0108455,-38.4945434,restaurant,"R. da Paciência, 251 - Rio Vermelho, Salvador - BA, 41950-010"
-328,Restaurante A Venda,-12.9802453,-38.4307635,restaurant,"Ao lado da loja de Motos kawasaki - Av. Iemanjá, 40 - Boca do Rio, Salvador - BA, 41710-755"
-329,Boteco Portugues,-13.013051,-38.490438,restaurant,"R. Borges dos Reis, 16 - Rio Vermelho, Salvador - BA, 41950-600"
-330,Restaurante Oliva Gourmet - Shopping Paralela,-12.9372702,-38.3943891,restaurant,"Av. Luís Viana Filho, 8544 - Patamares, Salvador - BA, 41730-101"
-331,Mandioca Gourmet,-12.9374074,-38.3947592,restaurant,"Av. Luís Viana, 8544, Shopping Paralela, Piso L1 - Paralela, Salvador - BA, 41730-101"
-332,Belisco - Restaurante Snack Bar,-12.9381142,-38.3994795,restaurant,"RedeMix - Av. Luís Viana Filho, 7876 - Alphaville I, Salvador - BA, 41701-005"
-333,Alemto e Dom Alberti,-12.937802,-38.397539,restaurant,"Ed. Plaza Mall - Av. Luis Viana, Av. Alphaville, 8050, Salvador - BA, 41701-005"
-334,Mariposa,-12.9371496,-38.3943563,restaurant,"Shopping Paralela, Av. Luís Viana Filho, 8544 - L2 - Paralela, Salvador - BA, 41730-101"
-335,A Casa Vidal,-12.982961,-38.459641,restaurant,"Alameda das Cajazeiras, 417 - Caminho das Árvores, Salvador - BA, 41820-470"
-336,Sal e Brasa Grill Express Shopping Paralela,-12.9372045,-38.3955832,restaurant,"Av. Luís Viana Filho, 8544 - Paralela, Salvador - BA, 41730-101"
-337,Restaurante Encanto do Picui,-12.9498786,-38.3644122,restaurant,"R. Aristídes Milton, 7 - Itapuã, Salvador - BA, 41610-011"
-338,Restaurante Asa de ouro,-12.9310105,-38.4084353,restaurant,"Estr. da Ilha do Mocambo, 28 - Trobogy, Salvador - BA, 41745-050"
+321,Larriquerri,-12.9944353,-38.5139205,restaurant,Praça Alexandre Fernandes  26 - Garcia  Salvador - BA  40100-130
+322,Casa de Fred,-12.966904,-38.423307,restaurant,R. Fernando José Guimarães Rocha  41 - Pituaçu  Salvador - BA  41741-090
+323,Vini Figueira Gastronomia,-13.0090858,-38.497164,restaurant,Travessa Bartholomeu de Gusmão  140 - Rio Vermelho  Salvador - BA  41950-310
+324,Rancho do Cupim Salvador,-12.9695339,-38.4114685,restaurant,R. Marquês de Queluz  728 - Pituaçu  Salvador - BA  41740-170
+325,Jabu Resto e Bar,-13.0102868,-38.4961408,restaurant,Rua Eurycles de Mattos  191 - Rio Vermelho  Salvador - BA  41950-250
+326,Don Papito,-12.9539278,-38.3830058,restaurant,Av. Octávio Mangabeira  06 - Piatã  Salvador - BA  41610-160
+327,La Taperia,-13.0108455,-38.4945434,restaurant,R. da Paciência  251 - Rio Vermelho  Salvador - BA  41950-010
+328,Restaurante A Venda,-12.9802453,-38.4307635,restaurant,Ao lado da loja de Motos kawasaki - Av. Iemanjá  40 - Boca do Rio  Salvador - BA  41710-755
+329,Boteco Portugues,-13.013051,-38.490438,restaurant,R. Borges dos Reis  16 - Rio Vermelho  Salvador - BA  41950-600
+330,Restaurante Oliva Gourmet - Shopping Paralela,-12.9372702,-38.3943891,restaurant,Av. Luís Viana Filho  8544 - Patamares  Salvador - BA  41730-101
+331,Mandioca Gourmet,-12.9374074,-38.3947592,restaurant,Av. Luís Viana  8544  Shopping Paralela  Piso L1 - Paralela  Salvador - BA  41730-101
+332,Belisco - Restaurante Snack Bar,-12.9381142,-38.3994795,restaurant,RedeMix - Av. Luís Viana Filho  7876 - Alphaville I  Salvador - BA  41701-005
+333,Alemto e Dom Alberti,-12.937802,-38.397539,restaurant,Ed. Plaza Mall - Av. Luis Viana  Av. Alphaville  8050  Salvador - BA  41701-005
+334,Mariposa,-12.9371496,-38.3943563,restaurant,Shopping Paralela  Av. Luís Viana Filho  8544 - L2 - Paralela  Salvador - BA  41730-101
+335,A Casa Vidal,-12.982961,-38.459641,restaurant,Alameda das Cajazeiras  417 - Caminho das Árvores  Salvador - BA  41820-470
+336,Sal e Brasa Grill Express Shopping Paralela,-12.9372045,-38.3955832,restaurant,Av. Luís Viana Filho  8544 - Paralela  Salvador - BA  41730-101
+337,Restaurante Encanto do Picui,-12.9498786,-38.3644122,restaurant,R. Aristídes Milton  7 - Itapuã  Salvador - BA  41610-011
+338,Restaurante Asa de ouro,-12.9310105,-38.4084353,restaurant,Estr. da Ilha do Mocambo  28 - Trobogy  Salvador - BA  41745-050
 339,Salvador Shopping,-12.9785389,-38.4550888,shopping_mall,Av. Tancredo Neves  3133 - Caminho das arvores  Salvador - BA  41820-021  Brazil
 340,Salvador Norte Shopping,-12.9090341,-38.3518871,shopping_mall,BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
 341,Shopping da Bahia,-12.9811659,-38.46503209999999,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
@@ -389,35 +389,35 @@ poiId,name,latitude,longitude,preference,address
 387,Pe do Conselho,-13.0153064,-38.4884599,tourist_attraction,R. Monte Conselho  260 - Rio Vermelho  Salvador - BA  41940-370  Brazil
 388,Roma Beach,-12.9383674,-38.5066421,tourist_attraction,R. Alzira  1 - Roma  Salvador - BA  40444-080  Brazil
 389,PRAIA DOS COMPLEXADOS,-13.0096591,-38.4956519,tourist_attraction,Rio Vermelho  Salvador - State of Bahia  41950-000  Brazil
-390,Forte de Monte Serrat,-12.9299294,-38.5351303,tourist_attraction,"Ponta de, Tv. Humaitá, Salvador - BA, 40301-155"
-391,Mirante Plinio de Lima,-12.9755815,-38.5591582,tourist_attraction,"R. Plínio de Lima, 1 - Monte Serrat, Salvador - BA, 40415-065 - Bonfim, Salvador - BA, 40415-530"
-392,Farol da Barra - Forte de Santo Antonio da Barra,-13.0103389,-38.532898,tourist_attraction,"Largo do Farol da Barra, S/N - Barra, Salvador - BA, 40140-650"
-393,Mirante da Praca da Se,-12.9733319,-38.5118686,tourist_attraction,"Comercio, Salvador - BA, 40301-155"
-394,Antigo Mercado do Peixe - Rio Vermelho,-13.0143275,-38.4882107,tourist_attraction,"Praça Caramuru, 2 - Rio Vermelho, Salvador - BA, 41940-370"
-395,Monumento As Meninas do Brasil (Gordinhas),-13.0101438,-38.5092151,tourist_attraction,"93, Av. Adhemar de Barros, 19 - Ondina, Salvador - BA"
-396,Morro do Cristo,-13.0107871,-38.5238882,tourist_attraction,"Av. Oceânica - Barra, Salvador - BA"
-397,Pe do Caboclo,-12.9890787,-38.5213969,tourist_attraction,"Largo do Campo Grande - Canela, Salvador - BA, 40301-110"
-398,Praia de Itacaranha,-12.8874992,-38.4869829,tourist_attraction,"R. Prof. Lustosa, 34 - Itacaranha, Salvador - BA, 40713-130"
-399,Forte de Sao Pedro,-12.9871649,-38.520629,tourist_attraction,"R. Gamboa de Cima, S/N - Campo Grande, Salvador - BA, 40080-060"
-400,Espaco Cultural da Barroquinha,-12.977465,-38.5145023,tourist_attraction,"Rua do Couro, s/ n - Barroquinha, Salvador - BA, 40020-160"
-401,Lagoa do Abaete,-12.9450766,-38.3572362,tourist_attraction,"Itapuã, Salvador - BA, 41600-090"
-402,Dique Tororo,-12.9844852,-38.5063431,tourist_attraction,"Nazaré, Salvador - BA, 40301-110"
-403,Estatua Dom Pedro Fernandes Sardinha,-12.9735864,-38.5112113,tourist_attraction,"Praça da Sé, 25-35 - Pelourinho, Salvador - BA, 40020-210"
-404,Igreja e Convento de Sao Francisco,-12.9747001,-38.50903,tourist_attraction,"Largo do Cruzeiro de São Francisco, S/N - Pelourinho, Salvador - BA, 40020-280"
-405,Paroquia Nossa Senhora da Conceicao de Itapua,-12.9488386,-38.36448,tourist_attraction,"Itapuã, Salvador - BA, 41610-690"
-406,Igreja Nossa Senhora do Rosario dos Pretos,-12.9711416,-38.508063,tourist_attraction,"Largo do Pelourinho, s/n - Pelourinho, Salvador - BA, 40026-280"
-407,Igreja Nossa Senhora dos Mares,-12.942694,-38.5009591,tourist_attraction,"Uruguai, Salvador - BA, 40410-400"
-408,Basilica Santuario Nossa Senhora da Conceicao da Praia,-12.9752279,-38.5144149,tourist_attraction,"Rua da Conceição da Praia, S/N - Comercio, Salvador - BA, 40015-250"
-409,Igreja de Nossa Senhora Da Ajuda,-12.9759694,-38.5129719,tourist_attraction,"Comercio, Salvador - BA, 40301-110"
-410,Igreja Nossa Senhora do Carmo de Salvador,-12.9692669,-38.5074573,tourist_attraction,"R. do Carmo, 1 - Santo Antônio Além do Carmo, Salvador - BA, 40301-380"
-411,Igreja Santo Antonio da Barra,-13.0013105,-38.5321295,tourist_attraction,"Praça Santo Antônio da Barra, 1 - Barra, Salvador - BA, 40130-130"
-412,Paroquia de SantAna do Rio Vermelho,-13.0126631,-38.4916662,tourist_attraction,"R. Guedes Cabral, 143 - Rio Vermelho, Salvador - BA, 41950-620"
-413,Igreja de Sao Domingos Gusmao,-12.9735715,-38.5094122,tourist_attraction,"Largo Terreiro de Jesus, s/n - Pelourinho, Salvador - BA, 40026-010"
-414,Igreja da Ordem Terceira Secular de Sao Francisco,-12.9744299,-38.5088632,tourist_attraction,"Rua da Ordem Terceira, S/N - Pelourinho, Salvador - BA, 40026-010"
-415,Igreja Nossa Senhora da Luz,-13.0051935,-38.456456,tourist_attraction,"Praça Nossa Senhora da Luz, s/n - Pituba, Salvador - BA, 41830-001"
-416,Catedral Basilica de Salvador,-12.9728526,-38.5104604,tourist_attraction,"Largo Terreiro de Jesus, s/n - Pelourinho, Salvador - BA, 40020-210"
-417,Igreja de Sao Pedro dos Clerigos,-12.9730521,-38.5094956,tourist_attraction,"Largo Terreiro de Jesus, s/n - Pelourinho, Salvador - BA, 40025-010"
-418,Igreja e Convento de Nossa Senhora da Piedade,-12.9834581,-38.5145326,tourist_attraction,"Praça da Piedade, SN - Barris, Salvador - BA, 40060-300"
-419,Igreja do Santissimo Sacramento do Passo,-12.9695439,-38.5081175,tourist_attraction,"R. do Passo, 52A - Santo Antônio Além do Carmo, Salvador - BA, 40301-408"
+390,Forte de Monte Serrat,-12.9299294,-38.5351303,tourist_attraction,Ponta de  Tv. Humaitá  Salvador - BA  40301-155
+391,Mirante Plinio de Lima,-12.9755815,-38.5591582,tourist_attraction,R. Plínio de Lima  1 - Monte Serrat  Salvador - BA  40415-065 - Bonfim  Salvador - BA  40415-530
+392,Farol da Barra - Forte de Santo Antonio da Barra,-13.0103389,-38.532898,tourist_attraction,Largo do Farol da Barra  S/N - Barra  Salvador - BA  40140-650
+393,Mirante da Praca da Se,-12.9733319,-38.5118686,tourist_attraction,Comercio  Salvador - BA  40301-155
+394,Antigo Mercado do Peixe - Rio Vermelho,-13.0143275,-38.4882107,tourist_attraction,Praça Caramuru  2 - Rio Vermelho  Salvador - BA  41940-370
+395,Monumento As Meninas do Brasil (Gordinhas),-13.0101438,-38.5092151,tourist_attraction,93  Av. Adhemar de Barros  19 - Ondina  Salvador - BA
+396,Morro do Cristo,-13.0107871,-38.5238882,tourist_attraction,Av. Oceânica - Barra  Salvador - BA
+397,Pe do Caboclo,-12.9890787,-38.5213969,tourist_attraction,Largo do Campo Grande - Canela  Salvador - BA  40301-110
+398,Praia de Itacaranha,-12.8874992,-38.4869829,tourist_attraction,R. Prof. Lustosa  34 - Itacaranha  Salvador - BA  40713-130
+399,Forte de Sao Pedro,-12.9871649,-38.520629,tourist_attraction,R. Gamboa de Cima  S/N - Campo Grande  Salvador - BA  40080-060
+400,Espaco Cultural da Barroquinha,-12.977465,-38.5145023,tourist_attraction,Rua do Couro  s/ n - Barroquinha  Salvador - BA  40020-160
+401,Lagoa do Abaete,-12.9450766,-38.3572362,tourist_attraction,Itapuã  Salvador - BA  41600-090
+402,Dique Tororo,-12.9844852,-38.5063431,tourist_attraction,Nazaré  Salvador - BA  40301-110
+403,Estatua Dom Pedro Fernandes Sardinha,-12.9735864,-38.5112113,tourist_attraction,Praça da Sé  25-35 - Pelourinho  Salvador - BA  40020-210
+404,Igreja e Convento de Sao Francisco,-12.9747001,-38.50903,tourist_attraction,Largo do Cruzeiro de São Francisco  S/N - Pelourinho  Salvador - BA  40020-280
+405,Paroquia Nossa Senhora da Conceicao de Itapua,-12.9488386,-38.36448,tourist_attraction,Itapuã  Salvador - BA  41610-690
+406,Igreja Nossa Senhora do Rosario dos Pretos,-12.9711416,-38.508063,tourist_attraction,Largo do Pelourinho  s/n - Pelourinho  Salvador - BA  40026-280
+407,Igreja Nossa Senhora dos Mares,-12.942694,-38.5009591,tourist_attraction,Uruguai  Salvador - BA  40410-400
+408,Basilica Santuario Nossa Senhora da Conceicao da Praia,-12.9752279,-38.5144149,tourist_attraction,Rua da Conceição da Praia  S/N - Comercio  Salvador - BA  40015-250
+409,Igreja de Nossa Senhora Da Ajuda,-12.9759694,-38.5129719,tourist_attraction,Comercio  Salvador - BA  40301-110
+410,Igreja Nossa Senhora do Carmo de Salvador,-12.9692669,-38.5074573,tourist_attraction,R. do Carmo  1 - Santo Antônio Além do Carmo  Salvador - BA  40301-380
+411,Igreja Santo Antonio da Barra,-13.0013105,-38.5321295,tourist_attraction,Praça Santo Antônio da Barra  1 - Barra  Salvador - BA  40130-130
+412,Paroquia de SantAna do Rio Vermelho,-13.0126631,-38.4916662,tourist_attraction,R. Guedes Cabral  143 - Rio Vermelho  Salvador - BA  41950-620
+413,Igreja de Sao Domingos Gusmao,-12.9735715,-38.5094122,tourist_attraction,Largo Terreiro de Jesus  s/n - Pelourinho  Salvador - BA  40026-010
+414,Igreja da Ordem Terceira Secular de Sao Francisco,-12.9744299,-38.5088632,tourist_attraction,Rua da Ordem Terceira  S/N - Pelourinho  Salvador - BA  40026-010
+415,Igreja Nossa Senhora da Luz,-13.0051935,-38.456456,tourist_attraction,Praça Nossa Senhora da Luz  s/n - Pituba  Salvador - BA  41830-001
+416,Catedral Basilica de Salvador,-12.9728526,-38.5104604,tourist_attraction,Largo Terreiro de Jesus  s/n - Pelourinho  Salvador - BA  40020-210
+417,Igreja de Sao Pedro dos Clerigos,-12.9730521,-38.5094956,tourist_attraction,Largo Terreiro de Jesus  s/n - Pelourinho  Salvador - BA  40025-010
+418,Igreja e Convento de Nossa Senhora da Piedade,-12.9834581,-38.5145326,tourist_attraction,Praça da Piedade  SN - Barris  Salvador - BA  40060-300
+419,Igreja do Santissimo Sacramento do Passo,-12.9695439,-38.5081175,tourist_attraction,R. do Passo  52A - Santo Antônio Além do Carmo  Salvador - BA  40301-408
 420,MIni Zoo (animais domesticos),-12.9455445,-38.3401746,zoo,Stella Maris  Salvador - State of Bahia  41600-090  Brazil
 421,Salvador Zoo and Botanical Park,-13.0094574,-38.5047836,zoo,Tv. Alto de Ondina  s/n - Ondina  Salvador - BA  40170-110  Brazil

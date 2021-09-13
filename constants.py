@@ -1,7 +1,5 @@
-#RATINGS_PATH = './dataset_test/rating_avaliacao.csv'
-#POIS_PATH = './dataset/pois.csv'
-#POIS_PATH = './dataset_test/all_pois.csv'
-#USER_PATH = './dataset_test/user_avaliacao.csv'
-RATINGS_PATH = './piloto/user_avaliacao.csv'
+RATINGS_PATH = './online/user_avaliacao.csv'
 POIS_PATH = './dataset/pois.csv'
-USER_PATH = './piloto/users.csv'
+USER_PATH = './online/users.csv'
+
+POI_WEIGHT = 0.7

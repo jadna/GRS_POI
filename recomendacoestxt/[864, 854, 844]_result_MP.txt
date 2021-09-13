@@ -1,0 +1,28 @@
+Tecnica MP
+Grupo: [864, 854, 844]
+Recomendacao Standard
+{'poi_id': 83, 'poi_name': 'Ondina Beach', 'poi_preferences': 'beach', 'poi_similarity': 0.44505711508572365, 'poi_relevance': 0.276, 'poi_latitude': -13.0103784, 'poi_longitude': -38.5120368, 'poi_address': 'Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil'}
+{'poi_id': 87, 'poi_name': 'Praia do Farol', 'poi_preferences': 'beach', 'poi_similarity': 0.3942615876678721, 'poi_relevance': 0.275, 'poi_latitude': -12.952961, 'poi_longitude': -38.348126, 'poi_address': 'Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil'}
+{'poi_id': 343, 'poi_name': 'Shopping salvador', 'poi_preferences': 'shopping_mall', 'poi_similarity': 0.4570297677145377, 'poi_relevance': 0.272, 'poi_latitude': -12.9789302, 'poi_longitude': -38.4534531, 'poi_address': 'Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil'}
+{'poi_id': 78, 'poi_name': 'Praia Do Flamengo', 'poi_preferences': 'beach', 'poi_similarity': 0.38170643608975807, 'poi_relevance': 0.269, 'poi_latitude': -12.9294757, 'poi_longitude': -38.3189825, 'poi_address': 'Praia Do Flamengo - R. Godofredo Filho  n 1911 - Praia do Flamengo  Salvador - BA  41603-285  Brazil'}
+{'poi_id': 82, 'poi_name': 'Praia de Piata', 'poi_preferences': 'beach', 'poi_similarity': 0.38170643608975807, 'poi_relevance': 0.269, 'poi_latitude': -12.9547946, 'poi_longitude': -38.3826836, 'poi_address': 'Av. Octavio Mangabeira - Piata  Salvador - BA  41610-160  Brazil'}
+{'poi_id': 92, 'poi_name': 'Praia do Roma', 'poi_preferences': 'beach', 'poi_similarity': 0.38170643608975807, 'poi_relevance': 0.269, 'poi_latitude': -12.934611, 'poi_longitude': -38.5654064, 'poi_address': 'R. Alzira, 1 - Roma, Salvador - BA, 40444-080'}
+{'poi_id': 97, 'poi_name': 'Praia de Ondina', 'poi_preferences': 'beach', 'poi_similarity': 0.38170643608975807, 'poi_relevance': 0.269, 'poi_latitude': -13.0114754, 'poi_longitude': -38.506261, 'poi_address': 'Bahia'}
+{'poi_id': 101, 'poi_name': 'Praia de Armacao', 'poi_preferences': 'beach', 'poi_similarity': 0.38170643608975807, 'poi_relevance': 0.269, 'poi_latitude': -12.9957437, 'poi_longitude': -38.4408488, 'poi_address': 'Bahia'}
+{'poi_id': 104, 'poi_name': 'Praia de Aleluia', 'poi_preferences': 'beach', 'poi_similarity': 0.38170643608975807, 'poi_relevance': 0.269, 'poi_latitude': -12.9369397, 'poi_longitude': -38.3267951, 'poi_address': 'Bahia, 41600-090'}
+{'poi_id': 79, 'poi_name': 'Salvador Beach Club', 'poi_preferences': 'beach', 'poi_similarity': 0.42888820718315823, 'poi_relevance': 0.268, 'poi_latitude': -12.9661911, 'poi_longitude': -38.4038636, 'poi_address': 'Salvador Beach Club - Av. Octavio Mangabeira  2012 - Patamares  Salvador - BA  41680-000  Brazil'}
+
+Recomendacao Diversificada
+{'poi_id': 83, 'poi_name': 'Ondina Beach', 'poi_preferences': 'beach', 'poi_similarity': 0.44505711508572365, 'poi_relevance': 0.276, 'poi_latitude': -13.0103784, 'poi_longitude': -38.5120368, 'poi_address': 'Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil'}
+{'poi_id': 343, 'poi_name': 'Shopping salvador', 'poi_preferences': 'shopping_mall', 'poi_similarity': 0.4570297677145377, 'poi_relevance': 0.272, 'poi_latitude': -12.9789302, 'poi_longitude': -38.4534531, 'poi_address': 'Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil'}
+{'poi_id': 420, 'poi_name': 'MIni Zoo (animais domesticos)', 'poi_preferences': 'zoo', 'poi_similarity': 0.3934810837691811, 'poi_relevance': 0.261, 'poi_latitude': -12.9455445, 'poi_longitude': -38.3401746, 'poi_address': 'Stella Maris  Salvador - State of Bahia  41600-090  Brazil'}
+{'poi_id': 220, 'poi_name': 'Platinum Lounge and Bar | savior', 'poi_preferences': 'night_club', 'poi_similarity': 0.19999999999999996, 'poi_relevance': 0.186, 'poi_latitude': -12.9840784, 'poi_longitude': -38.4358024, 'poi_address': 'Av. Simon Bolivar  166 - Armacao  Salvador - BA  41750-230  Brazil'}
+{'poi_id': 165, 'poi_name': 'Cine Daten Paseo', 'poi_preferences': 'movie_theater', 'poi_similarity': 0.19999999999999996, 'poi_relevance': 0.181, 'poi_latitude': -12.9955401, 'poi_longitude': -38.4712012, 'poi_address': 'Rua Rubens Guelli  135 - Itaigara  Salvador - BA  41815-135  Brazil'}
+{'poi_id': 359, 'poi_name': 'Mercado Modelo', 'poi_preferences': 'tourist_attraction', 'poi_similarity': 0.19999999999999996, 'poi_relevance': 0.176, 'poi_latitude': -12.9730385, 'poi_longitude': -38.5314304, 'poi_address': 'Praca Visc. de Cayru  s/n - Comercio  Salvador - BA  40015-170  Brazil'}
+{'poi_id': 87, 'poi_name': 'Praia do Farol', 'poi_preferences': 'beach', 'poi_similarity': 0.3942615876678721, 'poi_relevance': 0.275, 'poi_latitude': -12.952961, 'poi_longitude': -38.348126, 'poi_address': 'Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil'}
+{'poi_id': 48, 'poi_name': 'Boteco Da Torre', 'poi_preferences': 'bar', 'poi_similarity': 0.19999999999999996, 'poi_relevance': 0.139, 'poi_latitude': -12.9502939, 'poi_longitude': -38.3652875, 'poi_address': 'R. Aristides Milton  s/n - Itapua  Salvador - BA  41610-011  Brazil'}
+{'poi_id': 222, 'poi_name': 'Boates aconchegantes', 'poi_preferences': 'night_club', 'poi_similarity': 0.19999999999999996, 'poi_relevance': 0.186, 'poi_latitude': -12.9722538, 'poi_longitude': -38.5013832, 'poi_address': 'R. do Limoeiro  106 - Nazare  Salvador - BA  40055-150  Brazil'}
+{'poi_id': 167, 'poi_name': 'Orient Cinemas', 'poi_preferences': 'movie_theater', 'poi_similarity': 0.19999999999999996, 'poi_relevance': 0.181, 'poi_latitude': -12.9364406, 'poi_longitude': -38.394295, 'poi_address': 'Av. Luis Viana Filho  8.544 - Paralela  Salvador - BA  41730-101  Brazil'}
+
+ Intersecao: {83, 343, 87}
+ Total: 3

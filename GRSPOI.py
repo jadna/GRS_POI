@@ -1,8 +1,8 @@
-RATINGS_PATH = './piloto/user_avaliacao.csv'
+RATINGS_PATH = './online/user_avaliacao.csv'
 POIS_PATH = './dataset/pois.csv'
-USER_PATH = './piloto/users.csv'
+USER_PATH = './online/users.csv'
 
-
+import constants
 import pandas as pd
 import numpy as np
 import random
@@ -75,7 +75,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
 
-        random_group = [824, 734, 764, 724, 754]
+        random_group = [864, 854, 844]
         #Pilote group 3: [224, 94, 234] (misturado)
         #Piloto group 2: [224, 234, 184] (conhecidos)
         #Piloto group 1: [134, 204, 214] (desconhecidos)
@@ -222,7 +222,6 @@ class GRSPOI():
         ''' somente os pois que foram avaliados por PELO MENOS UM membro do grupo  '''
         pois_filter = self.pois[self.pois['poiId'].isin(self.profile_pois)]
         
-        
         ''' #My API key
         ''' 
         api_file = open("api-key.txt", "r")
@@ -244,11 +243,9 @@ class GRSPOI():
                 print("POI: {} {}, {}, {}". format(poi_row['poiId'], poi_row['name'], poi_row['latitude'], poi_row['longitude']))'''
                                 
                 #COLOCA AS LOCALIZAÇÕES NAS VARIAVEIS
-                
                 origin = group_row['latitude'], group_row['longitude']
                 destination = poi_row['latitude'], poi_row['longitude']
                 
-                    
                 try:
                     #DISTANCE CALCULATION API -> Params: origem, destino, mode, language                   
                     query_distance = gmaps.distance_matrix(origin, destination)
@@ -297,7 +294,7 @@ class GRSPOI():
         distance_pivot_mtx = distance_pivot_mtx/1000
 
 
-        ''' Multiplica a matrix distancia pela matrix preferencia'''
+        ''' Divide a matrix distancia pela matrix preferencia'''
         group_mpd = []
         group_mpd = group_filled_mtx/distance_pivot_mtx
         
@@ -625,3 +622,115 @@ class GRSPOI():
     
     def intersection(lst1, lst2):
         return list(set(lst1) & set(lst2))
+
+    # # # # # # # # # # # # # #
+    # # >> EVALUATION MODULE
+    # # # # # # # # # # # # # # # # # # # # # #
+    # # # >> Intra List Diversity (ILD) module
+    # # # # # # # # # # # # # # # # # # # # # #
+    def calc_distance_i_j(self, idx_i, idx_j):
+        ''' Calculates the distace between item i and item j.
+            Returns the distance.
+        '''
+        sim_pois = self.cosine_sim_pois_name[idx_i][idx_j]
+        sim_preference = self.cosine_sim_pois_preference[idx_i][idx_j]
+
+        preferences_weight = (1 - constants.POI_WEIGHT) / 2
+        total_sim = (sim_pois*constants.POI_WEIGHT) + (sim_preference*(preferences_weight))
+        distance_score = 1 - total_sim
+
+        return distance_score
+
+    def get_distance_matrix(self, final_recs):
+        ''' Creates a distace matrix from item in a given list.
+            Returns the distance matrix.
+        '''
+        distance_matrix = []
+        for i in final_recs:
+            aux = []
+            poi_idx_i = int(self.pois[self.pois['poiId']==i['poi_id']].index[0])
+            for j in final_recs:
+                poi_idx_j = int(self.pois[self.pois['poiId']==j['poi_id']].index[0])
+                distance_i_j = self.calc_distance_i_j(poi_idx_i, poi_idx_j)
+                aux.append(distance_i_j)
+            distance_matrix.append(aux)
+            
+        return distance_matrix
+
+    def get_ILD_score(self, final_recs):
+        ''' Returns the ILD score of a given list.
+        '''
+        distance_matrix = self.get_distance_matrix(final_recs)
+        np_dist_mtx = np.array(distance_matrix)
+        upper_right = np.triu_indices(np_dist_mtx.shape[0], k=1)
+
+        ild_score = np.mean(np_dist_mtx[upper_right])
+        
+        return ild_score
+
+    # # # # # # # # # # # # # # # # # # # # # #
+    # # # >> Precision module
+    # # # # # # # # # # # # # # # # # # # # # #
+    def get_mean(self, item):
+        ''' Returns the mean of ratings of an item.
+        '''
+        print("Item: ",item)
+        converted_values = []
+        for ratings in item['ratings']:
+            for rating in ratings:
+                aux = float(rating)
+                converted_values.append(aux)
+
+        my_mean = sum(converted_values) / len(converted_values)
+        my_mean = round(my_mean, 3)
+
+        return my_mean
+
+
+    def get_items_means(self, items_list, at):
+        ''' Returns the mean of ratings of each item in a list AT certain top.
+        '''
+        my_copy = self.df_ratings.copy()
+
+        df_items_ratings = my_copy.groupby('poiId')['rating'].apply(list).reset_index(name='ratings')
+        print("df_items_ratings: ", df_items_ratings)
+        items_means = []
+
+        for i in items_list[:at]:
+            print("i: ", i)
+            item = df_items_ratings[df_items_ratings['poiId']==i['poi_id']]
+            print("item: ", item)
+            items_means.append(self.get_mean(item))
+
+        return items_means
+
+
+    def binary_mean(self, items_mean, cutoff):
+        ''' Returns the precision score using binary mean.
+        '''
+
+        print("cutoff", cutoff)
+        binary_mean = []
+        returned_items = []
+        for item in items_mean:
+            if item >= cutoff:
+                binary_mean.append(1)
+            else:
+                binary_mean.append(0)
+
+            returned_items.append(1)
+
+        return precision_score(binary_mean, returned_items)
+
+
+    def precision_at(self, items_list, at):
+        ''' Returns the precision score AT certain point of a the list.
+        '''
+        global_mean = self.trainset.global_mean
+        items_list_mean = self.get_items_means(items_list, at)
+
+        print("Global mean: {}, items_list_mean: {}".format(global_mean, items_list_mean))
+
+        precision = self.binary_mean(items_list_mean, global_mean)
+
+        return precision
