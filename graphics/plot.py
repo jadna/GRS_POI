@@ -8,14 +8,15 @@ import datetime
 import os
 
 dados = pd.read_csv('../dataset/pois.csv')
-local_data = pd.read_csv('./poi_categoria.csv', index_col=False)
+#local_data = pd.read_csv('./poi_categoria.csv', index_col=False)
+local_data = pd.read_csv('./categorias_avaliacao.csv', index_col=False)
 
 
 print(dados['preference'].value_counts())
 
 
-categoria = local_data['preference_pt'].head(11)
-quantidade = (local_data['quantity']).head(11)
+categoria = local_data['preference'].head(11)
+quantidade = (local_data['avaliacao']).head(11)
 
 # Figure Size
 fig, ax = plt.subplots(figsize =(16, 9))
