@@ -8,14 +8,14 @@ import datetime
 import os
 
 dados = pd.read_csv('../dataset/pois.csv')
-#local_data = pd.read_csv('./dataset/poi_categoria.csv.csv', index_col=False)
-local_data = pd.read_csv('./dataset/precisao_g3_standart.csv', index_col=False)
+local_data = pd.read_csv('./poi_categoria.csv', index_col=False)
+
 
 print(dados['preference'].value_counts())
 
 
-categoria = local_data['grupos'].head(11)
-quantidade = (local_data['P@3']).head(11)
+categoria = local_data['preference_pt'].head(11)
+quantidade = (local_data['quantity']).head(11)
 
 # Figure Size
 fig, ax = plt.subplots(figsize =(16, 9))

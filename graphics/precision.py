@@ -45,4 +45,4 @@ for i in range(len(standard)):
     fig.tight_layout()
 
     plt.show()
-    fig.savefig('./'+standard.loc[i,"grupos"])
+    fig.savefig('./imagens/'+standard.loc[i,"grupos"])
