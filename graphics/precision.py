@@ -29,7 +29,7 @@ for i in range(len(standard)):
     #fig, ax = plt.subplots()
     fig, ax = plt.subplots(figsize =(6.4, 5.8), dpi=160)
     rects1 = ax.bar(x - width/2, stand, width, label='Standard', hatch="/")
-    rects2 = ax.bar(x + width/2, diver, width, label='Diversificado', hatch="//")
+    rects2 = ax.bar(x + width/2, diver, width, label='Diversificado', hatch="|")
 
     # Add some text for labels, title and custom x-axis tick labels, etc.
     ax.set_xlabel(standard.loc[i,"grupos"])
