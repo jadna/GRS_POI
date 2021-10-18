@@ -73,10 +73,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
 
-        random_group = [864, 854, 844]
-        #Pilote group 3: [224, 94, 234] (misturado)
-        #Piloto group 2: [224, 234, 184] (conhecidos)
-        #Piloto group 1: [134, 204, 214] (desconhecidos)
+        random_group = [254,314,324]
 
         return random_group
                
@@ -232,6 +229,7 @@ class GRSPOI():
         '''
         cols=['userId', 'poiId', 'distance']
         m_distance = pd.DataFrame(columns=cols)
+        #print(m_distance)
 
         
         for index, group_row in self.df_group.iterrows():
@@ -243,6 +241,8 @@ class GRSPOI():
                 #COLOCA AS LOCALIZAÇÕES NAS VARIAVEIS
                 origin = group_row['latitude'], group_row['longitude']
                 destination = poi_row['latitude'], poi_row['longitude']
+                '''print("origin: ", origin)
+                print("destination: ", destination)'''
                 
                 try:
                     #DISTANCE CALCULATION API -> Params: origem, destino, mode, language                   
