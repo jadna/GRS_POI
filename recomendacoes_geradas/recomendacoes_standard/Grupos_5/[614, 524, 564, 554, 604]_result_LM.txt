@@ -1,0 +1,28 @@
+Tecnica LM
+Grupo: [614, 524, 564, 554, 604]
+Recomendacao Standard
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+77,Praia do Porto da Barra,beach,Praia do Porto da Barra - Av. Sete de Setembro  s/n - Barra  Salvador - BA  40140-030  Brazil
+263,Restaurante Itapua,restaurant,R. Flor do Bosque  126 - Itapua  Salvador - BA  41610-190  Brazil
+290,Sal e Brasa Salvador,restaurant,R. Carimbamba  917 - Pituacu  Salvador - BA  41740-010  Brazil
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+88,Praia da Penha,beach,Salvador - BA
+90,Praia da Paciencia,beach,Praia da Paciencia - Rio Vermelho  Salvador - State of Bahia  40170-010  Brazil
+99,Praia da Pituba,beach,Bahia
+78,Praia Do Flamengo,beach,Praia Do Flamengo - R. Godofredo Filho  n 1911 - Praia do Flamengo  Salvador - BA  41603-285  Brazil
+82,Praia de Piata,beach,Av. Octavio Mangabeira - Piata  Salvador - BA  41610-160  Brazil
+
+Recomendacao Diversificada
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+263,Restaurante Itapua,restaurant,R. Flor do Bosque  126 - Itapua  Salvador - BA  41610-190  Brazil
+343,Shopping salvador,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
+189,Museum of Mercy,museum,R. da Misericordia  06 - Centro Historico  Salvador - BA  40020-200  Brazil
+128,Casa de Noca,cafe,R. Espirito Santo  106 - Pituba  Salvador - BA  41830-001  Brazil
+420,MIni Zoo (animais domesticos),zoo,Stella Maris  Salvador - State of Bahia  41600-090  Brazil
+40,Panificadora Rey Do Pao,bakery,Rua J  37 - Mussurunga I  Salvador - BA  41490-476  Brazil
+77,Praia do Porto da Barra,beach,Praia do Porto da Barra - Av. Sete de Setembro  s/n - Barra  Salvador - BA  40140-030  Brazil
+222,Boates aconchegantes,night_club,R. do Limoeiro  106 - Nazare  Salvador - BA  40055-150  Brazil
+360,Largo do Pelourinho,tourist_attraction,Largo do Pelourinho - Pelourinho  Salvador - BA  40026-280  Brazil
+
+ Intersecao: {77, 87, 263}
+ Total: 3

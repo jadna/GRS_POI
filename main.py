@@ -136,42 +136,48 @@ def flow(grspoi, technique = ''):
     ild_d = grspoi.get_ILD_score(final_recs_greedy)
 
 
-    """ ################# SAVE TXT ############################### """
-    with open('./rating_recomendacoes/'+str(my_group) + '_result_'+str(technique)+".txt", 'w') as f:
+    """ ################# SAVE CSV ############################### """
+    with open('./recomendacoes_geradas/recomendacoes_standard/Grupos_3/'+str(my_group) + '_std_' +str(technique)+".csv", 'w') as f:
         f.write('Tecnica '+str(technique))
         f.write('\n')
         f.write('Grupo: ' + str(my_group))
         f.write('\n')
         f.write('Recomendacao Standard')
         f.write('\n')
-        for i in my_group:
-            for line in standard_recs:
-                f.write(str(i))
-                f.write(',')
-                f.write(str(line['poi_id']))
-                f.write(',')
-                f.write(str(line['poi_name']))
-                f.write(',')
-                f.write(str(line['poi_address']))
-                f.write('\n')
+        
+        for i in range(len(standard_recs)):
+        #for line in standard_recs:
+            f.write(str(i+1))
+            f.write(',')
+            f.write(str(standard_recs[i]['poi_id']))
+            f.write(',')
+            f.write(str(standard_recs[i]['poi_name']))
+            f.write(',')
+            f.write(str(standard_recs[i]['poi_preferences']))
+            f.write(',')
+            f.write(str(standard_recs[i]['poi_address']))
+            f.write('\n')
         
         f.write('\n')
         f.write('Recomendacao Diversificada')
         f.write('\n')
-        for i in my_group:
-            for line in final_recs_greedy:
-                f.write(str(i))
-                f.write(',')
-                f.write(str(line['poi_id']))
-                f.write(',')
-                f.write(str(line['poi_name']))
-                f.write(',')
-                f.write(str(line['poi_address']))
-                f.write('\n')
-        f.write('\n')
+        for i in range(len(final_recs_greedy)):
+        #for line in final_recs_greedy:
+            f.write(str(i+1))
+            f.write(',')
+            f.write(str(final_recs_greedy[i]['poi_id']))
+            f.write(',')
+            f.write(str(final_recs_greedy[i]['poi_name']))
+            f.write(',')
+            f.write(str(final_recs_greedy[i]['poi_preferences']))
+            f.write(',')
+            f.write(str(final_recs_greedy[i]['poi_address']))
+            f.write('\n')
+            
+        '''f.write('\n')
         f.write(" Intersecao: " + str(intersecao_greedy))
         f.write('\n')
-        f.write(" Total: " + str(len(intersecao_greedy)))
+        f.write(" Total: " + str(len(intersecao_greedy)))'''
 
     '''standard_recs = pd.DataFrame(standard_recs,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
     final_recs_greedy = pd.DataFrame(final_recs_greedy,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
@@ -181,12 +187,15 @@ def flow(grspoi, technique = ''):
 #MP (Most Pleasure), LM (Least Misery), AV (Average), AWM (Average Without Misery)
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
 #metodos = ['AV', 'AWM', 'LM', 'MP']
-#for aux in metodos:
-    #divRecs = flow(grsd, technique = aux)
-divRecs = flow(grsd, technique = 'MP')
+metodos = ['AWM', 'AV','LM']
+for aux in metodos:
+    divRecs = flow(grsd, technique = aux)
+#divRecs = flow(grsd, technique = 'LM')
 
 print('\n\n')
 print("########################################################################")
 print("########################        DONE       #############################")
 print("########################################################################")
 print('\n\n')
+
+# python3 -W ignore main.py

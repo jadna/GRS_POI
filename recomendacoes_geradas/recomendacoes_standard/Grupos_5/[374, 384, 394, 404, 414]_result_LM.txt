@@ -1,0 +1,28 @@
+Tecnica LM
+Grupo: [374, 384, 394, 404, 414]
+Recomendacao Standard
+343,Shopping salvador,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+79,Salvador Beach Club,beach,Salvador Beach Club - Av. Octavio Mangabeira  2012 - Patamares  Salvador - BA  41680-000  Brazil
+84,Stella Maris beach,beach,Stella Maris beach  State of Bahia  41600-090  Brazil
+252,Praca Barros Reis,park,Av. Barros Reis  401-421 - Sao Goncalo  Salvador - BA  40310-060  Brazil
+342,Shopping Paralela,shopping_mall,Av. Luis Viana Filho  8544 - Alphaville  Salvador - BA  41730-101  Brazil
+341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+106,Jardim de Alah Beach,beach,Salvador - BA  41750-240
+4,Midlej Galeria de Arte,art_gallery,Alameda das Cajazeiras  138 - Caminho das arvores  Salvador - BA  41820-470  Brazil
+
+Recomendacao Diversificada
+343,Shopping salvador,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+252,Praca Barros Reis,park,Av. Barros Reis  401-421 - Sao Goncalo  Salvador - BA  40310-060  Brazil
+4,Midlej Galeria de Arte,art_gallery,Alameda das Cajazeiras  138 - Caminho das arvores  Salvador - BA  41820-470  Brazil
+128,Casa de Noca,cafe,R. Espirito Santo  106 - Pituba  Salvador - BA  41830-001  Brazil
+40,Panificadora Rey Do Pao,bakery,Rua J  37 - Mussurunga I  Salvador - BA  41490-476  Brazil
+170,UFBA Art Room,movie_theater,Av. Reitor Miguel Calmon  s/n  PAC Vale do - Canela  Salvador - BA  40110-100  Brazil
+359,Mercado Modelo,tourist_attraction,Praca Visc. de Cayru  s/n - Comercio  Salvador - BA  40015-170  Brazil
+260,Porto Brasil,restaurant,Rua Miguel Navarro Y Canizares  428 - Pituba  Salvador - BA  41810-215  Brazil
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+
+ Intersecao: {4, 83, 87, 343, 252}
+ Total: 5

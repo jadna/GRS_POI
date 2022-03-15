@@ -131,57 +131,58 @@ def flow(grspoi, technique = 'LM'):
     print("ndcg_recs_greedy: ", format(ndcg_recs_greedy))
     print("ndcg_recs_random: ", format(ndcg_recs_random))
 
-    """ #################     SAVE EXCEL   ############################### """
-
-    standard_recs = pd.DataFrame(standard_recs,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
-    final_recs_greedy = pd.DataFrame(final_recs_greedy,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
-    final_recs_random = pd.DataFrame(final_recs_random,columns=['poi_id', 'poi_name', 'poi_preferences', 'poi_similarity', 'poi_relevance', 'poi_latitude', 'poi_longitude', 'poi_address'])
-   
-    
-    if technique == "AWM":
-        worksheet_name = 'preference_' + str(technique)
-        writer = pd.ExcelWriter('result_preference_'+str(technique)+'.xlsx',engine='xlsxwriter')
-    elif technique == "LM":
-        worksheet_name = 'preference_' + str(technique)
-        writer = pd.ExcelWriter('result_preference_'+str(technique)+'.xlsx',engine='xlsxwriter')
-    elif technique == "MP":
-        worksheet_name = 'preference_' + str(technique)
-        writer = pd.ExcelWriter('result_preference_'+str(technique)+'.xlsx',engine='xlsxwriter')
-    else:
-        worksheet_name = 'preference_' + str(technique)
-        writer = pd.ExcelWriter('result_preference_'+str(technique)+'.xlsx',engine='xlsxwriter')
-
-    workbook = writer.book
-    worksheet = workbook.add_worksheet(worksheet_name)
-    writer.sheets[worksheet_name] = worksheet
-    
-    worksheet.write_string(0, 0, "Group: " + str(my_group))
-    
-    worksheet.write_string(1, 0, "preference standart " + str(technique))
-    standard_recs.to_excel(writer,sheet_name=worksheet_name,startrow=2 , startcol=0)
-    worksheet.write_string(13, 0, "NDCG: " + str(ndcg_standard))
-
-    worksheet.write_string(15, 0, "preference greedy " + str(technique))
-    final_recs_greedy.to_excel(writer,sheet_name=worksheet_name,startrow=16, startcol=0)
-    worksheet.write_string(27, 0, "NDCG: " + str(ndcg_recs_greedy))
-    worksheet.write_string(28, 0, "intersection greedy: " + str(intersecao_greedy) + "Total: " + str(len(intersecao_greedy)))
-
-    worksheet.write_string(30, 0, "preference random " + str(technique))
-    final_recs_random.to_excel(writer,sheet_name=worksheet_name,startrow=31, startcol=0)
-    worksheet.write_string(42, 0, "NDCG: " + str(ndcg_recs_random))
-    worksheet.write_string(43, 0, "Intersection random: " + str(intersecao_random) + "Total: " + str(len(intersecao_random))) 
-    
-    writer.save()
+    """ ################# SAVE CSV ############################### """
+    with open('./recomendacoes_geradas/recomendacoes_preferencia/Grupos_3/'+str(my_group) + '_pref_' +str(technique)+".csv", 'w') as f:
+        f.write('Tecnica '+str(technique))
+        f.write('\n')
+        f.write('Grupo: ' + str(my_group))
+        f.write('\n')
+        f.write('Recomendacao Standard')
+        f.write('\n')
+        
+        for i in range(len(standard_recs)):
+        #for line in standard_recs:
+            f.write(str(i+1))
+            f.write(',')
+            f.write(str(standard_recs[i]['poi_id']))
+            f.write(',')
+            f.write(str(standard_recs[i]['poi_name']))
+            f.write(',')
+            f.write(str(standard_recs[i]['poi_preferences']))
+            f.write(',')
+            f.write(str(standard_recs[i]['poi_address']))
+            f.write('\n')
+        
+        f.write('\n')
+        f.write('Recomendacao Diversificada')
+        f.write('\n')
+        for i in range(len(final_recs_greedy)):
+        #for line in final_recs_greedy:
+            f.write(str(i+1))
+            f.write(',')
+            f.write(str(final_recs_greedy[i]['poi_id']))
+            f.write(',')
+            f.write(str(final_recs_greedy[i]['poi_name']))
+            f.write(',')
+            f.write(str(final_recs_greedy[i]['poi_preferences']))
+            f.write(',')
+            f.write(str(final_recs_greedy[i]['poi_address']))
+            f.write('\n')
+            
+        '''f.write('\n')
+        f.write(" Intersecao: " + str(intersecao_greedy))
+        f.write('\n')
+        f.write(" Total: " + str(len(intersecao_greedy)))'''
     
 
 
 #MP (Most Pleasure), LM (Least Misery), AV (Average), AWM (Average Without Misery)
 grsd = GRSPOI(rating_data=constants.RATINGS_PATH, poi_data=constants.POIS_PATH, user_data=constants.USER_PATH)
 
-'''metodos = ['AWM', 'LM', 'MP', 'AV']
+metodos = ['AWM', 'AV', 'LM']
 for aux in metodos:
-    divRecs = flow(grsd, technique = aux)'''
-divRecs = flow(grsd, technique = 'AWM')
+    divRecs = flow(grsd, technique = aux)
+#divRecs = flow(grsd, technique = 'AWM')
 
 
 print('\n\n')

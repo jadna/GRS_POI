@@ -1,0 +1,22 @@
+Posicao,PoiId,Nome,Categoria,Endereco,Discussão,MRR,Tecnica
+1,87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil,,0,Preferencia AWM
+2,77,Praia do Porto da Barra,beach,Praia do Porto da Barra - Av. Sete de Setembro  s/n - Barra  Salvador - BA  40140-030  Brazil,,0,Preferencia AWM
+3,349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil,,0,Preferencia AWM
+4,140,CAFETERIA FLORIDA,cafe,Av. Anita Garibaldi  1815 - Ondina  Salvador - BA  40170-120  Brazil,"2,666666667",0,Preferencia AWM
+5,263,Restaurante Itapua,restaurant,R. Flor do Bosque  126 - Itapua  Salvador - BA  41610-190  Brazil,,0,Preferencia AWM
+6,352,Cia Maritima Salvador Shopping,shopping_mall,Salvador Shopping - Caminho das arvores  Salvador - BA  41820-000  Brazil,,0,Preferencia AWM
+7,342,Shopping Paralela,shopping_mall,Av. Luis Viana Filho  8544 - Alphaville  Salvador - BA  41730-101  Brazil,,0,Preferencia AWM
+8,341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil,,0,Preferencia AWM
+9,151,Sal e Brasa Grill Express Salvador Norte Shopping,fast-food,BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil,,0,Preferencia AWM
+10,350,Shopping Piedade,shopping_mall,Rua Conselheiro Junqueira Ayres  165 - Dois de Julho  Salvador - BA  40070-080  Brazil,,0,Preferencia AWM
+Posicao,PoiId,Nome,Categoria,Endereco,Discussão,MRR,Tecnica
+1,87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil,,0,Preferencia AWM Diversificado
+2,349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil,,0,Preferencia AWM Diversificado
+3,140,CAFETERIA FLORIDA,cafe,Av. Anita Garibaldi  1815 - Ondina  Salvador - BA  40170-120  Brazil,"2,666666667",0,Preferencia AWM Diversificado
+4,263,Restaurante Itapua,restaurant,R. Flor do Bosque  126 - Itapua  Salvador - BA  41610-190  Brazil,,0,Preferencia AWM Diversificado
+5,77,Praia do Porto da Barra,beach,Praia do Porto da Barra - Av. Sete de Setembro  s/n - Barra  Salvador - BA  40140-030  Brazil,,0,Preferencia AWM Diversificado
+6,151,Sal e Brasa Grill Express Salvador Norte Shopping,fast-food,BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil,,0,Preferencia AWM Diversificado
+7,208,House of the Seven Lamps,museum,R. de Sao Francisco  3 - Centro  Salvador - BA  40020-320  Brazil,,0,Preferencia AWM Diversificado
+8,352,Cia Maritima Salvador Shopping,shopping_mall,Salvador Shopping - Caminho das arvores  Salvador - BA  41820-000  Brazil,,0,Preferencia AWM Diversificado
+9,164,Cinema e Video,movie_theater,Patamares  Salvador - State of Bahia  41741-590  Brazil,"2,666666667",0,Preferencia AWM Diversificado
+10,319,Divino Fogao - Salvador Norte,restaurant,Rodovia  BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil,,0,Preferencia AWM Diversificado

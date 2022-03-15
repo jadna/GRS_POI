@@ -268,6 +268,7 @@ class GRSPOI():
                 ''' #PASSA AS INFORMAÇÕES PARA MATRIZ DE RETORNO INGNORANDO O INDEX DA MATRIZ TEMPORARIA
                 ''' 
                 m_distance = m_distance.append(temp, ignore_index=True)
+                #m_distance = m_distance.concat(temp, ignore_index=True)
                 
         
         ''' EXPORTA A MATRIZ DAS DISTANCIAS PARA UM ARQUIVO CSV
@@ -292,7 +293,7 @@ class GRSPOI():
         distance_pivot_mtx = distance_pivot_mtx/1000
 
 
-        ''' Divide a matrix distancia pela matrix preferencia'''
+        ''' Divide a matrix preferencia pela matrix distancia '''
         group_mpd = []
         group_mpd = group_filled_mtx/distance_pivot_mtx
         
@@ -343,7 +344,9 @@ class GRSPOI():
     def get_similar_items(self, references, name_weight=0.8, k=10):
         ''' Searches for the top-k most similar pois in candidate pois to a given reference list. 
             This function is based on MovieLens dataset.
-            Returns a list of pois.
+            Pesquisa os top-k mais semelhantes em pois candidatos a uma determinada lista de referência.
+            Esta função é baseada no conjunto de dados MovieLens.
+            Returna a lista de pois.
         '''
         recs = []
         for poi in references:
@@ -380,7 +383,12 @@ class GRSPOI():
             Creates a dictionary for better manipulation of data, containing: 
                 poi_id, poi_name, poi_similarity and poi_relevance. 
                 This function is based on MovieLens dataset.
-            Returns a dict sorted by movie_relevance.
+            Returns a dict sorted by poi_relevance.
+
+            Calcula a relevância das recomendações.
+            Cria um dicionário para melhor manipulação dos dados, contendo: poi_id, poi_name, poi_similarity e poi_relevance.
+            Esta função é baseada no conjunto de dados MovieLens.
+            Retorna um dict classificado por poi_relevance.
         '''
         count = 0
         recs_dict = []

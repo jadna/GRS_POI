@@ -1,0 +1,28 @@
+Tecnica AV
+Grupo: [374, 384, 394, 404, 414]
+Recomendacao Standard
+57,Bar e Restaurante Aconchego,bar,Caminho 18 | Mussurunga I Gleba A  S/N - Mussurunga I  Salvador - BA  41490-330  Brazil
+72,Sentollas Bar e Restaurante,bar,R. Manoel Antônio Galvão  361 - Pituaçu  Salvador - BA  41741-550
+59,Nova Alegria Bar e Restaurante,bar,Av. Jorge Amado  s/n - Imbui  Salvador - BA  41720-005  Brazil
+47,Rua 15 Restaurante e Bar,bar,Av. Iemanja - Boca do Rio  Salvador - BA  41710-755  Brazil
+55,Varanda Ferreira Bar e Restaurante,bar,Estr. das Pedrinhas  03 - Imbui  Salvador - BA  41720-340  Brazil
+70,Posto 12 - Bar e Restaurante,bar,R. Aristídes Milton  33 - Itapuã  Salvador - BA  41610-011
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+79,Salvador Beach Club,beach,Salvador Beach Club - Av. Octavio Mangabeira  2012 - Patamares  Salvador - BA  41680-000  Brazil
+252,Praca Barros Reis,park,Av. Barros Reis  401-421 - Sao Goncalo  Salvador - BA  40310-060  Brazil
+4,Midlej Galeria de Arte,art_gallery,Alameda das Cajazeiras  138 - Caminho das arvores  Salvador - BA  41820-470  Brazil
+
+Recomendacao Diversificada
+57,Bar e Restaurante Aconchego,bar,Caminho 18 | Mussurunga I Gleba A  S/N - Mussurunga I  Salvador - BA  41490-330  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+252,Praca Barros Reis,park,Av. Barros Reis  401-421 - Sao Goncalo  Salvador - BA  40310-060  Brazil
+4,Midlej Galeria de Arte,art_gallery,Alameda das Cajazeiras  138 - Caminho das arvores  Salvador - BA  41820-470  Brazil
+371,Cathedral of Salvador,tourist_attraction,Largo Terreiro de Jesus  s/n - Pelourinho  Salvador - BA  40020-210  Brazil
+170,UFBA Art Room,movie_theater,Av. Reitor Miguel Calmon  s/n  PAC Vale do - Canela  Salvador - BA  40110-100  Brazil
+260,Porto Brasil,restaurant,Rua Miguel Navarro Y Canizares  428 - Pituba  Salvador - BA  41810-215  Brazil
+227,Praca Pedro Arcanjo,night_club,66  Rua da Ordem Terceira  2 - Pelourinho  Salvador - BA  40026-260  Brazil
+285,Restaurante Yemanja,restaurant,Av. Octavio Mangabeira  4661 - Armacao  Salvador - BA  41750-240  Brazil
+63,Zaccaria Bar,bar,R. das Margaridas  90 - Pituba  Salvador - BA  41810-100
+
+ Intersecao: {57, 83, 4, 252}
+ Total: 4

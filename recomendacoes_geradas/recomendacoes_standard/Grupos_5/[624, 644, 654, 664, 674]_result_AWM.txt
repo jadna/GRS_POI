@@ -1,0 +1,28 @@
+Tecnica AWM
+Grupo: [624, 644, 654, 664, 674]
+Recomendacao Standard
+193,Muncab - National Museum of Afro Brazilian Culture,museum,R. das Vassouras  25 - Centro Historico  Salvador - BA  40020-056  Brazil
+199,Museum of Brazilian Music,museum,R. das Laranjeiras  28 - Pelourinho  Salvador - BA  40026-230  Brazil
+349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil
+117,Cafeteria Havanna - Salvador Norte Shopping,cafe,RODOVIA  BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
+352,Cia Maritima Salvador Shopping,shopping_mall,Salvador Shopping - Caminho das arvores  Salvador - BA  41820-000  Brazil
+180,Casa de Cinema da Bahia,movie_theater,R. Maciel de Cima  21 - Pelourinho  Salvador - BA  40026-250  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+342,Shopping Paralela,shopping_mall,Av. Luis Viana Filho  8544 - Alphaville  Salvador - BA  41730-101  Brazil
+341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
+79,Salvador Beach Club,beach,Salvador Beach Club - Av. Octavio Mangabeira  2012 - Patamares  Salvador - BA  41680-000  Brazil
+
+Recomendacao Diversificada
+193,Muncab - National Museum of Afro Brazilian Culture,museum,R. das Vassouras  25 - Centro Historico  Salvador - BA  40020-056  Brazil
+349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil
+180,Casa de Cinema da Bahia,movie_theater,R. Maciel de Cima  21 - Pelourinho  Salvador - BA  40026-250  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+4,Midlej Galeria de Arte,art_gallery,Alameda das Cajazeiras  138 - Caminho das arvores  Salvador - BA  41820-470  Brazil
+237,ESPAcO LEGAL,night_club,Rua Gaspar de Lemos - Liberdade  Salvador - BA  40301-155  Brazil
+319,Divino Fogao - Salvador Norte,restaurant,Rodovia  BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
+359,Mercado Modelo,tourist_attraction,Praca Visc. de Cayru  s/n - Comercio  Salvador - BA  40015-170  Brazil
+146,Giraffas,fast-food,Av. Luis Viana Filho  8544 - Paralela  Salvador - BA  41730-101  Brazil
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+
+ Intersecao: {193, 83, 180, 349}
+ Total: 4

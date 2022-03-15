@@ -1,0 +1,28 @@
+Tecnica AV
+Grupo: [574, 514, 584, 594, 544]
+Recomendacao Standard
+46,Blue Beach Bar,bar,R. Barro Vermelho  310 - Rio Vermelho  Salvador - BA  41940-340  Brazil
+236,LGBT Night Club,night_club,Av. Reitor Miguel Calmon  2596-2754 - Canela  Salvador - BA  40231-300  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+388,Roma Beach,tourist_attraction,R. Alzira  1 - Roma  Salvador - BA  40444-080  Brazil
+266,Beach Stop,restaurant,R. Jose Augusto Tourinho Dantas  214 - Stella Maris  Salvador - BA  41603-110  Brazil
+84,Stella Maris beach,beach,Stella Maris beach  State of Bahia  41600-090  Brazil
+42,O Cravinho,bar,Largo Terreiro de Jesus  3 - Pelourinho  Salvador - BA  40026-010  Brazil
+43,Alerta Praia Bar,bar,R. Aristides Milton  516 - Itapua  Salvador - BA  41301-110  Brazil
+47,Rua 15 Restaurante e Bar,bar,Av. Iemanja - Boca do Rio  Salvador - BA  41710-755  Brazil
+48,Boteco Da Torre,bar,R. Aristides Milton  s/n - Itapua  Salvador - BA  41610-011  Brazil
+
+Recomendacao Diversificada
+46,Blue Beach Bar,bar,R. Barro Vermelho  310 - Rio Vermelho  Salvador - BA  41940-340  Brazil
+236,LGBT Night Club,night_club,Av. Reitor Miguel Calmon  2596-2754 - Canela  Salvador - BA  40231-300  Brazil
+42,O Cravinho,bar,Largo Terreiro de Jesus  3 - Pelourinho  Salvador - BA  40026-010  Brazil
+84,Stella Maris beach,beach,Stella Maris beach  State of Bahia  41600-090  Brazil
+48,Boteco Da Torre,bar,R. Aristides Milton  s/n - Itapua  Salvador - BA  41610-011  Brazil
+266,Beach Stop,restaurant,R. Jose Augusto Tourinho Dantas  214 - Stella Maris  Salvador - BA  41603-110  Brazil
+47,Rua 15 Restaurante e Bar,bar,Av. Iemanja - Boca do Rio  Salvador - BA  41710-755  Brazil
+388,Roma Beach,tourist_attraction,R. Alzira  1 - Roma  Salvador - BA  40444-080  Brazil
+43,Alerta Praia Bar,bar,R. Aristides Milton  516 - Itapua  Salvador - BA  41301-110  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+
+ Intersecao: {388, 42, 43, 266, 236, 46, 47, 48, 83, 84}
+ Total: 10

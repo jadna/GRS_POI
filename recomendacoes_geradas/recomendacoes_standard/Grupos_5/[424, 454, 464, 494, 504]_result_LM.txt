@@ -1,0 +1,28 @@
+Tecnica LM
+Grupo: [424, 454, 464, 494, 504]
+Recomendacao Standard
+349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil
+352,Cia Maritima Salvador Shopping,shopping_mall,Salvador Shopping - Caminho das arvores  Salvador - BA  41820-000  Brazil
+342,Shopping Paralela,shopping_mall,Av. Luis Viana Filho  8544 - Alphaville  Salvador - BA  41730-101  Brazil
+341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
+350,Shopping Piedade,shopping_mall,Rua Conselheiro Junqueira Ayres  165 - Dois de Julho  Salvador - BA  40070-080  Brazil
+221,Salvador,night_club,R. Ari Barroso  303 - Chame-Chame  Salvador - BA  40157-300  Brazil
+345,Shopping Sumare,shopping_mall,Av. Tancredo Neves  1506 - Caminho das arvores  Salvador - BA  41820-020  Brazil
+346,Shopping Bahiamar,shopping_mall,Rua Arthur de Azevedo Machado  497 - Costa Azul  Salvador - BA  41760-000  Brazil
+347,Shopping Itaigara,shopping_mall,Av. Antonio Carlos Magalhaes  656 - Pituba  Salvador - BA  41825-000  Brazil
+353,Shopping da Gente,shopping_mall,Av. Antonio Carlos Magalhaes  4591 - Iguatemi  Salvador - BA  40280-901  Brazil
+
+Recomendacao Diversificada
+349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+52,Bar e Restaurante,bar,Av. Beira Mar  473 - Ribeira  Salvador - BA  40420-340  Brazil
+128,Casa de Noca,cafe,R. Espirito Santo  106 - Pituba  Salvador - BA  41830-001  Brazil
+40,Panificadora Rey Do Pao,bakery,Rua J  37 - Mussurunga I  Salvador - BA  41490-476  Brazil
+164,Cinema e Video,movie_theater,Patamares  Salvador - State of Bahia  41741-590  Brazil
+360,Largo do Pelourinho,tourist_attraction,Largo do Pelourinho - Pelourinho  Salvador - BA  40026-280  Brazil
+221,Salvador,night_club,R. Ari Barroso  303 - Chame-Chame  Salvador - BA  40157-300  Brazil
+341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
+116,Grao Santo Cafe,cafe,Patamares  Salvador - BA  41301-110  dentro do ferreira cosat  terreo - Patamares  BA  Brazil
+
+ Intersecao: {221, 349, 341}
+ Total: 3

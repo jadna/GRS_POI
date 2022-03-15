@@ -1,0 +1,28 @@
+Tecnica AV
+Grupo: [424, 454, 464, 494, 504]
+Recomendacao Standard
+349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil
+352,Cia Maritima Salvador Shopping,shopping_mall,Salvador Shopping - Caminho das arvores  Salvador - BA  41820-000  Brazil
+342,Shopping Paralela,shopping_mall,Av. Luis Viana Filho  8544 - Alphaville  Salvador - BA  41730-101  Brazil
+341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
+350,Shopping Piedade,shopping_mall,Rua Conselheiro Junqueira Ayres  165 - Dois de Julho  Salvador - BA  40070-080  Brazil
+221,Salvador,night_club,R. Ari Barroso  303 - Chame-Chame  Salvador - BA  40157-300  Brazil
+345,Shopping Sumare,shopping_mall,Av. Tancredo Neves  1506 - Caminho das arvores  Salvador - BA  41820-020  Brazil
+346,Shopping Bahiamar,shopping_mall,Rua Arthur de Azevedo Machado  497 - Costa Azul  Salvador - BA  41760-000  Brazil
+347,Shopping Itaigara,shopping_mall,Av. Antonio Carlos Magalhaes  656 - Pituba  Salvador - BA  41825-000  Brazil
+57,Bar e Restaurante Aconchego,bar,Caminho 18 | Mussurunga I Gleba A  S/N - Mussurunga I  Salvador - BA  41490-330  Brazil
+
+Recomendacao Diversificada
+349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil
+57,Bar e Restaurante Aconchego,bar,Caminho 18 | Mussurunga I Gleba A  S/N - Mussurunga I  Salvador - BA  41490-330  Brazil
+83,Ondina Beach,beach,Ondina Beach - Ondina  Salvador - State of Bahia  40170-010  Brazil
+359,Mercado Modelo,tourist_attraction,Praca Visc. de Cayru  s/n - Comercio  Salvador - BA  40015-170  Brazil
+165,Cine Daten Paseo,movie_theater,Rua Rubens Guelli  135 - Itaigara  Salvador - BA  41815-135  Brazil
+290,Sal e Brasa Salvador,restaurant,R. Carimbamba  917 - Pituacu  Salvador - BA  41740-010  Brazil
+146,Giraffas,fast-food,Av. Luis Viana Filho  8544 - Paralela  Salvador - BA  41730-101  Brazil
+341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
+360,Largo do Pelourinho,tourist_attraction,Largo do Pelourinho - Pelourinho  Salvador - BA  40026-280  Brazil
+72,Sentollas Bar e Restaurante,bar,R. Manoel Antônio Galvão  361 - Pituaçu  Salvador - BA  41741-550
+
+ Intersecao: {57, 349, 341}
+ Total: 3

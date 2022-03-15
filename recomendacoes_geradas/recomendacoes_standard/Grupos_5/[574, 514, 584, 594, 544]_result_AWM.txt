@@ -1,0 +1,28 @@
+Tecnica AWM
+Grupo: [574, 514, 584, 594, 544]
+Recomendacao Standard
+349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil
+117,Cafeteria Havanna - Salvador Norte Shopping,cafe,RODOVIA  BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
+263,Restaurante Itapua,restaurant,R. Flor do Bosque  126 - Itapua  Salvador - BA  41610-190  Brazil
+352,Cia Maritima Salvador Shopping,shopping_mall,Salvador Shopping - Caminho das arvores  Salvador - BA  41820-000  Brazil
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+342,Shopping Paralela,shopping_mall,Av. Luis Viana Filho  8544 - Alphaville  Salvador - BA  41730-101  Brazil
+341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
+78,Praia Do Flamengo,beach,Praia Do Flamengo - R. Godofredo Filho  n 1911 - Praia do Flamengo  Salvador - BA  41603-285  Brazil
+82,Praia de Piata,beach,Av. Octavio Mangabeira - Piata  Salvador - BA  41610-160  Brazil
+92,Praia do Roma,beach,R. Alzira  1 - Roma  Salvador - BA  40444-080
+
+Recomendacao Diversificada
+349,Shopping Capemi Salvador,shopping_mall,R. da Alfazema  752 - Caminho das arvores  Salvador - BA  41820-710  Brazil
+263,Restaurante Itapua,restaurant,R. Flor do Bosque  126 - Itapua  Salvador - BA  41610-190  Brazil
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+46,Blue Beach Bar,bar,R. Barro Vermelho  310 - Rio Vermelho  Salvador - BA  41940-340  Brazil
+128,Casa de Noca,cafe,R. Espirito Santo  106 - Pituba  Salvador - BA  41830-001  Brazil
+40,Panificadora Rey Do Pao,bakery,Rua J  37 - Mussurunga I  Salvador - BA  41490-476  Brazil
+236,LGBT Night Club,night_club,Av. Reitor Miguel Calmon  2596-2754 - Canela  Salvador - BA  40231-300  Brazil
+238,Praca Mestre Paulo dos Anjos,park,Piata  Salvador - State of Bahia  41650-195  Brazil
+165,Cine Daten Paseo,movie_theater,Rua Rubens Guelli  135 - Itaigara  Salvador - BA  41815-135  Brazil
+355,Estadio Manoel Barradas - Barradao,stadium,R. Artemio Castro Valente  1 - Canabrava  Salvador - BA  Brazil
+
+ Intersecao: {349, 87, 263}
+ Total: 3

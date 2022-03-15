@@ -1,0 +1,28 @@
+Tecnica AV
+Grupo: [614, 524, 564, 554, 604]
+Recomendacao Standard
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+77,Praia do Porto da Barra,beach,Praia do Porto da Barra - Av. Sete de Setembro  s/n - Barra  Salvador - BA  40140-030  Brazil
+343,Shopping salvador,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
+342,Shopping Paralela,shopping_mall,Av. Luis Viana Filho  8544 - Alphaville  Salvador - BA  41730-101  Brazil
+341,Shopping da Bahia,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-972  Brazil
+350,Shopping Piedade,shopping_mall,Rua Conselheiro Junqueira Ayres  165 - Dois de Julho  Salvador - BA  40070-080  Brazil
+345,Shopping Sumare,shopping_mall,Av. Tancredo Neves  1506 - Caminho das arvores  Salvador - BA  41820-020  Brazil
+346,Shopping Bahiamar,shopping_mall,Rua Arthur de Azevedo Machado  497 - Costa Azul  Salvador - BA  41760-000  Brazil
+347,Shopping Itaigara,shopping_mall,Av. Antonio Carlos Magalhaes  656 - Pituba  Salvador - BA  41825-000  Brazil
+340,Salvador Norte Shopping,shopping_mall,BA-526  305 - Sao Cristovao  Salvador - BA  41510-000  Brazil
+
+Recomendacao Diversificada
+87,Praia do Farol,beach,Praia do Farol - Itapua  Salvador - State of Bahia  41600-090  Brazil
+343,Shopping salvador,shopping_mall,Av. Tancredo Neves  148 - Caminho das arvores  Salvador - BA  41820-908  Brazil
+263,Restaurante Itapua,restaurant,R. Flor do Bosque  126 - Itapua  Salvador - BA  41610-190  Brazil
+189,Museum of Mercy,museum,R. da Misericordia  06 - Centro Historico  Salvador - BA  40020-200  Brazil
+128,Casa de Noca,cafe,R. Espirito Santo  106 - Pituba  Salvador - BA  41830-001  Brazil
+4,Midlej Galeria de Arte,art_gallery,Alameda das Cajazeiras  138 - Caminho das arvores  Salvador - BA  41820-470  Brazil
+40,Panificadora Rey Do Pao,bakery,Rua J  37 - Mussurunga I  Salvador - BA  41490-476  Brazil
+170,UFBA Art Room,movie_theater,Av. Reitor Miguel Calmon  s/n  PAC Vale do - Canela  Salvador - BA  40110-100  Brazil
+77,Praia do Porto da Barra,beach,Praia do Porto da Barra - Av. Sete de Setembro  s/n - Barra  Salvador - BA  40140-030  Brazil
+222,Boates aconchegantes,night_club,R. do Limoeiro  106 - Nazare  Salvador - BA  40055-150  Brazil
+
+ Intersecao: {77, 343, 87}
+ Total: 3

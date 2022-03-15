@@ -1,6 +1,6 @@
-RATINGS_PATH = './piloto/user_avaliacao.csv'
+RATINGS_PATH = './online/user_avaliacao.csv'
 POIS_PATH = './dataset/pois.csv'
-USER_PATH = './piloto/users.csv'
+USER_PATH = './online/users.csv'
 
 
 import pandas as pd
@@ -76,13 +76,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [224, 234, 184]
-        #Piloto group 3: [224, 94, 234] (misto)
-        #Piloto group 2: [224, 234, 184] (conhecidos)
-        #Piloto group 1: [134, 204, 214] (desconhecidos)
-        #[81, 151, 91]
-        #[131, 231, 211, 171, 121]
-        #[51, 161, 141, 101, 61, 71, 181, 191, 111, 201]
+        random_group = [254,314,324]
        
         return random_group
                
