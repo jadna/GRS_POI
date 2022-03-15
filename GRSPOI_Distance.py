@@ -75,7 +75,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [254,314,324]
+        random_group = [864, 854, 844]
 
 
         return random_group
