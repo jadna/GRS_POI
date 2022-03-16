@@ -1,8 +1,3 @@
-RATINGS_PATH = './online/user_avaliacao.csv'
-POIS_PATH = './dataset/pois.csv'
-USER_PATH = './online/users.csv'
-
-
 import pandas as pd
 import numpy as np
 import random
@@ -12,6 +7,7 @@ import sys
 import math
 from math import sin, cos, sqrt, atan2, radians, pi
 import pdb
+import constants
 
 from surprise import KNNWithMeans, SVD, KNNBasic
 from surprise import Dataset
@@ -75,7 +71,7 @@ class GRSPOI():
             while len(random_group) != len(set(random_group)):    
                 random_group = random.sample(self.users_list,n)
         
-        random_group = [864, 854, 844]
+        random_group = [794,804,814]
 
 
         return random_group
@@ -157,7 +153,7 @@ class GRSPOI():
             Os itens classificados para PELO MENOS UM membro do grupo irão compor o perfil do grupo.
             Define group_sparse_mtx, profile_pois
         '''
-        metadata = pd.read_csv(RATINGS_PATH, low_memory=False, names=['userId', 'poiId', 'rating'])
+        metadata = pd.read_csv(constants.RATINGS_PATH, low_memory=False, names=['userId', 'poiId', 'rating'])
         
         metadata_filtered = metadata[metadata.userId.isin(group)]
 

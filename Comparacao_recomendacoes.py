@@ -1,14 +1,9 @@
 import pandas as pd
 import numpy as np 
 from csv import reader
+import constants
 
 
-# Online são as recomendações avaliadas pelos grupos no experimento ONLINE
-DATA_ONLINE = './recomendacoes_geradas/recomendacoes_1online/'
-DATA_STANDARD = './recomendacoes_geradas/recomendacoes_standard/Grupos_3/'
-DATA_DISTANCIA = './recomendacoes_geradas/recomendacoes_distancia/Grupos_3/'
-DATA_PREFERENCIA = './recomendacoes_geradas/recomendacoes_preferencia/Grupos_3/'
-DATA_COMPARACOES = './recomendacoes_geradas/recomendacoes_comparadas_online/Grupos_3/'
 
 def experimento_online(grupo):
 
@@ -32,7 +27,7 @@ def experimento_online(grupo):
 def comparacao_online__standard(metodos, grupo, df_online):
 
     for aux in metodos:
-        diretorio = DATA_STANDARD + str(grupo) + '_std_' + aux + '.csv'
+        diretorio = constants.DATA_STANDARD + str(grupo) + '_std_' + aux + '.csv'
 
         print('STANDARD - METODO ' +  aux + ' STANDARD')
 
@@ -62,12 +57,12 @@ def comparacao_online__standard(metodos, grupo, df_online):
         print('\n')
 
         # Salva as recomendações já com as notas das avaliações online
-        ''' merged_standard.to_csv(DATA_COMPARACOES + str(grupo) + '_std_' + aux +'.csv', index = False, header = True)
-        merged_diversificado.to_csv(DATA_COMPARACOES + str(grupo) + '_std_' + aux +'.csv', mode='a', index = False, header = True)'''
+        ''' merged_standard.to_csv(constants.DATA_COMPARACOES + str(grupo) + '_std_' + aux +'.csv', index = False, header = True)
+        merged_diversificado.to_csv(constants.DATA_COMPARACOES + str(grupo) + '_std_' + aux +'.csv', mode='a', index = False, header = True)'''
 
         #save_xsls(grupo, merged_standard, merged_diversificado, aux, 'std')
         # Create a Pandas Excel writer using XlsxWriter as the engine.
-        writer = pd.ExcelWriter(DATA_COMPARACOES + str(grupo)+'_std_'+  aux +'.xlsx', engine='xlsxwriter')
+        writer = pd.ExcelWriter(constants.DATA_COMPARACOES + str(grupo)+'_std_'+  aux +'.xlsx', engine='xlsxwriter')
         # Write each dataframe to a different worksheet.
         merged_standard.to_excel(writer, sheet_name=aux)
         merged_diversificado.to_excel(writer, sheet_name=aux+'_diversificado')
@@ -76,7 +71,7 @@ def comparacao_online__standard(metodos, grupo, df_online):
 def comparacao_online__distancia(metodos, grupo, df_online):
 
     for aux in metodos:
-        diretorio = DATA_DISTANCIA + str(grupo) + '_dist_' + aux + '.csv'
+        diretorio = constants.DATA_DISTANCIA + str(grupo) + '_dist_' + aux + '.csv'
 
         print('DISTANCIA - METODO ' +  aux + ' STANDARD')
 
@@ -106,13 +101,13 @@ def comparacao_online__distancia(metodos, grupo, df_online):
         print('\n')
 
         # Salva as recomendações já com as notas das avaliações online
-        '''merged_standard.to_csv(DATA_COMPARACOES + str(grupo) + '_dist_' + aux +'.csv', index = False, header = True)
-        merged_diversificado.to_csv(DATA_COMPARACOES + str(grupo) + '_dist_' + aux +'.csv', mode='a', index = False, header = True)'''
+        '''merged_standard.to_csv(constants.DATA_COMPARACOES + str(grupo) + '_dist_' + aux +'.csv', index = False, header = True)
+        merged_diversificado.to_csv(constants.DATA_COMPARACOES + str(grupo) + '_dist_' + aux +'.csv', mode='a', index = False, header = True)'''
 
         #save_xsls(grupo, merged_standard, merged_diversificado, aux, 'dist')
 
         # Create a Pandas Excel writer using XlsxWriter as the engine.
-        writer = pd.ExcelWriter(DATA_COMPARACOES + str(grupo)+'_dist_'+  aux +'.xlsx', engine='xlsxwriter')
+        writer = pd.ExcelWriter(constants.DATA_COMPARACOES + str(grupo)+'_dist_'+  aux +'.xlsx', engine='xlsxwriter')
 
         # Write each dataframe to a different worksheet.
         merged_standard.to_excel(writer, sheet_name=aux)
@@ -124,7 +119,7 @@ def comparacao_online__distancia(metodos, grupo, df_online):
 def comparacao_online__preferencia(metodos, grupo, df_online):
 
     for aux in metodos:
-        diretorio = DATA_PREFERENCIA + str(grupo) + '_pref_' + aux + '.csv'
+        diretorio = constants.DATA_PREFERENCIA + str(grupo) + '_pref_' + aux + '.csv'
 
         print('PREFERENCIA - METODO ' +  aux + ' STANDARD')
 
@@ -154,13 +149,13 @@ def comparacao_online__preferencia(metodos, grupo, df_online):
         print('\n')
 
         # Salva as recomendações já com as notas das avaliações online
-        '''merged_standard.to_csv(DATA_COMPARACOES + str(grupo) + '_pref_' + aux +'.csv', index = False, header = True)
-        merged_diversificado.to_csv(DATA_COMPARACOES + str(grupo) + '_pref_' + aux +'.csv', mode='a', index = False, header = True)'''
+        '''merged_standard.to_csv(constants.DATA_COMPARACOES + str(grupo) + '_pref_' + aux +'.csv', index = False, header = True)
+        merged_diversificado.to_csv(constants.DATA_COMPARACOES + str(grupo) + '_pref_' + aux +'.csv', mode='a', index = False, header = True)'''
 
         #save_xsls(grupo, merged_standard, merged_diversificado, aux, 'pref')
 
         # Create a Pandas Excel writer using XlsxWriter as the engine.
-        writer = pd.ExcelWriter(DATA_COMPARACOES + str(grupo)+'_pref_'+  aux +'.xlsx', engine='xlsxwriter')
+        writer = pd.ExcelWriter(constants.DATA_COMPARACOES + str(grupo)+'_pref_'+  aux +'.xlsx', engine='xlsxwriter')
 
         # Write each dataframe to a different worksheet.
         merged_standard.to_excel(writer, sheet_name=aux)
